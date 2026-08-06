@@ -2,6 +2,8 @@ import type { Dispatch, SetStateAction } from "react";
 import type { Task } from "./TaskList";
 import TaskList from "./TaskList";
 import TaskForm from "./TaskForm";
+import { useState } from "react";
+import FilterBar from "./FilterBar";
 
 interface TaskAppProps {
   tasks?: Task[];
@@ -35,18 +37,61 @@ export default function TaskApp(props: TaskAppProps) {
     );
   };
 
-  const completedCount = tasks.filter((task) => task.completed).length;
+  const [filter, setfilter] = useState<"all" | "active" | "completed">("all");
+  const [sortOrder, setSortOrder] = useState("recent");
+
+  const filteredTask =
+    filter == "active"
+      ? tasks.filter((task) => !task.completed)
+      : filter == "completed"
+        ? tasks.filter((task) => task.completed)
+        : tasks;
+  const priorityValue = {
+    High: 3,
+    Medium: 2,
+    Low: 1,
+  };
+  const sortedTasks = [...filteredTask];
+
+  switch (sortOrder) {
+    case "high":
+      sortedTasks.sort(
+        (a, b) => priorityValue[b.priority] - priorityValue[a.priority],
+      );
+      break;
+    case "low":
+      sortedTasks.sort(
+        (a, b) => priorityValue[a.priority] - priorityValue[b.priority],
+      );
+      break;
+    case "alpha":
+      sortedTasks.sort((a, b) =>
+        a.title.localeCompare(b.title, undefined, { sensitivity: "base" }),
+      );
+      break;
+    case "recent":
+    default:
+      break;
+  }
+  const showingcount = filteredTask.length;
 
   const totalCount = tasks.length;
-
   return (
     <>
       {showForm && <TaskForm onAddTask={handleAddTask} />}
-
+      {props.showFilterBar && (
+        <FilterBar
+          filter={filter}
+          onFilterChange={setfilter}
+          sortOrder={sortOrder}
+          setSortOrder={setSortOrder}
+        />
+      )}
       <TaskList
-        tasks={tasks}
+        tasks={sortedTasks}
         onToggle={handleToggle}
-        countText={`${completedCount} of ${totalCount} completed`}
+        onDelete={props.onDelete}
+        countText={`showing ${showingcount} of ${totalCount} tasks`}
       />
     </>
   );

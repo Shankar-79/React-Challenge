@@ -62,71 +62,6 @@
     }
   },
   {
-    "challengeId": "05-task-deletion",
-    "challengeName": "Task Deletion",
-    "aiReview": {
-      "challengeId": "05-task-deletion",
-      "timestamp": "2026-08-06T08:11:18.696Z",
-      "score": 88,
-      "feedback": [],
-      "strengths": [
-        "The code is well-structured and easy to follow, with clear and concise variable names and function signatures.",
-        "The use of TypeScript and functional components is well-implemented, making the code more maintainable and efficient.",
-        "The code is well-organized, with each component and function having a clear and specific responsibility."
-      ],
-      "improvements": [
-        "Some of the function names could be more descriptive, such as `handleDelete` could be renamed to `onDeleteTask` to better reflect its purpose.",
-        "There are some repeated code patterns, such as the use of `props.onToggle?.(task.id)` in multiple places. This could be extracted into a separate function to reduce code duplication.",
-        "The `TaskCard` component could benefit from a more robust implementation of the delete button, such as using a separate `DeleteButton` component to handle the delete logic."
-      ],
-      "readability": 85,
-      "maintainability": 90,
-      "overall": "The code is well-structured and maintainable, with a good balance of functionality and organization. However, there are some areas for improvement, such as more descriptive function names and reduced code duplication."
-    }
-  },
-  {
-    "challengeId": "06-task-filtering",
-    "challengeName": "Task Filtering",
-    "aiReview": {
-      "challengeId": "06-task-filtering",
-      "timestamp": "2026-08-06T08:13:58.881Z",
-      "score": 50,
-      "feedback": [],
-      "strengths": [
-        "Code structure is reasonable"
-      ],
-      "improvements": [
-        "Code structure is reasonable"
-      ],
-      "readability": 50,
-      "maintainability": 50,
-      "overall": "{\n  \"readability\": 85,\n  \"maintainability\": 80,\n  \"strengths\": [\n    \"The code is well-structured and follows a consistent naming convention.\",\n    \"The use of TypeScript and functional components is a good practice.\",\n    \"The code is relatively free of errors and warnings.\"\n  ],\n  \"improvements\": [\n    \"The `FilterBar` component is currently empty and does not render any buttons. It should be updated to include the necessary JSX for the filter buttons.\",\n    \"The `TaskApp` component has a lot "
-    }
-  },
-  {
-    "challengeId": "07-priority-based-sorting",
-    "challengeName": "Priority-Based Sorting",
-    "aiReview": {
-      "challengeId": "07-priority-based-sorting",
-      "timestamp": "2026-08-06T08:14:15.622Z",
-      "score": 83,
-      "feedback": [],
-      "strengths": [
-        "The code is well-structured and follows a consistent naming convention.",
-        "The use of TypeScript and functional components is a good practice.",
-        "The code is relatively free of bugs and errors."
-      ],
-      "improvements": [
-        "The `FilterBar` component is currently empty and does not render any content. It should be updated to include the sort dropdown.",
-        "The `TaskApp` component has a lot of props being passed to it. Consider breaking it down into smaller components to reduce prop complexity.",
-        "The sorting logic in the `TaskList` component could be improved by using a more robust sorting algorithm, such as a stable sort."
-      ],
-      "readability": 80,
-      "maintainability": 85,
-      "overall": "The code is well-structured and follows good practices, but there are some areas that need improvement. With some refactoring and updates, the code can be even more maintainable and efficient."
-    }
-  },
-  {
     "challengeId": "08-task-editing",
     "challengeName": "Task Editing",
     "aiReview": {
@@ -483,6 +418,75 @@
       "readability": 85,
       "maintainability": 90,
       "overall": "The code is well-structured and follows good practices, but there are some areas for improvement to make it more maintainable and efficient."
+    }
+  },
+  {
+    "challengeId": "05-task-deletion",
+    "challengeName": "Task Deletion",
+    "aiReview": {
+      "challengeId": "05-task-deletion",
+      "timestamp": "2026-08-06T10:13:35.282Z",
+      "score": 88,
+      "feedback": [],
+      "strengths": [
+        "The code is well-structured and follows a consistent naming convention.",
+        "The use of TypeScript and functional components is a good practice for maintainability and scalability.",
+        "The code is well-documented with clear and concise comments."
+      ],
+      "improvements": [
+        "In the `TaskCard` component, the `onDelete` button is not disabled when the task is being deleted. This can cause unexpected behavior if the user clicks the button multiple times. Consider adding a loading state or disabling the button while the deletion is in progress.",
+        "In the `App` component, the `handleDelete` function is not handling the case where the task is not found in the `tasks` array. Consider adding a check to handle this case and provide a clear error message.",
+        "In the `TaskList` component, the `tasks` array is not being sorted in any particular order. Consider adding a sorting function to ensure that the tasks are displayed in a consistent order."
+      ],
+      "readability": 85,
+      "maintainability": 90,
+      "overall": "The code is well-structured and maintainable, but there are a few areas that need improvement to make it more robust and user-friendly."
+    }
+  },
+  {
+    "challengeId": "06-task-filtering",
+    "challengeName": "Task Filtering",
+    "aiReview": {
+      "challengeId": "06-task-filtering",
+      "timestamp": "2026-08-06T11:09:28.457Z",
+      "score": 88,
+      "feedback": [],
+      "strengths": [
+        "The code is well-structured and follows a consistent naming convention.",
+        "The use of TypeScript and functional components is a good practice.",
+        "The code is well-organized, with each component having its own file and responsibilities."
+      ],
+      "improvements": [
+        "In the `FilterBar` component, the `data-active` attribute can be replaced with a class for better accessibility and styling.",
+        "In the `TaskApp` component, the `filteredTask` variable can be simplified using a more concise conditional expression.",
+        "In the `App` component, the long list of routes can be extracted into a separate file for better organization and maintainability."
+      ],
+      "readability": 85,
+      "maintainability": 90,
+      "overall": "The code is well-written and follows good practices. However, there are some minor improvements that can be made to enhance readability, maintainability, and accessibility."
+    }
+  },
+  {
+    "challengeId": "07-priority-based-sorting",
+    "challengeName": "Priority-Based Sorting",
+    "aiReview": {
+      "challengeId": "07-priority-based-sorting",
+      "timestamp": "2026-08-06T11:44:40.833Z",
+      "score": 88,
+      "feedback": [],
+      "strengths": [
+        "The code is well-structured and follows a consistent naming convention.",
+        "The use of functional components and hooks makes the code easy to read and understand.",
+        "The implementation of the sort logic is clear and concise."
+      ],
+      "improvements": [
+        "The `priorityValue` object can be replaced with an enum to make the code more maintainable and easier to understand.",
+        "The `switch` statement in the `TaskApp` component can be replaced with a more concise and expressive way of handling the sort logic, such as using a map or an object.",
+        "The `filteredTask` variable can be removed and the filtering logic can be integrated directly into the `sortedTasks` calculation to reduce the number of variables and make the code more efficient."
+      ],
+      "readability": 85,
+      "maintainability": 90,
+      "overall": "The code is well-structured and follows good practices, but there are some areas for improvement to make it more maintainable and efficient. With some minor adjustments, the code can be even more readable and maintainable."
     }
   }
 ]
