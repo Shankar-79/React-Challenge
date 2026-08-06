@@ -1,33 +1,33 @@
 {
-  "lastUpdated": "2026-08-05T12:05:13.584Z",
+  "lastUpdated": "2026-08-06T08:41:24.353Z",
   "pathway": {
     "name": "Modern React Engineer",
     "version": "1.0.0",
-    "overallScore": 29.9,
-    "completionPercentage": 5.7,
+    "overallScore": 32.4,
+    "completionPercentage": 7.5,
     "badgeLevel": "none",
     "totalChallenges": 53,
-    "completedChallenges": 3
+    "completedChallenges": 4
   },
   "courses": {
     "01-react-fundamentals": {
       "courseId": "01-react-fundamentals",
       "courseName": "React Fundamentals",
-      "averageScore": 90.7,
-      "completionPercentage": 13,
+      "averageScore": 98.2,
+      "completionPercentage": 17.4,
       "badgeLevel": "none",
       "totalChallenges": 23,
-      "completedChallenges": 3,
+      "completedChallenges": 4,
       "challenges": {
         "01-static-task-display": {
           "challengeId": "01-static-task-display",
           "challengeName": "Static Task Display",
           "passed": true,
-          "score": 90.7,
-          "lastRun": "2026-08-05T10:53:56.788Z",
+          "score": 98.2,
+          "lastRun": "2026-08-06T08:19:08.472Z",
           "scores": {
             "functionalTests": 100,
-            "codeQuality": 50,
+            "codeQuality": 100,
             "architecture": 100,
             "bestPractices": 100,
             "e2eTests": 100,
@@ -38,11 +38,11 @@
           "challengeId": "02-dynamic-task-rendering",
           "challengeName": "Dynamic Task Rendering",
           "passed": true,
-          "score": 90.7,
-          "lastRun": "2026-08-05T09:37:56.950Z",
+          "score": 98.2,
+          "lastRun": "2026-08-06T08:19:39.900Z",
           "scores": {
             "functionalTests": 100,
-            "codeQuality": 50,
+            "codeQuality": 100,
             "architecture": 100,
             "bestPractices": 100,
             "e2eTests": 100,
@@ -53,11 +53,26 @@
           "challengeId": "03-adding-new-tasks",
           "challengeName": "Adding New Tasks",
           "passed": true,
-          "score": 90.7,
-          "lastRun": "2026-08-05T12:04:56.495Z",
+          "score": 98.2,
+          "lastRun": "2026-08-06T08:20:13.358Z",
           "scores": {
             "functionalTests": 100,
-            "codeQuality": 50,
+            "codeQuality": 100,
+            "architecture": 100,
+            "bestPractices": 100,
+            "e2eTests": 100,
+            "aiReview": 88
+          }
+        },
+        "04-task-completion-toggle": {
+          "challengeId": "04-task-completion-toggle",
+          "challengeName": "Task Completion Toggle",
+          "passed": true,
+          "score": 98.2,
+          "lastRun": "2026-08-06T08:40:46.743Z",
+          "scores": {
+            "functionalTests": 100,
+            "codeQuality": 100,
             "architecture": 100,
             "bestPractices": 100,
             "e2eTests": 100,

@@ -15,18 +15,38 @@ interface TaskAppProps {
   linkToTaskDetail?: boolean;
 }
 
-export default function TaskApp(_props: TaskAppProps) {
+export default function TaskApp(props: TaskAppProps) {
+  const { tasks = [], setTasks, showForm } = props;
+
   const handleAddTask = (task: Task) => {
-    _props.setTasks?.((prev) => [...prev, task]);
+    setTasks?.((prev) => [...prev, task]);
   };
+
+  const handleToggle = (id: string | number) => {
+    setTasks?.((prev) =>
+      prev.map((task) =>
+        task.id === id
+          ? {
+              ...task,
+              completed: !task.completed,
+            }
+          : task,
+      ),
+    );
+  };
+
+  const completedCount = tasks.filter((task) => task.completed).length;
+
+  const totalCount = tasks.length;
 
   return (
     <>
-      <TaskForm onAddTask={handleAddTask} />
+      {showForm && <TaskForm onAddTask={handleAddTask} />}
 
       <TaskList
-        tasks={_props.tasks}
-        countText={`${_props.tasks?.length ?? 0} Tasks`}
+        tasks={tasks}
+        onToggle={handleToggle}
+        countText={`${completedCount} of ${totalCount} completed`}
       />
     </>
   );

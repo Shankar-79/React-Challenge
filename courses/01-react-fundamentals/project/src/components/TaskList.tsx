@@ -1,8 +1,8 @@
 import TaskCard from "./TaskCard";
+
 /**
  * Represents a task in the application.
  */
-
 export interface Task {
   id: string | number;
   title: string;
@@ -13,9 +13,10 @@ export interface Task {
   tags?: string[];
   dueDate?: string | number;
 }
+
 /**
  * Props accepted by the TaskList component.
-//  */
+ */
 interface TaskListProps {
   tasks?: Task[];
   countText?: string;
@@ -23,6 +24,7 @@ interface TaskListProps {
   onDelete?: (id: string | number) => void;
   linkToTaskDetail?: boolean;
 }
+
 /**
  * Static list of tasks used for Challenge 01.
  */
@@ -49,19 +51,16 @@ const HardCodedTasks: Task[] = [
     completed: true,
   },
 ];
+
 /**
  * Renders all available task cards.
  */
 export default function TaskList(props: TaskListProps) {
-  const taskList = Array.isArray(props.tasks)
-    ? props.tasks
-    : HardCodedTasks;
+  const taskList: Task[] = props.tasks ?? HardCodedTasks;
 
   return (
     <>
-      {typeof props.countText === "string" && (
-        <p id="task-count">{props.countText}</p>
-      )}
+      {props.countText && <p id="task-count">{props.countText}</p>}
 
       <section id="task-list">
         {taskList.map((task) => (
@@ -71,7 +70,7 @@ export default function TaskList(props: TaskListProps) {
             description={task.description}
             priority={task.priority}
             completed={task.completed}
-            onToggle={props.onToggle}
+            onToggle={() => props.onToggle?.(task.id)}
           />
         ))}
       </section>
