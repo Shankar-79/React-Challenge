@@ -62,22 +62,6 @@
     }
   },
   {
-    "challengeId": "08-task-editing",
-    "challengeName": "Task Editing",
-    "aiReview": {
-      "challengeId": "08-task-editing",
-      "timestamp": "2026-08-06T08:14:32.727Z",
-      "score": 0,
-      "feedback": [],
-      "strengths": [],
-      "improvements": [],
-      "readability": 0,
-      "maintainability": 0,
-      "overall": "",
-      "error": "Groq API error (429): Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kjb2fjv5fd6928gcy28wy79s` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 3635, Requested 3478. Please try again in 11.129999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing"
-    }
-  },
-  {
     "challengeId": "09-search-functionality",
     "challengeName": "Search Functionality",
     "aiReview": {
@@ -487,6 +471,29 @@
       "readability": 85,
       "maintainability": 90,
       "overall": "The code is well-structured and follows good practices, but there are some areas for improvement to make it more maintainable and efficient. With some minor adjustments, the code can be even more readable and maintainable."
+    }
+  },
+  {
+    "challengeId": "08-task-editing",
+    "challengeName": "Task Editing",
+    "aiReview": {
+      "challengeId": "08-task-editing",
+      "timestamp": "2026-08-07T08:06:36.107Z",
+      "score": 88,
+      "feedback": [],
+      "strengths": [
+        "The code is well-structured and follows a consistent naming convention.",
+        "The use of TypeScript and functional components is a good practice.",
+        "The code is relatively easy to follow and understand."
+      ],
+      "improvements": [
+        "Some of the functions are quite long and could be broken down into smaller, more manageable functions.",
+        "There are some repeated code snippets, such as the `handleUpdateTask` function, which could be extracted into a separate function or a higher-order component.",
+        "Some of the variable names could be more descriptive, such as `filteredTasks` could be renamed to `tasksAfterFiltering`."
+      ],
+      "readability": 85,
+      "maintainability": 90,
+      "overall": "The code is well-structured and follows good practices, but there are some areas that could be improved for better maintainability and readability."
     }
   }
 ]
