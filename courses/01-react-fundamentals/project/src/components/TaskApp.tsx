@@ -1,4 +1,4 @@
-import { useState, type Dispatch, type SetStateAction } from "react";
+import { useState, useEffect, type Dispatch, type SetStateAction } from "react";
 import type { Task } from "./TaskList";
 import TaskList from "./TaskList";
 import TaskForm from "./TaskForm";
@@ -20,11 +20,20 @@ export default function TaskApp(props: TaskAppProps) {
   const { tasks = [], setTasks, showForm } = props;
 
   const [filter, setFilter] = useState<"all" | "active" | "completed">("all");
-
   const [sortOrder, setSortOrder] = useState("recent");
-
   const [editingId, setEditingId] = useState<string | number | null>(null);
+  const [searchText, setSearchText] = useState("");
+  const [debouncedSearch, setDebouncedSearch] = useState("");
+  const [isSearching, setIsSearching] = useState(false);
 
+  useEffect(() => {
+    setIsSearching(true);
+    const timer = setTimeout(() => {
+      setDebouncedSearch(searchText);
+      setIsSearching(false);
+    }, 300);
+    return () => clearTimeout(timer);
+  }, [searchText]);
   const handleAddTask = (task: Task) => {
     setTasks?.((prev) => [...prev, task]);
   };
@@ -48,12 +57,22 @@ export default function TaskApp(props: TaskAppProps) {
     );
   };
 
-  const filteredTasks =
+  let filteredTasks =
     filter === "active"
       ? tasks.filter((task) => !task.completed)
       : filter === "completed"
         ? tasks.filter((task) => task.completed)
         : tasks;
+
+  if (debouncedSearch.trim() !== "") {
+    const search = debouncedSearch.toLowerCase();
+
+    filteredTasks = filteredTasks.filter(
+      (task) =>
+        task.title.toLowerCase().includes(search) ||
+        task.description.toLowerCase().includes(search),
+    );
+  }
 
   const priorityValue = {
     High: 3,
@@ -89,9 +108,6 @@ export default function TaskApp(props: TaskAppProps) {
       break;
   }
 
-  const showingCount = filteredTasks.length;
-  const totalCount = tasks.length;
-
   return (
     <>
       {showForm && <TaskForm onAddTask={handleAddTask} />}
@@ -102,18 +118,32 @@ export default function TaskApp(props: TaskAppProps) {
           onFilterChange={setFilter}
           sortOrder={sortOrder}
           setSortOrder={setSortOrder}
+          searchText={searchText}
+          setSearchText={setSearchText}
         />
       )}
 
-      <TaskList
-        tasks={sortedTasks}
-        onToggle={handleToggle}
-        onDelete={props.onDelete}
-        countText={`Showing ${showingCount} of ${totalCount} tasks`}
-        onUpdateTask={handleUpdateTask}
-        editingId={editingId}
-        setEditingId={setEditingId}
-      />
+      {isSearching && searchText !== debouncedSearch && (
+        <p id="searching-indicator">Searching...</p>
+      )}
+
+      {sortedTasks.length === 0 ? (
+        <p id="filter-empty-message">No tasks found</p>
+      ) : (
+        <TaskList
+          tasks={sortedTasks}
+          onToggle={handleToggle}
+          onDelete={props.onDelete}
+          countText={
+            props.countFormat === "tasks"
+              ? `${tasks.length} Tasks`
+              : `${tasks.filter((t) => t.completed).length} Completed`
+          }
+          onUpdateTask={handleUpdateTask}
+          editingId={editingId}
+          setEditingId={setEditingId}
+        />
+      )}
     </>
   );
 }

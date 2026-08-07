@@ -67,7 +67,7 @@ export default function TaskList(props: TaskListProps) {
 
   return (
     <>
-      {props.countText && <p>{props.countText}</p>}
+      {props.countText && <p id="task-count">{props.countText}</p>}
 
       <section id="task-list">
         {taskList.map((task) => (

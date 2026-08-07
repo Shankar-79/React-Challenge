@@ -23,22 +23,6 @@
     }
   },
   {
-    "challengeId": "02-dynamic-task-rendering",
-    "challengeName": "Dynamic Task Rendering",
-    "aiReview": {
-      "challengeId": "02-dynamic-task-rendering",
-      "timestamp": "2026-08-06T08:09:17.637Z",
-      "score": 0,
-      "feedback": [],
-      "strengths": [],
-      "improvements": [],
-      "readability": 0,
-      "maintainability": 0,
-      "overall": "",
-      "error": "Groq API error (429): Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kjb2fjv5fd6928gcy28wy79s` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 2732, Requested 3581. Please try again in 3.13s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing"
-    }
-  },
-  {
     "challengeId": "03-adding-new-tasks",
     "challengeName": "Adding New Tasks",
     "aiReview": {
@@ -59,75 +43,6 @@
       "readability": 85,
       "maintainability": 90,
       "overall": "The code is well-structured and maintainable, with a good balance of simplicity and complexity. However, there are some areas for improvement, such as more robust form validation and more efficient rendering of task cards."
-    }
-  },
-  {
-    "challengeId": "09-search-functionality",
-    "challengeName": "Search Functionality",
-    "aiReview": {
-      "challengeId": "09-search-functionality",
-      "timestamp": "2026-08-06T08:15:11.785Z",
-      "score": 83,
-      "feedback": [],
-      "strengths": [
-        "The code is well-structured and follows a consistent naming convention.",
-        "The use of TypeScript and functional components is a good practice.",
-        "The code is relatively easy to understand and follow."
-      ],
-      "improvements": [
-        "The `TaskApp` component is getting quite large and complex. Consider breaking it down into smaller, more focused components.",
-        "The search functionality is not implemented yet. Make sure to add the necessary logic to filter tasks by title or description, and handle the clear search button.",
-        "Consider adding more tests to ensure the search functionality works correctly and is well-tested."
-      ],
-      "readability": 80,
-      "maintainability": 85,
-      "overall": "The code is well-structured and follows good practices, but it needs some improvements to make it more maintainable and efficient. The search functionality is not implemented yet, and the `TaskApp` component is getting too large. With some refactoring and additional testing, this code can be even better."
-    }
-  },
-  {
-    "challengeId": "10-useeffect-local-storage",
-    "challengeName": "useEffect - Local Storage Persistence",
-    "aiReview": {
-      "challengeId": "10-useeffect-local-storage",
-      "timestamp": "2026-08-06T08:15:30.962Z",
-      "score": 83,
-      "feedback": [],
-      "strengths": [
-        "The code is well-structured and easy to follow, with clear separation of concerns between the AppContent component and the TaskApp component.",
-        "The use of TypeScript and functional components is a good practice, making the code more maintainable and scalable.",
-        "The code is well-documented, with clear variable names and concise comments."
-      ],
-      "improvements": [
-        "The AppContent component is quite large and complex, making it harder to maintain and understand. Consider breaking it down into smaller, more focused components.",
-        "The use of the `useState` hook for tasks is not necessary, as the tasks are already being passed as props to the TaskApp component. Consider removing the `useState` hook and using the props instead.",
-        "The code does not handle errors when loading tasks from local storage. Consider adding a try-catch block to handle any potential errors."
-      ],
-      "readability": 85,
-      "maintainability": 80,
-      "overall": "The code is well-structured and maintainable, but there are some areas that can be improved. With some refactoring and error handling, the code can be even more robust and scalable."
-    }
-  },
-  {
-    "challengeId": "11-useeffect-debounced-search",
-    "challengeName": "useEffect - Debounced Search",
-    "aiReview": {
-      "challengeId": "11-useeffect-debounced-search",
-      "timestamp": "2026-08-06T08:15:50.267Z",
-      "score": 88,
-      "feedback": [],
-      "strengths": [
-        "The code is well-structured and easy to follow, with clear separation of concerns between components.",
-        "The use of TypeScript and functional components is a good practice.",
-        "The code is well-organized, with each component having its own file and clear naming conventions."
-      ],
-      "improvements": [
-        "The `useEffect` hook in `TaskApp` could be improved by adding a more descriptive name for the dependency array, such as `[searchTerm, searchTimeout]`.",
-        "The `debounce` function could be extracted into its own file or module to improve code organization and reusability.",
-        "The `clearTimeout` function is called in the cleanup function of `useEffect`, but it would be better to store the timeout ID in a variable and clear it explicitly to avoid potential issues."
-      ],
-      "readability": 85,
-      "maintainability": 90,
-      "overall": "The code is well-written and follows good practices, but there are some minor improvements that can be made to make it even better. Overall, it's a good example of how to implement debounced search functionality in React."
     }
   },
   {
@@ -494,6 +409,98 @@
       "readability": 85,
       "maintainability": 90,
       "overall": "The code is well-structured and follows good practices, but there are some areas that could be improved for better maintainability and readability."
+    }
+  },
+  {
+    "challengeId": "09-search-functionality",
+    "challengeName": "Search Functionality",
+    "aiReview": {
+      "challengeId": "09-search-functionality",
+      "timestamp": "2026-08-07T10:21:59.709Z",
+      "score": 88,
+      "feedback": [],
+      "strengths": [
+        "The code is well-organized and follows a consistent structure.",
+        "The use of TypeScript and functional components is a good practice.",
+        "The code is well-documented with clear and concise comments."
+      ],
+      "improvements": [
+        "The `FilterBar` component has a lot of props, which can make it hard to read and maintain. Consider breaking it down into smaller components or using a more modular approach.",
+        "The `TaskApp` component has a lot of state and props, which can make it hard to understand and maintain. Consider breaking it down into smaller components or using a more modular approach.",
+        "The search logic in the `TaskApp` component can be improved by using a more efficient algorithm, such as using a trie or a prefix tree."
+      ],
+      "readability": 85,
+      "maintainability": 90,
+      "overall": "The code is well-structured and follows good practices, but there are some areas that can be improved for better maintainability and performance."
+    }
+  },
+  {
+    "challengeId": "10-useeffect-local-storage",
+    "challengeName": "useEffect - Local Storage Persistence",
+    "aiReview": {
+      "challengeId": "10-useeffect-local-storage",
+      "timestamp": "2026-08-07T10:41:51.682Z",
+      "score": 88,
+      "feedback": [],
+      "strengths": [
+        "Effective use of `useEffect` for handling side effects, such as saving and loading tasks from local storage.",
+        "Clear separation of concerns between the `AppContent` component and the routing logic.",
+        "Proper handling of invalid local storage data to prevent crashes."
+      ],
+      "improvements": [
+        "Consider extracting the local storage logic into a separate utility function to improve code reusability and maintainability.",
+        "The `handleDelete` function can be simplified by using the `filter` method directly on the `tasks` array, eliminating the need for the `prev` parameter.",
+        "Add type annotations for the `storedTasks` variable and the `parsedTasks` array to improve code clarity and catch potential type-related errors."
+      ],
+      "readability": 85,
+      "maintainability": 90,
+      "overall": "The code is well-structured and effectively uses `useEffect` to handle side effects. However, there are opportunities for improvement in terms of code reusability and maintainability. With some refactoring, the code can be even more efficient and easier to maintain."
+    }
+  },
+  {
+    "challengeId": "11-useeffect-debounced-search",
+    "challengeName": "useEffect - Debounced Search",
+    "aiReview": {
+      "challengeId": "11-useeffect-debounced-search",
+      "timestamp": "2026-08-07T10:54:43.648Z",
+      "score": 88,
+      "feedback": [],
+      "strengths": [
+        "The code is well-structured and easy to follow, with clear and concise variable names.",
+        "The use of TypeScript and React hooks makes the code maintainable and efficient.",
+        "The code is well-organized, with each component and feature having its own file."
+      ],
+      "improvements": [
+        "Some of the variable names could be more descriptive, especially in the TaskApp component.",
+        "The useEffect hook in the TaskApp component could be refactored to reduce complexity and improve readability.",
+        "The code could benefit from more comments and explanations, especially in complex sections like the filtering and sorting logic."
+      ],
+      "readability": 85,
+      "maintainability": 90,
+      "overall": "The code is well-structured and maintainable, with a good balance of simplicity and complexity. However, there are some areas where it could be improved for better readability and maintainability."
+    }
+  },
+  {
+    "challengeId": "02-dynamic-task-rendering",
+    "challengeName": "Dynamic Task Rendering",
+    "aiReview": {
+      "challengeId": "02-dynamic-task-rendering",
+      "timestamp": "2026-08-07T11:05:26.979Z",
+      "score": 88,
+      "feedback": [],
+      "strengths": [
+        "The code is well-organized and follows a consistent naming convention.",
+        "The use of TypeScript and functional components is a good practice.",
+        "The code includes clear and concise comments that explain the purpose of each component and function."
+      ],
+      "improvements": [
+        "Some of the component functions are quite long and complex. Consider breaking them down into smaller, more manageable functions.",
+        "The `TaskList` component uses the `??` operator to provide a default value for the `tasks` prop. However, this can lead to unexpected behavior if the `tasks` prop is not provided. Consider using a more explicit approach to handle this scenario.",
+        "The `TaskCard` component uses a lot of state to manage its editing state. Consider using a more functional approach to manage this state, such as using a separate `editing` prop."
+      ],
+      "readability": 85,
+      "maintainability": 90,
+      "overall": "The code is well-structured and follows good practices. However, there are some areas that can be improved to make the code more maintainable and efficient."
     }
   }
 ]

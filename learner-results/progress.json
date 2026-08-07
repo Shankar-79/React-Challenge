@@ -1,23 +1,23 @@
 {
-  "lastUpdated": "2026-08-07T08:06:38.523Z",
+  "lastUpdated": "2026-08-07T11:05:30.229Z",
   "pathway": {
     "name": "Modern React Engineer",
     "version": "1.0.0",
     "overallScore": 32.4,
-    "completionPercentage": 15.1,
+    "completionPercentage": 20.8,
     "badgeLevel": "none",
     "totalChallenges": 53,
-    "completedChallenges": 8
+    "completedChallenges": 11
   },
   "courses": {
     "01-react-fundamentals": {
       "courseId": "01-react-fundamentals",
       "courseName": "React Fundamentals",
       "averageScore": 98.2,
-      "completionPercentage": 34.8,
+      "completionPercentage": 47.8,
       "badgeLevel": "none",
       "totalChallenges": 23,
-      "completedChallenges": 8,
+      "completedChallenges": 11,
       "challenges": {
         "01-static-task-display": {
           "challengeId": "01-static-task-display",
@@ -39,7 +39,7 @@
           "challengeName": "Dynamic Task Rendering",
           "passed": true,
           "score": 98.2,
-          "lastRun": "2026-08-06T08:19:39.900Z",
+          "lastRun": "2026-08-07T11:05:09.110Z",
           "scores": {
             "functionalTests": 100,
             "codeQuality": 100,
@@ -130,6 +130,51 @@
           "passed": true,
           "score": 98.2,
           "lastRun": "2026-08-07T08:06:21.880Z",
+          "scores": {
+            "functionalTests": 100,
+            "codeQuality": 100,
+            "architecture": 100,
+            "bestPractices": 100,
+            "e2eTests": 100,
+            "aiReview": 88
+          }
+        },
+        "09-search-functionality": {
+          "challengeId": "09-search-functionality",
+          "challengeName": "Search Functionality",
+          "passed": true,
+          "score": 98.2,
+          "lastRun": "2026-08-07T10:21:44.785Z",
+          "scores": {
+            "functionalTests": 100,
+            "codeQuality": 100,
+            "architecture": 100,
+            "bestPractices": 100,
+            "e2eTests": 100,
+            "aiReview": 88
+          }
+        },
+        "10-useeffect-local-storage": {
+          "challengeId": "10-useeffect-local-storage",
+          "challengeName": "useEffect - Local Storage Persistence",
+          "passed": true,
+          "score": 98.2,
+          "lastRun": "2026-08-07T10:41:35.783Z",
+          "scores": {
+            "functionalTests": 100,
+            "codeQuality": 100,
+            "architecture": 100,
+            "bestPractices": 100,
+            "e2eTests": 100,
+            "aiReview": 88
+          }
+        },
+        "11-useeffect-debounced-search": {
+          "challengeId": "11-useeffect-debounced-search",
+          "challengeName": "useEffect - Debounced Search",
+          "passed": true,
+          "score": 98.2,
+          "lastRun": "2026-08-07T10:54:26.796Z",
           "scores": {
             "functionalTests": 100,
             "codeQuality": 100,

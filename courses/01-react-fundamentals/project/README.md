@@ -68,11 +68,11 @@ npm run review -- --challenge=01-static-task-display
 
 ## 📊 Progress Evidence
 
-*Auto-updated when you run review. Last run: 7/8/2026, 1:36:37 pm*
+*Auto-updated when you run review. Last run: 7/8/2026, 4:35:29 pm*
 
 | Metric | Value |
 |--------|-------|
-| Challenges completed | 8 / 23 (34.8%) |
+| Challenges completed | 11 / 23 (47.8%) |
 | Average score | 98.2% |
 
 | Challenge | Skills covered | Status |
@@ -85,9 +85,9 @@ npm run review -- --challenge=01-static-task-display
 | Task Filtering | Derived state, Conditional rendering, Filter logic composition | Passed |
 | Priority-Based Sorting | Array sort, Sort stability, Multiple sort criteria, Select dropdowns | Passed |
 | Task Editing | Inline editing, Conditional rendering, Edit mode state, Controlled inputs, Form handling, State synchronization | Passed |
-| Search Functionality | Text search, Combining filters, String methods, Search UI patterns | — |
-| useEffect - Local Storage Persistence | useEffect, Side effects, localStorage, JSON serialization, Effect dependencies | — |
-| useEffect - Debounced Search | useEffect cleanup, setTimeout, Debouncing, Memory leak prevention | — |
+| Search Functionality | Text search, Combining filters, String methods, Search UI patterns | Passed |
+| useEffect - Local Storage Persistence | useEffect, Side effects, localStorage, JSON serialization, Effect dependencies | Passed |
+| useEffect - Debounced Search | useEffect cleanup, setTimeout, Debouncing, Memory leak prevention | Passed |
 | Categories and Tags | Complex state, Array fields, Multi-select/tags input, Nested data, Filtering by array membership | — |
 | Due Dates and Sorting | Date handling, Date objects and formatting, Date comparison, Overdue detection | — |
 | Task Statistics Dashboard | Computed statistics, useMemo, Performance optimization, Data aggregation | — |
