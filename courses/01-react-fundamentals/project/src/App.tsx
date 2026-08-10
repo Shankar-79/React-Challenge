@@ -17,6 +17,8 @@ const INITIAL_TASKS: Task[] = [
     description: "Description one",
     priority: "High",
     completed: false,
+    category: "General",
+    tags: [],
   },
   {
     id: 2,
@@ -24,6 +26,8 @@ const INITIAL_TASKS: Task[] = [
     description: "Description two",
     priority: "Medium",
     completed: false,
+    category: "Work",
+    tags: ["important"],
   },
   {
     id: 3,
@@ -31,6 +35,8 @@ const INITIAL_TASKS: Task[] = [
     description: "Description three",
     priority: "Low",
     completed: false,
+    category: "Personal",
+    tags: ["home"],
   },
   {
     id: 4,
@@ -38,6 +44,8 @@ const INITIAL_TASKS: Task[] = [
     description: "Description four",
     priority: "Medium",
     completed: false,
+    category: "Work",
+    tags: [],
   },
   {
     id: 5,
@@ -45,6 +53,7 @@ const INITIAL_TASKS: Task[] = [
     description: "Description five",
     priority: "High",
     completed: false,
+    tags: [],
   },
 ];
 
@@ -57,7 +66,13 @@ function AppContent() {
 
       if (storedTasks) {
         const parsedTasks: Task[] = JSON.parse(storedTasks);
-        setTasks(parsedTasks);
+
+        const updatedTasks = parsedTasks.map((task) => ({
+          ...task,
+          category: task.category || "General",
+          tags: Array.isArray(task.tags) ? task.tags : [],
+        }));
+        setTasks(updatedTasks);
       }
     } catch {
       // Ignore invalid localStorage data

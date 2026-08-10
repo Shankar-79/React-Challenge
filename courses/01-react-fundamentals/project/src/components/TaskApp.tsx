@@ -20,20 +20,30 @@ export default function TaskApp(props: TaskAppProps) {
   const { tasks = [], setTasks, showForm } = props;
 
   const [filter, setFilter] = useState<"all" | "active" | "completed">("all");
+
   const [sortOrder, setSortOrder] = useState("recent");
+
   const [editingId, setEditingId] = useState<string | number | null>(null);
+
   const [searchText, setSearchText] = useState("");
+
+  const [categoryFilter, setCategoryFilter] = useState("all");
+
   const [debouncedSearch, setDebouncedSearch] = useState("");
+
   const [isSearching, setIsSearching] = useState(false);
 
   useEffect(() => {
     setIsSearching(true);
+
     const timer = setTimeout(() => {
       setDebouncedSearch(searchText);
       setIsSearching(false);
     }, 300);
+
     return () => clearTimeout(timer);
   }, [searchText]);
+
   const handleAddTask = (task: Task) => {
     setTasks?.((prev) => [...prev, task]);
   };
@@ -57,12 +67,22 @@ export default function TaskApp(props: TaskAppProps) {
     );
   };
 
+  const categories = [
+    ...new Set(tasks.map((task) => task.category || "General")),
+  ];
+
   let filteredTasks =
     filter === "active"
       ? tasks.filter((task) => !task.completed)
       : filter === "completed"
         ? tasks.filter((task) => task.completed)
         : tasks;
+
+  if (categoryFilter !== "all") {
+    filteredTasks = filteredTasks.filter(
+      (task) => (task.category || "General") === categoryFilter,
+    );
+  }
 
   if (debouncedSearch.trim() !== "") {
     const search = debouncedSearch.toLowerCase();
@@ -120,6 +140,9 @@ export default function TaskApp(props: TaskAppProps) {
           setSortOrder={setSortOrder}
           searchText={searchText}
           setSearchText={setSearchText}
+          categoryFilter={categoryFilter}
+          setCategoryFilter={setCategoryFilter}
+          categories={categories}
         />
       )}
 
@@ -137,7 +160,7 @@ export default function TaskApp(props: TaskAppProps) {
           countText={
             props.countFormat === "tasks"
               ? `${tasks.length} Tasks`
-              : `${tasks.filter((t) => t.completed).length} Completed`
+              : `${tasks.filter((task) => task.completed).length} Completed`
           }
           onUpdateTask={handleUpdateTask}
           editingId={editingId}

@@ -9,6 +9,8 @@ export default function TaskForm(_props: TaskFormProps) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [priority, setPriority] = useState<"Low" | "Medium" | "High">("Low");
+  const [category, setCategory] = useState("General");
+  const [tags, setTags] = useState("");
   const [error, setError] = useState("");
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -20,6 +22,10 @@ export default function TaskForm(_props: TaskFormProps) {
     }
 
     setError("");
+    const parsedTags = tags
+      .split(",")
+      .map((tag) => tag.trim())
+      .filter((tag) => tag.length > 0);
 
     const newTask: Task = {
       id: Date.now(),
@@ -27,6 +33,8 @@ export default function TaskForm(_props: TaskFormProps) {
       description,
       priority,
       completed: false,
+      category,
+      tags: parsedTags,
     };
 
     _props.onAddTask?.(newTask);
@@ -34,6 +42,8 @@ export default function TaskForm(_props: TaskFormProps) {
     setTitle("");
     setDescription("");
     setPriority("Low");
+    setCategory("General");
+    setTags("");
   };
 
   return (
@@ -71,7 +81,28 @@ export default function TaskForm(_props: TaskFormProps) {
           <option value="High">High</option>
         </select>
       </div>
-
+      <div>
+        <label>Category</label>
+        <select
+          id="task-category"
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+        >
+          <option value="General">General</option>
+          <option value="Work">Work</option>
+          <option value="Personal">Personal</option>
+        </select>
+      </div>
+      <div>
+        <label>Tags</label>
+        <input
+          id="task-tags"
+          type="text"
+          placeholder="react,college,urgent"
+          value={tags}
+          onChange={(e) => setTags(e.target.value)}
+        />
+      </div>
       <p id="task-form-error">{error}</p>
 
       <button type="submit">Add Task</button>

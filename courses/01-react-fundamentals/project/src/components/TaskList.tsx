@@ -83,6 +83,8 @@ export default function TaskList(props: TaskListProps) {
             onUpdateTask={props.onUpdateTask}
             editingId={props.editingId}
             setEditingId={props.setEditingId}
+            category={task.category}
+            tags={task.tags}
           />
         ))}
       </section>

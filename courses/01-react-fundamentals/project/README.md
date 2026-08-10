@@ -68,11 +68,11 @@ npm run review -- --challenge=01-static-task-display
 
 ## 📊 Progress Evidence
 
-*Auto-updated when you run review. Last run: 7/8/2026, 4:35:29 pm*
+*Auto-updated when you run review. Last run: 10/8/2026, 1:06:27 pm*
 
 | Metric | Value |
 |--------|-------|
-| Challenges completed | 11 / 23 (47.8%) |
+| Challenges completed | 12 / 23 (52.2%) |
 | Average score | 98.2% |
 
 | Challenge | Skills covered | Status |
@@ -88,7 +88,7 @@ npm run review -- --challenge=01-static-task-display
 | Search Functionality | Text search, Combining filters, String methods, Search UI patterns | Passed |
 | useEffect - Local Storage Persistence | useEffect, Side effects, localStorage, JSON serialization, Effect dependencies | Passed |
 | useEffect - Debounced Search | useEffect cleanup, setTimeout, Debouncing, Memory leak prevention | Passed |
-| Categories and Tags | Complex state, Array fields, Multi-select/tags input, Nested data, Filtering by array membership | — |
+| Categories and Tags | Complex state, Array fields, Multi-select/tags input, Nested data, Filtering by array membership | Passed |
 | Due Dates and Sorting | Date handling, Date objects and formatting, Date comparison, Overdue detection | — |
 | Task Statistics Dashboard | Computed statistics, useMemo, Performance optimization, Data aggregation | — |
 | Component Organization with Props | Component extraction, Props interface design, Single Responsibility, Reusability, Props destructuring | — |

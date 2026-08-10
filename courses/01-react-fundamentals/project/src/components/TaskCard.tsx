@@ -1,15 +1,14 @@
 import { useState, type Dispatch, type SetStateAction } from "react";
 import type { Task } from "./TaskList";
 
-/**
- * Props required to render a task card.
- */
 interface TaskCardProps {
   id: string | number;
   title: string;
   description: string;
   priority: "Low" | "Medium" | "High";
   completed?: boolean;
+  category?: string;
+  tags?: string[];
   onToggle?: (id: string | number) => void;
   onDelete?: (id: string | number) => void;
   onUpdateTask?: (id: string | number, updates: Partial<Task>) => void;
@@ -17,9 +16,6 @@ interface TaskCardProps {
   setEditingId?: Dispatch<SetStateAction<string | number | null>>;
 }
 
-/**
- * Displays the details of a single task.
- */
 export default function TaskCard(props: TaskCardProps) {
   const [title, setTitle] = useState(props.title);
   const [description, setDescription] = useState(props.description);
@@ -72,8 +68,11 @@ export default function TaskCard(props: TaskCardProps) {
     stopEditing();
   };
 
+  const category = props.category || "General";
+  const tags = props.tags ?? [];
+
   return (
-    <article id="task-card" data-completed={isCompleted}>
+    <article id="task-card">
       {props.onToggle && (
         <input
           type="checkbox"
@@ -123,6 +122,16 @@ export default function TaskCard(props: TaskCardProps) {
       ) : (
         <p>Priority: {props.priority}</p>
       )}
+
+      <p id="task-category">Category: {category}</p>
+
+      <div id="task-tags">
+        {tags.map((tag) => (
+          <span key={tag} data-tag={tag}>
+            {tag}
+          </span>
+        ))}
+      </div>
 
       <p>{isCompleted ? "Completed" : "Not Completed"}</p>
 
