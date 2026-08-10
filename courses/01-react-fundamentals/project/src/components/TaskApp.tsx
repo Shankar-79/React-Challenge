@@ -1,8 +1,16 @@
-import { useState, useEffect, type Dispatch, type SetStateAction } from "react";
+import {
+  useState,
+  useEffect,
+  useMemo,
+  type Dispatch,
+  type SetStateAction,
+} from "react";
 import type { Task } from "./TaskList";
 import TaskList from "./TaskList";
 import TaskForm from "./TaskForm";
 import FilterBar from "./FilterBar";
+import StatsPanel from "./StatsPanel";
+import { useTheme } from "../contexts/ThemeContext";
 
 interface TaskAppProps {
   tasks?: Task[];
@@ -32,6 +40,40 @@ export default function TaskApp(props: TaskAppProps) {
   const [debouncedSearch, setDebouncedSearch] = useState("");
 
   const [isSearching, setIsSearching] = useState(false);
+  const { theme, toggleTheme } = useTheme();
+
+  const stats = useMemo(() => {
+    const total = tasks.length;
+
+    const completed = tasks.filter((task) => task.completed).length;
+
+    const active = tasks.filter((task) => !task.completed).length;
+
+    const overdue = tasks.filter((task) => {
+      if (task.completed || !task.dueDate) {
+        return false;
+      }
+
+      const dueDate = new Date(task.dueDate);
+      const today = new Date();
+
+      dueDate.setHours(0, 0, 0, 0);
+      today.setHours(0, 0, 0, 0);
+
+      return dueDate < today;
+    }).length;
+
+    const completedPercentage =
+      total === 0 ? 0 : Math.round((completed / total) * 100);
+
+    return {
+      total,
+      completed,
+      active,
+      overdue,
+      completedPercentage,
+    };
+  }, [tasks]);
 
   useEffect(() => {
     setIsSearching(true);
@@ -139,8 +181,20 @@ export default function TaskApp(props: TaskAppProps) {
 
   return (
     <>
+      <button id="theme-toggle" onClick={toggleTheme}>
+        {theme === "light" ? "Dark Mode" : "Light Mode"}
+      </button>
       {showForm && <TaskForm onAddTask={handleAddTask} />}
-
+      {props.showStatsPanel && (
+        <StatsPanel
+          tasks={tasks}
+          total={stats.total}
+          completed={stats.completed}
+          active={stats.active}
+          overdue={stats.overdue}
+          completedPercentage={stats.completedPercentage}
+        />
+      )}
       {props.showFilterBar && (
         <FilterBar
           filter={filter}

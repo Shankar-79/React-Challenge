@@ -1,3 +1,5 @@
+import Button from "./Button";
+import FormInput from "./FormInput";
 interface FilterBarProps {
   filter: "all" | "active" | "completed";
   sortOrder: string;
@@ -13,29 +15,29 @@ interface FilterBarProps {
 export default function FilterBar(props: FilterBarProps) {
   return (
     <div id="filter-bar">
-      <button
+      <Button
         data-active={props.filter === "all"}
         onClick={() => props.onFilterChange("all")}
       >
         All
-      </button>
+      </Button>
 
-      <button
+      <Button
         data-active={props.filter === "active"}
         onClick={() => props.onFilterChange("active")}
       >
         Active
-      </button>
+      </Button>
 
-      <button
+      <Button
         data-active={props.filter === "completed"}
         onClick={() => props.onFilterChange("completed")}
       >
         Completed
-      </button>
+      </Button>
 
-      <input
-        id="search-input"
+      <FormInput
+        id="search-FormInput"
         type="text"
         placeholder="Search tasks..."
         value={props.searchText}
@@ -43,9 +45,9 @@ export default function FilterBar(props: FilterBarProps) {
       />
 
       {props.searchText && (
-        <button id="clear-search" onClick={() => props.setSearchText("")}>
+        <Button id="clear-search" onClick={() => props.setSearchText("")}>
           Clear search
-        </button>
+        </Button>
       )}
 
       <select

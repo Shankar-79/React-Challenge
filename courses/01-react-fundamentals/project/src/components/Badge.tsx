@@ -1,7 +1,9 @@
+import type { ReactNode } from "react";
 interface BadgeProps {
-  children?: React.ReactNode
+  children?: ReactNode;
+  variant?: "default" | "category" | "priority" | "tag";
 }
 
 export default function Badge(_props: BadgeProps) {
-  return null
+  return <span data-variant={_props.variant}>{_props.children}</span>;
 }

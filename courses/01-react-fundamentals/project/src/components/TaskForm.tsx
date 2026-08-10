@@ -1,5 +1,7 @@
 import { useState } from "react";
 import type { Task } from "./TaskList";
+import Button from "./Button";
+import FormInput from "./FormInput";
 
 interface TaskFormProps {
   onAddTask?: (task: Task) => void;
@@ -53,7 +55,7 @@ export default function TaskForm(_props: TaskFormProps) {
     <form onSubmit={handleSubmit}>
       <div>
         <label htmlFor="task-title">Title</label>
-        <input
+        <FormInput
           id="task-title"
           type="text"
           value={title}
@@ -117,7 +119,7 @@ export default function TaskForm(_props: TaskFormProps) {
       </div>
       <p id="task-form-error">{error}</p>
 
-      <button type="submit">Add Task</button>
+      <Button type="submit">Add Task</Button>
     </form>
   );
 }

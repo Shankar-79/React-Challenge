@@ -1,23 +1,23 @@
 {
-  "lastUpdated": "2026-08-10T07:49:42.339Z",
+  "lastUpdated": "2026-08-10T12:07:26.844Z",
   "pathway": {
     "name": "Modern React Engineer",
     "version": "1.0.0",
     "overallScore": 32.4,
-    "completionPercentage": 24.5,
+    "completionPercentage": 30.2,
     "badgeLevel": "none",
     "totalChallenges": 53,
-    "completedChallenges": 13
+    "completedChallenges": 16
   },
   "courses": {
     "01-react-fundamentals": {
       "courseId": "01-react-fundamentals",
       "courseName": "React Fundamentals",
       "averageScore": 98.2,
-      "completionPercentage": 56.5,
+      "completionPercentage": 69.6,
       "badgeLevel": "bronze",
       "totalChallenges": 23,
-      "completedChallenges": 13,
+      "completedChallenges": 16,
       "challenges": {
         "01-static-task-display": {
           "challengeId": "01-static-task-display",
@@ -208,6 +208,51 @@
           "scores": {
             "functionalTests": 100,
             "codeQuality": 100,
+            "architecture": 100,
+            "bestPractices": 100,
+            "e2eTests": 100,
+            "aiReview": 88
+          }
+        },
+        "14-task-statistics-dashboard": {
+          "challengeId": "14-task-statistics-dashboard",
+          "challengeName": "Task Statistics Dashboard",
+          "passed": true,
+          "score": 98.2,
+          "lastRun": "2026-08-10T12:05:51.850Z",
+          "scores": {
+            "functionalTests": 100,
+            "codeQuality": 100,
+            "architecture": 100,
+            "bestPractices": 100,
+            "e2eTests": 100,
+            "aiReview": 88
+          }
+        },
+        "15-component-organization": {
+          "challengeId": "15-component-organization",
+          "challengeName": "Component Organization with Props",
+          "passed": true,
+          "score": 98.2,
+          "lastRun": "2026-08-10T12:06:18.118Z",
+          "scores": {
+            "functionalTests": 100,
+            "codeQuality": 100,
+            "architecture": 100,
+            "bestPractices": 100,
+            "e2eTests": 100,
+            "aiReview": 88
+          }
+        },
+        "16-context-api-theme": {
+          "challengeId": "16-context-api-theme",
+          "challengeName": "Context API - Theme Management",
+          "passed": true,
+          "score": 97.60000000000001,
+          "lastRun": "2026-08-10T12:07:11.557Z",
+          "scores": {
+            "functionalTests": 100,
+            "codeQuality": 96,
             "architecture": 100,
             "bestPractices": 100,
             "e2eTests": 100,
