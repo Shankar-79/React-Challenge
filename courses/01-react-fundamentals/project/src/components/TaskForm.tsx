@@ -11,6 +11,7 @@ export default function TaskForm(_props: TaskFormProps) {
   const [priority, setPriority] = useState<"Low" | "Medium" | "High">("Low");
   const [category, setCategory] = useState("General");
   const [tags, setTags] = useState("");
+  const [dueDate, setDueDate] = useState("");
   const [error, setError] = useState("");
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -35,6 +36,7 @@ export default function TaskForm(_props: TaskFormProps) {
       completed: false,
       category,
       tags: parsedTags,
+      dueDate: dueDate || undefined,
     };
 
     _props.onAddTask?.(newTask);
@@ -44,6 +46,7 @@ export default function TaskForm(_props: TaskFormProps) {
     setPriority("Low");
     setCategory("General");
     setTags("");
+    setDueDate("");
   };
 
   return (
@@ -101,6 +104,15 @@ export default function TaskForm(_props: TaskFormProps) {
           placeholder="react,college,urgent"
           value={tags}
           onChange={(e) => setTags(e.target.value)}
+        />
+      </div>
+      <div>
+        <label htmlFor="task-due-date">Due Date</label>
+        <input
+          id="task-due-date"
+          type="date"
+          value={dueDate}
+          onChange={(e) => setDueDate(e.target.value)}
         />
       </div>
       <p id="task-form-error">{error}</p>

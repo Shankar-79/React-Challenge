@@ -9,6 +9,7 @@ interface TaskCardProps {
   completed?: boolean;
   category?: string;
   tags?: string[];
+  dueDate?: string | number;
   onToggle?: (id: string | number) => void;
   onDelete?: (id: string | number) => void;
   onUpdateTask?: (id: string | number, updates: Partial<Task>) => void;
@@ -20,6 +21,9 @@ export default function TaskCard(props: TaskCardProps) {
   const [title, setTitle] = useState(props.title);
   const [description, setDescription] = useState(props.description);
   const [priority, setPriority] = useState(props.priority);
+  const [dueDate, setDueDate] = useState(
+    props.dueDate ? String(props.dueDate) : "",
+  );
 
   const [localEditing, setLocalEditing] = useState(false);
 
@@ -32,6 +36,7 @@ export default function TaskCard(props: TaskCardProps) {
     setTitle(props.title);
     setDescription(props.description);
     setPriority(props.priority);
+    setDueDate(props.dueDate ? String(props.dueDate) : "");
 
     if (props.setEditingId) {
       props.setEditingId(props.id);
@@ -55,6 +60,7 @@ export default function TaskCard(props: TaskCardProps) {
       title,
       description,
       priority,
+      dueDate: dueDate || undefined,
     });
 
     stopEditing();
@@ -64,12 +70,68 @@ export default function TaskCard(props: TaskCardProps) {
     setTitle(props.title);
     setDescription(props.description);
     setPriority(props.priority);
+    setDueDate(props.dueDate ? String(props.dueDate) : "");
 
     stopEditing();
   };
 
   const category = props.category || "General";
   const tags = props.tags ?? [];
+
+  const getDueDateInfo = () => {
+    if (!props.dueDate) {
+      return {
+        label: "",
+        overdue: false,
+      };
+    }
+
+    const due = new Date(props.dueDate);
+
+    if (Number.isNaN(due.getTime())) {
+      return {
+        label: "",
+        overdue: false,
+      };
+    }
+
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const dueDay = new Date(due);
+    dueDay.setHours(0, 0, 0, 0);
+
+    const difference =
+      (dueDay.getTime() - today.getTime()) / (1000 * 60 * 60 * 24);
+
+    if (!isCompleted && difference < 0) {
+      return {
+        label: "Overdue",
+        overdue: true,
+      };
+    }
+
+    if (difference === 0) {
+      return {
+        label: "Due Today",
+        overdue: false,
+      };
+    }
+
+    if (difference > 0 && difference <= 3) {
+      return {
+        label: "Due Soon",
+        overdue: false,
+      };
+    }
+
+    return {
+      label: "",
+      overdue: false,
+    };
+  };
+
+  const dueDateInfo = getDueDateInfo();
 
   return (
     <article id="task-card">
@@ -132,6 +194,28 @@ export default function TaskCard(props: TaskCardProps) {
           </span>
         ))}
       </div>
+
+      {isEditing ? (
+        <div>
+          <label htmlFor="task-due-date">Due Date</label>
+          <input
+            id="task-due-date"
+            type="date"
+            value={dueDate}
+            onChange={(e) => setDueDate(e.target.value)}
+          />
+        </div>
+      ) : (
+        props.dueDate && (
+          <p
+            id="task-due-date"
+            data-overdue={dueDateInfo.overdue ? "true" : "false"}
+          >
+            Due: {new Date(props.dueDate).toLocaleDateString()}
+            {dueDateInfo.label && ` - ${dueDateInfo.label}`}
+          </p>
+        )
+      )}
 
       <p>{isCompleted ? "Completed" : "Not Completed"}</p>
 

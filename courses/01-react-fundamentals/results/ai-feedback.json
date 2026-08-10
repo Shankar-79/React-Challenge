@@ -46,22 +46,6 @@
     }
   },
   {
-    "challengeId": "13-due-dates-and-sorting",
-    "challengeName": "Due Dates and Sorting",
-    "aiReview": {
-      "challengeId": "13-due-dates-and-sorting",
-      "timestamp": "2026-08-06T08:16:25.822Z",
-      "score": 0,
-      "feedback": [],
-      "strengths": [],
-      "improvements": [],
-      "readability": 0,
-      "maintainability": 0,
-      "overall": "",
-      "error": "Groq API error (429): Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kjb2fjv5fd6928gcy28wy79s` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 3568, Requested 2705. Please try again in 2.73s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing"
-    }
-  },
-  {
     "challengeId": "14-task-statistics-dashboard",
     "challengeName": "Task Statistics Dashboard",
     "aiReview": {
@@ -501,6 +485,29 @@
       "readability": 85,
       "maintainability": 90,
       "overall": "The code is well-structured and maintainable, with a good balance of functionality and organization. However, there are some areas for improvement, such as breaking down long functions and removing duplicated code blocks."
+    }
+  },
+  {
+    "challengeId": "13-due-dates-and-sorting",
+    "challengeName": "Due Dates and Sorting",
+    "aiReview": {
+      "challengeId": "13-due-dates-and-sorting",
+      "timestamp": "2026-08-10T07:49:39.896Z",
+      "score": 88,
+      "feedback": [],
+      "strengths": [
+        "The code is well-structured and follows a consistent naming convention.",
+        "The use of TypeScript and functional components makes the code more maintainable and efficient.",
+        "The implementation of the due date feature is well-integrated with the existing task management system."
+      ],
+      "improvements": [
+        "Some of the function names could be more descriptive, such as `getDueDateInfo` could be renamed to `calculateDueDateStatus`.",
+        "The `TaskCard` component has a lot of state and props, which could be broken down into smaller, more manageable components.",
+        "The `TaskApp` component has a lot of logic for filtering and sorting tasks, which could be extracted into separate functions or components for better maintainability."
+      ],
+      "readability": 85,
+      "maintainability": 90,
+      "overall": "The code is well-structured and maintainable, with a good balance of functionality and readability. However, there are some areas for improvement, such as breaking down complex components and functions into smaller, more manageable pieces."
     }
   }
 ]
