@@ -1,21 +1,21 @@
-import {
-  useState,
-  useEffect,
-  useMemo,
-  type Dispatch,
-  type SetStateAction,
-} from "react";
 import type { Task } from "./TaskList";
+import { useState, useEffect, useMemo, useCallback } from "react";
 import TaskList from "./TaskList";
 import TaskForm from "./TaskForm";
 import FilterBar from "./FilterBar";
 import StatsPanel from "./StatsPanel";
 import { useTheme } from "../contexts/ThemeContext";
+import ErrorBoundary from "./ErrorBoundary";
+import {
+  ADD_TASK,
+  TOGGLE_TASK,
+  UPDATE_TASK,
+  type TaskAction,
+} from "../reducers/taskReducer";
 
 interface TaskAppProps {
   tasks?: Task[];
-  setTasks?: Dispatch<SetStateAction<Task[]>>;
-  dispatch?: (action: { type: string; payload?: unknown }) => void;
+  dispatch?: (action: TaskAction) => void;
   showForm?: boolean;
   countFormat?: string;
   showFilterBar?: boolean;
@@ -25,7 +25,7 @@ interface TaskAppProps {
 }
 
 export default function TaskApp(props: TaskAppProps) {
-  const { tasks = [], setTasks, showForm } = props;
+  const { tasks = [], dispatch, showForm } = props;
 
   const [filter, setFilter] = useState<"all" | "active" | "completed">("all");
 
@@ -40,6 +40,7 @@ export default function TaskApp(props: TaskAppProps) {
   const [debouncedSearch, setDebouncedSearch] = useState("");
 
   const [isSearching, setIsSearching] = useState(false);
+
   const { theme, toggleTheme } = useTheme();
 
   const stats = useMemo(() => {
@@ -56,6 +57,10 @@ export default function TaskApp(props: TaskAppProps) {
 
       const dueDate = new Date(task.dueDate);
       const today = new Date();
+
+      if (Number.isNaN(dueDate.getTime())) {
+        return false;
+      }
 
       dueDate.setHours(0, 0, 0, 0);
       today.setHours(0, 0, 0, 0);
@@ -86,105 +91,130 @@ export default function TaskApp(props: TaskAppProps) {
     return () => clearTimeout(timer);
   }, [searchText]);
 
-  const handleAddTask = (task: Task) => {
-    setTasks?.((prev) => [...prev, task]);
-  };
+  const handleAddTask = useCallback(
+    (task: Task) => {
+      dispatch?.({
+        type: ADD_TASK,
+        payload: task,
+      });
+    },
+    [dispatch],
+  );
 
-  const handleToggle = (id: string | number) => {
-    setTasks?.((prev) =>
-      prev.map((task) =>
-        task.id === id
-          ? {
-              ...task,
-              completed: !task.completed,
-            }
-          : task,
-      ),
-    );
-  };
+  const handleToggleTask = useCallback(
+    (id: string | number) => {
+      dispatch?.({
+        type: TOGGLE_TASK,
+        payload: id,
+      });
+    },
+    [dispatch],
+  );
 
-  const handleUpdateTask = (id: string | number, updates: Partial<Task>) => {
-    setTasks?.((prev) =>
-      prev.map((task) => (task.id === id ? { ...task, ...updates } : task)),
-    );
-  };
+  const handleUpdateTask = useCallback(
+    (id: string | number, updates: Partial<Task>) => {
+      dispatch?.({
+        type: UPDATE_TASK,
+        payload: {
+          id,
+          updates,
+        },
+      });
+    },
+    [dispatch],
+  );
 
   const categories = [
     ...new Set(tasks.map((task) => task.category || "General")),
   ];
 
-  let filteredTasks =
-    filter === "active"
-      ? tasks.filter((task) => !task.completed)
-      : filter === "completed"
-        ? tasks.filter((task) => task.completed)
-        : tasks;
+  const sortedTasks = useMemo(() => {
+    let filteredTasks =
+      filter === "active"
+        ? tasks.filter((task) => !task.completed)
+        : filter === "completed"
+          ? tasks.filter((task) => task.completed)
+          : tasks;
 
-  if (categoryFilter !== "all") {
-    filteredTasks = filteredTasks.filter(
-      (task) => (task.category || "General") === categoryFilter,
-    );
-  }
-
-  if (debouncedSearch.trim() !== "") {
-    const search = debouncedSearch.toLowerCase();
-
-    filteredTasks = filteredTasks.filter(
-      (task) =>
-        task.title.toLowerCase().includes(search) ||
-        task.description.toLowerCase().includes(search),
-    );
-  }
-
-  const priorityValue = {
-    High: 3,
-    Medium: 2,
-    Low: 1,
-  };
-
-  const sortedTasks = [...filteredTasks];
-
-  switch (sortOrder) {
-    case "high":
-      sortedTasks.sort(
-        (a, b) => priorityValue[b.priority] - priorityValue[a.priority],
+    if (categoryFilter !== "all") {
+      filteredTasks = filteredTasks.filter(
+        (task) => (task.category || "General") === categoryFilter,
       );
-      break;
+    }
 
-    case "low":
-      sortedTasks.sort(
-        (a, b) => priorityValue[a.priority] - priorityValue[b.priority],
+    if (debouncedSearch.trim() !== "") {
+      const search = debouncedSearch.toLowerCase();
+
+      filteredTasks = filteredTasks.filter(
+        (task) =>
+          task.title.toLowerCase().includes(search) ||
+          task.description.toLowerCase().includes(search),
       );
-      break;
+    }
 
-    case "alpha":
-      sortedTasks.sort((a, b) =>
-        a.title.localeCompare(b.title, undefined, {
-          sensitivity: "base",
-        }),
-      );
-      break;
-    case "due":
-      sortedTasks.sort((a, b) => {
-        if (!a.dueDate && !b.dueDate) return 0;
-        if (!a.dueDate) return 1;
-        if (!b.dueDate) return -1;
+    const priorityValue = {
+      High: 3,
+      Medium: 2,
+      Low: 1,
+    };
 
-        return new Date(a.dueDate).getTime() - new Date(b.dueDate).getTime();
-      });
-      break;
+    const sorted = [...filteredTasks];
 
-    case "recent":
-    default:
-      break;
-  }
+    switch (sortOrder) {
+      case "high":
+        sorted.sort(
+          (a, b) => priorityValue[b.priority] - priorityValue[a.priority],
+        );
+        break;
+
+      case "low":
+        sorted.sort(
+          (a, b) => priorityValue[a.priority] - priorityValue[b.priority],
+        );
+        break;
+
+      case "alpha":
+        sorted.sort((a, b) =>
+          a.title.localeCompare(b.title, undefined, {
+            sensitivity: "base",
+          }),
+        );
+        break;
+
+      case "due":
+        sorted.sort((a, b) => {
+          if (!a.dueDate && !b.dueDate) {
+            return 0;
+          }
+
+          if (!a.dueDate) {
+            return 1;
+          }
+
+          if (!b.dueDate) {
+            return -1;
+          }
+
+          return new Date(a.dueDate).getTime() - new Date(b.dueDate).getTime();
+        });
+        break;
+
+      case "recent":
+      default:
+        break;
+    }
+
+    return sorted;
+  }, [tasks, filter, categoryFilter, debouncedSearch, sortOrder]);
 
   return (
     <>
       <button id="theme-toggle" onClick={toggleTheme}>
         {theme === "light" ? "Dark Mode" : "Light Mode"}
       </button>
+
       {showForm && <TaskForm onAddTask={handleAddTask} />}
+
       {props.showStatsPanel && (
         <StatsPanel
           tasks={tasks}
@@ -195,6 +225,7 @@ export default function TaskApp(props: TaskAppProps) {
           completedPercentage={stats.completedPercentage}
         />
       )}
+
       {props.showFilterBar && (
         <FilterBar
           filter={filter}
@@ -216,19 +247,21 @@ export default function TaskApp(props: TaskAppProps) {
       {sortedTasks.length === 0 ? (
         <p id="filter-empty-message">No tasks found</p>
       ) : (
-        <TaskList
-          tasks={sortedTasks}
-          onToggle={handleToggle}
-          onDelete={props.onDelete}
-          countText={
-            props.countFormat === "tasks"
-              ? `${tasks.length} Tasks`
-              : `${tasks.filter((task) => task.completed).length} Completed`
-          }
-          onUpdateTask={handleUpdateTask}
-          editingId={editingId}
-          setEditingId={setEditingId}
-        />
+        <ErrorBoundary>
+          <TaskList
+            tasks={sortedTasks}
+            onToggle={handleToggleTask}
+            onDelete={props.onDelete}
+            countText={
+              props.countFormat === "tasks"
+                ? `${tasks.length} Tasks`
+                : `${tasks.filter((task) => task.completed).length} Completed`
+            }
+            onUpdateTask={handleUpdateTask}
+            editingId={editingId}
+            setEditingId={setEditingId}
+          />
+        </ErrorBoundary>
       )}
     </>
   );

@@ -46,107 +46,6 @@
     }
   },
   {
-    "challengeId": "17-custom-hook-uselocalstorage",
-    "challengeName": "Custom Hook - useLocalStorage",
-    "aiReview": {
-      "challengeId": "17-custom-hook-uselocalstorage",
-      "timestamp": "2026-08-06T08:17:49.828Z",
-      "score": 88,
-      "feedback": [],
-      "strengths": [
-        "The code is well-organized, with clear separation of concerns between components and contexts.",
-        "The use of TypeScript and functional components promotes code reusability and maintainability.",
-        "The custom `useLocalStorage` hook is a great example of extracting stateful logic into a reusable component."
-      ],
-      "improvements": [
-        "The `useLocalStorage` hook could benefit from additional error handling, such as logging or displaying an error message when the local storage operation fails.",
-        "Some of the component functions, such as `handleDelete`, are quite long and complex. Consider breaking them down into smaller, more manageable functions.",
-        "The `ThemeContext` could be improved by adding more type safety and validation for the theme value. For example, you could add a type guard to ensure that the theme value is one of the allowed values."
-      ],
-      "readability": 85,
-      "maintainability": 90,
-      "overall": "The code is well-structured and maintainable, with a good balance of organization and reusability. However, there are some areas for improvement, such as additional error handling and code refactoring to make it even more efficient and readable."
-    }
-  },
-  {
-    "challengeId": "18-usereducer-complex-state",
-    "challengeName": "useReducer - Complex State Management",
-    "aiReview": {
-      "challengeId": "18-usereducer-complex-state",
-      "timestamp": "2026-08-06T08:18:05.127Z",
-      "score": 0,
-      "feedback": [],
-      "strengths": [],
-      "improvements": [],
-      "readability": 0,
-      "maintainability": 0,
-      "overall": "",
-      "error": "Groq API error (429): Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kjb2fjv5fd6928gcy28wy79s` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 3303, Requested 3085. Please try again in 3.88s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing"
-    }
-  },
-  {
-    "challengeId": "19-performance-optimization",
-    "challengeName": "Performance Optimization",
-    "aiReview": {
-      "challengeId": "19-performance-optimization",
-      "timestamp": "2026-08-06T08:18:19.488Z",
-      "score": 83,
-      "feedback": [],
-      "strengths": [
-        "The code is well-structured and follows a consistent naming convention.",
-        "The use of TypeScript and functional components is a good practice.",
-        "The code is relatively free of errors and warnings."
-      ],
-      "improvements": [
-        "Some of the functions, such as `handleToggle` and `handleDelete`, are not memoized. This can cause unnecessary re-renders when the parent component re-renders.",
-        "The `TaskCard` component is not memoized. This can cause unnecessary re-renders when the props change.",
-        "The `useMemo` hook is not used to memoize the filtered and sorted task list. This can cause unnecessary re-renders when the filter or sort changes."
-      ],
-      "readability": 85,
-      "maintainability": 80,
-      "overall": "The code is well-structured and follows good practices, but there are some areas that can be improved for better performance and maintainability."
-    }
-  },
-  {
-    "challengeId": "20-error-boundaries",
-    "challengeName": "Error Boundaries and Error Handling",
-    "aiReview": {
-      "challengeId": "20-error-boundaries",
-      "timestamp": "2026-08-06T08:18:40.254Z",
-      "score": 88,
-      "feedback": [],
-      "strengths": [
-        "The code is well-structured and follows a consistent naming convention.",
-        "The use of TypeScript is a good practice, especially for a challenge that focuses on error handling and robustness.",
-        "The code is relatively concise and easy to follow."
-      ],
-      "improvements": [
-        "The `ErrorBoundary` component is missing the implementation of `static getDerivedStateFromError` and/or `componentDidCatch` methods, which are required to catch rendering errors and set the state with `hasError: true`.",
-        "The `render` method in the `ErrorBoundary` component should return the fallback UI when `hasError` is true, instead of just returning the `children` prop.",
-        "The `TaskApp` component is a functional component, but it has a complex logic and could be refactored into a class component or a separate container component to improve maintainability."
-      ],
-      "readability": 85,
-      "maintainability": 90,
-      "overall": "The code has a good foundation, but it requires some improvements to meet the challenge requirements. With some refactoring and implementation of the missing features, the code can become more robust and maintainable."
-    }
-  },
-  {
-    "challengeId": "21-react-router",
-    "challengeName": "React Router - Routing and Navigation",
-    "aiReview": {
-      "challengeId": "21-react-router",
-      "timestamp": "2026-08-06T08:19:40.176Z",
-      "score": 0,
-      "feedback": [],
-      "strengths": [],
-      "improvements": [],
-      "readability": 0,
-      "maintainability": 0,
-      "overall": "",
-      "error": "Groq API error (429): Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kjb2fjv5fd6928gcy28wy79s` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 2790, Requested 4109. Please try again in 8.99s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing"
-    }
-  },
-  {
     "challengeId": "22-data-fetching",
     "challengeName": "Data Fetching - Loading and Error State",
     "aiReview": {
@@ -512,6 +411,114 @@
       "readability": 85,
       "maintainability": 90,
       "overall": "The code is well-structured, maintainable, and easy to follow. It effectively uses the React Context API to manage the theme state and provide it to components. However, there are some areas for improvement, such as using a CSS-in-JS solution or a theme provider to manage the styles, and simplifying the `toggleTheme` function."
+    }
+  },
+  {
+    "challengeId": "17-custom-hook-uselocalstorage",
+    "challengeName": "Custom Hook - useLocalStorage",
+    "aiReview": {
+      "challengeId": "17-custom-hook-uselocalstorage",
+      "timestamp": "2026-08-11T07:31:15.292Z",
+      "score": 88,
+      "feedback": [],
+      "strengths": [
+        "The useLocalStorage hook is well-structured and easy to understand.",
+        "The code uses TypeScript, which helps with type safety and maintainability.",
+        "The use of functional components and hooks follows modern React best practices."
+      ],
+      "improvements": [
+        "The useLocalStorage hook could benefit from more error handling. For example, it currently ignores localStorage errors, but it might be better to rethrow them or provide a way to handle them.",
+        "The App component has a lot of repeated code for rendering different routes. This could be extracted into a separate component or a higher-order component to make the code more DRY (Don't Repeat Yourself).",
+        "The ThemeContext could benefit from more documentation. For example, it would be helpful to include a description of the available theme values and how to use the context."
+      ],
+      "readability": 85,
+      "maintainability": 90,
+      "overall": "The code is well-structured and follows modern React best practices. However, there are a few areas that could be improved to make the code more maintainable and efficient."
+    }
+  },
+  {
+    "challengeId": "18-usereducer-complex-state",
+    "challengeName": "useReducer - Complex State Management",
+    "aiReview": {
+      "challengeId": "18-usereducer-complex-state",
+      "timestamp": "2026-08-11T10:13:22.409Z",
+      "score": 88,
+      "feedback": [],
+      "strengths": [
+        "Effective use of TypeScript and functional programming principles",
+        "Well-structured reducer and action types",
+        "Separation of concerns between components and state management"
+      ],
+      "improvements": [
+        "Consider using a more robust state management library like Redux for complex applications",
+        "Some functions in the reducer could be extracted into separate functions for better readability",
+        "In the TaskApp component, some of the state variables could be extracted into separate variables for better readability"
+      ],
+      "readability": 85,
+      "maintainability": 90,
+      "overall": "The code is well-structured and follows good practices. However, there are some areas where it could be improved for better maintainability and scalability."
+    }
+  },
+  {
+    "challengeId": "19-performance-optimization",
+    "challengeName": "Performance Optimization",
+    "aiReview": {
+      "challengeId": "19-performance-optimization",
+      "timestamp": "2026-08-11T10:35:07.051Z",
+      "score": 88,
+      "feedback": [],
+      "strengths": [
+        "The code is well-organized and follows a consistent structure.",
+        "The use of TypeScript and functional components is a good practice.",
+        "The code is well-documented with clear and concise comments."
+      ],
+      "improvements": [
+        "Some of the functions are quite long and complex, consider breaking them down into smaller, more manageable functions.",
+        "The use of `useCallback` and `useMemo` is good, but consider adding more comments to explain why these hooks are being used.",
+        "The code could benefit from more unit tests to ensure that it is working as expected."
+      ],
+      "readability": 85,
+      "maintainability": 90,
+      "overall": "The code is well-structured and follows good practices, but could benefit from some refactoring and additional testing to make it more maintainable and efficient."
+    }
+  },
+  {
+    "challengeId": "21-react-router",
+    "challengeName": "React Router - Routing and Navigation",
+    "aiReview": {
+      "challengeId": "21-react-router",
+      "timestamp": "2026-08-11T12:45:56.819Z",
+      "score": 0,
+      "feedback": [],
+      "strengths": [],
+      "improvements": [],
+      "readability": 0,
+      "maintainability": 0,
+      "overall": "",
+      "error": "Groq API error (413): Request too large for model `llama-3.1-8b-instant` in organization `org_01kjb2fjv5fd6928gcy28wy79s` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Requested 6192, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing"
+    }
+  },
+  {
+    "challengeId": "20-error-boundaries",
+    "challengeName": "Error Boundaries and Error Handling",
+    "aiReview": {
+      "challengeId": "20-error-boundaries",
+      "timestamp": "2026-08-11T12:46:38.082Z",
+      "score": 88,
+      "feedback": [],
+      "strengths": [
+        "Clear and concise code structure",
+        "Effective use of TypeScript for type safety",
+        "Well-organized and modular component architecture"
+      ],
+      "improvements": [
+        "Consider adding JSDoc comments to explain complex functions and components",
+        "Some variable names could be more descriptive (e.g., `debouncedSearch` could be `filteredSearchText`)",
+        "Error handling in `useLocalStorage` could be improved by providing a more informative error message"
+      ],
+      "readability": 85,
+      "maintainability": 90,
+      "overall": "The code is well-structured, maintainable, and effectively uses TypeScript for type safety. However, there are some minor improvements that could be made to enhance readability and error handling."
     }
   }
 ]

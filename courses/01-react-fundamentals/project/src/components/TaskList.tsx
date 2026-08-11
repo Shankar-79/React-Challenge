@@ -13,6 +13,7 @@ export interface Task {
   category?: string;
   tags?: string[];
   dueDate?: string | number;
+  linkToTaskDetail?: boolean;
 }
 
 /**
@@ -86,6 +87,7 @@ export default function TaskList(props: TaskListProps) {
             category={task.category}
             tags={task.tags}
             dueDate={task.dueDate}
+            linkToTaskDetail={task.linkToTaskDetail}
           />
         ))}
       </section>

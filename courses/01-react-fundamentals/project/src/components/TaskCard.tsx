@@ -1,8 +1,9 @@
-import { useState, type Dispatch, type SetStateAction } from "react";
+import React, { useState, type Dispatch, type SetStateAction } from "react";
 import type { Task } from "./TaskList";
 import Button from "./Button";
 import Badge from "./Badge";
 import StatusIndicator from "./StatusIndicator";
+import { Link } from "react-router-dom";
 
 interface TaskCardProps {
   id: string | number;
@@ -18,9 +19,10 @@ interface TaskCardProps {
   onUpdateTask?: (id: string | number, updates: Partial<Task>) => void;
   editingId?: string | number | null;
   setEditingId?: Dispatch<SetStateAction<string | number | null>>;
+  linkToTaskDetail?: boolean;
 }
 
-export default function TaskCard(props: TaskCardProps) {
+function TaskCard(props: TaskCardProps) {
   const [title, setTitle] = useState(props.title);
   const [description, setDescription] = useState(props.description);
   const [priority, setPriority] = useState(props.priority);
@@ -154,7 +156,13 @@ export default function TaskCard(props: TaskCardProps) {
             textDecoration: isCompleted ? "line-through" : "none",
           }}
         >
-          {props.title}
+          {props.linkToTaskDetail ? (
+            <Link to={`/challenge/21-react-router/task/${props.id}`}>
+              {props.title}
+            </Link>
+          ) : (
+            props.title
+          )}
         </h2>
       )}
 
@@ -269,3 +277,4 @@ export default function TaskCard(props: TaskCardProps) {
     </article>
   );
 }
+export default React.memo(TaskCard);

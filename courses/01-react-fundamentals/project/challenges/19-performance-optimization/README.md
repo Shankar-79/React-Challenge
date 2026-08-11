@@ -12,7 +12,7 @@ Optimize performance: wrap TaskCard with **React.memo**; use **useCallback** for
 
 1. **React.memo (TaskCard)** — Wrap the TaskCard component with `React.memo` so it only re-renders when its props change. Export: `export default React.memo(TaskCard)`. Ensure props are compared correctly (primitives and stable callbacks).
 
-2. **useCallback** — For all handler functions passed from App/TaskApp to TaskList/TaskCard (e.g. onToggle, onDelete, onUpdateTask), wrap them in `useCallback` with the appropriate dependency array. Example: `const handleToggle = useCallback((id) => { ... }, [dispatch])` in TaskApp when using dispatch, or `[setTasks]` when using setTasks; in App, `const handleDelete = useCallback((id) => { ... }, [])` (empty deps if dispatch is stable). This prevents child re-renders when the parent re-renders but the handler logic hasn't changed.
+2. **useCallback** — For all handler functions passed from App/TaskApp to TaskList/TaskCard (e.g. onToggle, onDelete, onUpdateTask), wrap them in `useCallback` with the appropriate dependency array. Example: `const handleToggleTask = useCallback((id) => { ... }, [dispatch])` in TaskApp when using dispatch, or `[setTasks]` when using setTasks; in App, `const handleDelete = useCallback((id) => { ... }, [])` (empty deps if dispatch is stable). This prevents child re-renders when the parent re-renders but the handler logic hasn't changed.
 
 3. **useMemo for derived data** — For the filtered/sorted task list (and search, filter, sort logic), use `useMemo` so the computed list is only recalculated when tasks, filter, sort, or search change. Example: `const displayedTasks = useMemo(() => { ... filter and sort ... }, [tasks, filter, sortOrder, searchTerm])`.
 
