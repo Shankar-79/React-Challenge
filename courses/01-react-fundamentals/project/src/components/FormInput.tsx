@@ -1,25 +1,31 @@
+import { forwardRef, type ChangeEvent } from "react";
+
 interface FormInputProps {
   id?: string;
   value?: string;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
   label?: string;
   type?: string;
   placeholder?: string;
-  error?: string;
 }
 
-export default function FormInput(_props: FormInputProps) {
-  return (
-    <div>
-      {_props.label && <label htmlFor={_props.id}>{_props.label}</label>}
-      <input
-        id={_props.id}
-        type={_props.type}
-        value={_props.value}
-        onChange={_props.onChange}
-        placeholder={_props.placeholder}
-      />
-      {_props.error && <p>{_props.error}</p>}
-    </div>
-  );
-}
+const FormInput = forwardRef<HTMLInputElement, FormInputProps>(
+  function FormInput(props, ref) {
+    return (
+      <div>
+        {props.label && <label htmlFor={props.id}>{props.label}</label>}
+
+        <input
+          ref={ref}
+          id={props.id}
+          type={props.type}
+          value={props.value}
+          placeholder={props.placeholder}
+          onChange={props.onChange}
+        />
+      </div>
+    );
+  },
+);
+
+export default FormInput;

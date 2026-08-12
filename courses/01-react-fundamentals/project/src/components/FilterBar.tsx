@@ -1,5 +1,6 @@
 import Button from "./Button";
 import FormInput from "./FormInput";
+import { useEffect, useRef } from "react";
 interface FilterBarProps {
   filter: "all" | "active" | "completed";
   sortOrder: string;
@@ -13,6 +14,11 @@ interface FilterBarProps {
 }
 
 export default function FilterBar(props: FilterBarProps) {
+  const searchInputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    searchInputRef.current?.focus();
+  }, []);
   return (
     <div id="filter-bar">
       <Button
@@ -37,7 +43,8 @@ export default function FilterBar(props: FilterBarProps) {
       </Button>
 
       <FormInput
-        id="search-FormInput"
+        id="search-input"
+        ref={searchInputRef}
         type="text"
         placeholder="Search tasks..."
         value={props.searchText}
@@ -57,7 +64,7 @@ export default function FilterBar(props: FilterBarProps) {
       >
         <option value="all">All categories</option>
 
-        {props.categories.map((category) => (
+        {(props.categories ?? []).map((category) => (
           <option key={category} value={category}>
             {category}
           </option>
