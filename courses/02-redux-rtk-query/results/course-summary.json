@@ -1,10 +1,10 @@
 {
   "courseId": "02-redux-rtk-query",
   "courseName": "Redux & RTK Query",
-  "lastUpdated": "2026-08-19T11:57:45.564Z",
+  "lastUpdated": "2026-08-19T11:58:46.679Z",
   "totalChallenges": 13,
   "completedChallenges": 7,
-  "averageScore": 93.1,
+  "averageScore": 95.5,
   "completionPercentage": 53.8,
   "badgeLevel": "bronze",
   "challengeResults": [
@@ -41,7 +41,7 @@
     {
       "challengeId": "06-rtk-query-setup",
       "challengeName": "RTK Query Setup and API Slice",
-      "score": 80.05,
+      "score": 96.7,
       "passed": true
     },
     {

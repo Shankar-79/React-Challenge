@@ -53,34 +53,6 @@
     }
   },
   {
-    "challengeId": "06-rtk-query-setup",
-    "challengeName": "RTK Query Setup and API Slice",
-    "aiReview": {
-      "challengeId": "06-rtk-query-setup",
-      "timestamp": "2026-08-19T11:29:04.269Z",
-      "score": 67,
-      "feedback": [],
-      "strengths": [
-        "The API slice uses `createApi` with `fetchBaseQuery`, demonstrating a solid grasp of RTK Query fundamentals.",
-        "Error handling in the `queryFn` is explicit and returns a custom error object, which is good practice for debugging.",
-        "The mock server is well‑structured, providing clear interfaces for users and posts and simulating network latency."
-      ],
-      "improvements": [
-        "Add the RTK Query middleware to the store: `middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(apiSlice.middleware)` (see `src/store/store.ts`).",
-        "Export the generated hooks from the API slice so components can consume them: `export const { useGetUsersQuery } = apiSlice;` (see `src/api/apiSlice.ts`).",
-        "Import `fetchBaseQuery` from `@reduxjs/toolkit/query/react` instead of `@reduxjs/toolkit/query` to automatically expose the hooks.",
-        "Rename the endpoint from `getusers` to `getUsers` (camelCase) to match the hook naming convention (`useGetUsersQuery`).",
-        "Add a comment or JSDoc to the `apiSlice` explaining the purpose of `queryFn` and why a custom baseQuery isn’t used.",
-        "Consider adding a `reducerPath` constant or using the default `api` path to avoid hard‑coding strings.",
-        "Include a small example component or test that uses `useGetUsersQuery` to demonstrate the hook in action."
-      ],
-      "readability": 80,
-      "maintainability": 70,
-      "overall": "The implementation demonstrates a good understanding of RTK Query basics but falls short of full compliance by omitting the middleware integration and hook exports. Once those gaps are addressed, the code will satisfy the challenge requirements and follow best practices.",
-      "requirementCompliance": 55
-    }
-  },
-  {
     "challengeId": "07-queries",
     "challengeName": "Query Endpoints and useQuery Hooks",
     "aiReview": {
@@ -183,6 +155,33 @@
       "maintainability": 75,
       "overall": "The implementation satisfies the core requirements: a thunk that fetches users, a slice that handles pending/fulfilled/rejected states, and integration into the Redux store. The code is readable and type‑safe, but a few naming and type‑inference improvements would make it more idiomatic and easier to extend.",
       "requirementCompliance": 90
+    }
+  },
+  {
+    "challengeId": "06-rtk-query-setup",
+    "challengeName": "RTK Query Setup and API Slice",
+    "aiReview": {
+      "challengeId": "06-rtk-query-setup",
+      "timestamp": "2026-08-19T11:58:44.624Z",
+      "score": 78,
+      "feedback": [],
+      "strengths": [
+        "Implemented `createApi` with `fetchBaseQuery` and a custom `queryFn` to integrate the mock API.",
+        "Exported the generated hook `useGetUsersQuery` for easy consumption in components.",
+        "Store configuration includes all existing slices and a clear reducer map."
+      ],
+      "improvements": [
+        "Add RTK Query middleware to the store: `middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(apiSlice.middleware)` in `src/store/store.ts`.",
+        "Remove the duplicate `User` interface from `src/api/apiSlice.ts` and reuse the one exported from `src/api/mockServer.ts` to avoid type duplication.",
+        "Replace the non‑standard `useDispatch.withTypes<AppDispatch>()` with the recommended `useDispatch<AppDispatch>()` in `src/store/hooks.ts`.",
+        "Consider adding a `baseUrl` that matches the mock server’s path or remove it if not needed to avoid confusion.",
+        "Add a second endpoint (e.g., `getUserById`) to demonstrate RTK Query’s ability to handle parameters and to satisfy future challenge requirements.",
+        "Document the purpose of `queryFn` in comments to clarify why it’s used instead of the standard `query` field."
+      ],
+      "readability": 85,
+      "maintainability": 80,
+      "overall": "The implementation correctly sets up an API slice with a custom query function and exports the necessary hook, but it misses the critical RTK Query middleware in the store, which will prevent caching and automatic refetching from working. Adding the middleware and cleaning up duplicated types will bring the solution fully compliant with the challenge requirements and best practices.",
+      "requirementCompliance": 70
     }
   }
 ]
