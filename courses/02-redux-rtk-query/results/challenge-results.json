@@ -1017,5 +1017,606 @@
       "overall": "The implementation satisfies all challenge requirements: a second UI slice is created, both slices are registered in the store, and typed hooks are provided. While the code is clean and functional, adding explicit types and a few style touches would make it even more maintainable and future‑proof.",
       "requirementCompliance": 95
     }
+  },
+  {
+    "challengeId": "05-async-thunks",
+    "challengeName": "Async Logic with createAsyncThunk",
+    "timestamp": "2026-08-19T11:10:15.156Z",
+    "scores": {
+      "functionalTests": 100,
+      "codeQuality": 100,
+      "architecture": 100,
+      "bestPractices": 100,
+      "e2eTests": 0,
+      "aiReview": 83
+    },
+    "totalScore": 82.45,
+    "passed": true,
+    "errors": [],
+    "warnings": [],
+    "testResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 3,
+      "passedTests": 3,
+      "failedTests": 0,
+      "details": [
+        {
+          "assertionResults": [
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 05: Async Logic with createAsyncThunk"
+              ],
+              "fullName": " Challenge 05: Async Logic with createAsyncThunk usersSlice uses createAsyncThunk",
+              "status": "passed",
+              "title": "usersSlice uses createAsyncThunk",
+              "duration": 2,
+              "failureMessages": []
+            },
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 05: Async Logic with createAsyncThunk"
+              ],
+              "fullName": " Challenge 05: Async Logic with createAsyncThunk usersSlice uses extraReducers",
+              "status": "passed",
+              "title": "usersSlice uses extraReducers",
+              "duration": 1,
+              "failureMessages": []
+            },
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 05: Async Logic with createAsyncThunk"
+              ],
+              "fullName": " Challenge 05: Async Logic with createAsyncThunk store includes users reducer",
+              "status": "passed",
+              "title": "store includes users reducer",
+              "duration": 1,
+              "failureMessages": []
+            }
+          ],
+          "startTime": 1787137818647,
+          "endTime": 1787137818651,
+          "status": "passed",
+          "message": "",
+          "name": "C:/Spark+/challenge-engine-react/courses/02-redux-rtk-query/project/tests/challenge-05.test.tsx"
+        }
+      ]
+    },
+    "lintResults": {
+      "score": 100,
+      "passed": true,
+      "totalIssues": 0,
+      "errors": 0,
+      "warnings": 0,
+      "details": [
+        {
+          "filePath": "C:\\Spark+\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\src\\store\\slices\\usersSlice.ts",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": [
+            {
+              "ruleId": "no-extra-semi",
+              "replacedBy": []
+            },
+            {
+              "ruleId": "no-mixed-spaces-and-tabs",
+              "replacedBy": []
+            }
+          ]
+        },
+        {
+          "filePath": "C:\\Spark+\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\src\\store\\store.ts",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": [
+            {
+              "ruleId": "no-extra-semi",
+              "replacedBy": []
+            },
+            {
+              "ruleId": "no-mixed-spaces-and-tabs",
+              "replacedBy": []
+            }
+          ]
+        }
+      ]
+    },
+    "architectureResults": {
+      "score": 100,
+      "passed": true,
+      "patternsFound": [
+        "reducer",
+        "middleware"
+      ],
+      "patternsMissing": [],
+      "details": [
+        {
+          "file": "src/store/slices/usersSlice.ts",
+          "patternsFound": [],
+          "patternsMissing": []
+        },
+        {
+          "file": "src/store/store.ts",
+          "patternsFound": [
+            "reducer",
+            "middleware"
+          ],
+          "patternsMissing": []
+        }
+      ]
+    },
+    "bestPracticesResults": {
+      "score": 100,
+      "passed": true,
+      "issues": [],
+      "details": [],
+      "note": "No best practices requirements specified in challenge"
+    },
+    "e2eResults": {
+      "score": 0,
+      "passed": false,
+      "totalTests": 0,
+      "passedTests": 0,
+      "failedTests": 0,
+      "details": [],
+      "error": "Command failed: npx playwright test \"tests/e2e/challenge-05.spec.ts\" --reporter=json"
+    },
+    "aiReviewResults": {
+      "challengeId": "05-async-thunks",
+      "timestamp": "2026-08-19T11:10:24.020Z",
+      "score": 83,
+      "feedback": [],
+      "strengths": [
+        "Correct implementation of `createAsyncThunk` and `extraReducers` to manage async user fetching.",
+        "Clear state shape (`list`, `loading`, `error`) with proper TypeScript typing.",
+        "Users reducer is correctly added to the Redux store and the store configuration is concise."
+      ],
+      "improvements": [
+        "Rename the thunk and related identifiers to follow the required naming convention: change `fetchusers` to `fetchUsers` and update the action type to `'users/fetchUsers'` in `src/store/slices/usersSlice.ts`.",
+        "Use PascalCase for TypeScript interfaces: rename `user` → `User` and `usersState` → `UsersState` for consistency and readability.",
+        "Adjust the store import to use a singular reducer name (`usersReducer`) and consider exporting the thunk and reducer with explicit names (`export const fetchUsers = ...; export default usersSlice.reducer;`) for clarity."
+      ],
+      "readability": 80,
+      "maintainability": 75,
+      "overall": "The implementation satisfies the core requirement of using `createAsyncThunk` with `extraReducers` and integrates the users slice into the store. Minor naming inconsistencies and TypeScript conventions should be addressed to improve readability and maintainability.",
+      "requirementCompliance": 90
+    },
+    "aiResults": {
+      "challengeId": "05-async-thunks",
+      "timestamp": "2026-08-19T11:10:24.020Z",
+      "score": 83,
+      "feedback": [],
+      "strengths": [
+        "Correct implementation of `createAsyncThunk` and `extraReducers` to manage async user fetching.",
+        "Clear state shape (`list`, `loading`, `error`) with proper TypeScript typing.",
+        "Users reducer is correctly added to the Redux store and the store configuration is concise."
+      ],
+      "improvements": [
+        "Rename the thunk and related identifiers to follow the required naming convention: change `fetchusers` to `fetchUsers` and update the action type to `'users/fetchUsers'` in `src/store/slices/usersSlice.ts`.",
+        "Use PascalCase for TypeScript interfaces: rename `user` → `User` and `usersState` → `UsersState` for consistency and readability.",
+        "Adjust the store import to use a singular reducer name (`usersReducer`) and consider exporting the thunk and reducer with explicit names (`export const fetchUsers = ...; export default usersSlice.reducer;`) for clarity."
+      ],
+      "readability": 80,
+      "maintainability": 75,
+      "overall": "The implementation satisfies the core requirement of using `createAsyncThunk` with `extraReducers` and integrates the users slice into the store. Minor naming inconsistencies and TypeScript conventions should be addressed to improve readability and maintainability.",
+      "requirementCompliance": 90
+    }
+  },
+  {
+    "challengeId": "06-rtk-query-setup",
+    "challengeName": "RTK Query Setup and API Slice",
+    "timestamp": "2026-08-19T11:28:54.360Z",
+    "scores": {
+      "functionalTests": 100,
+      "codeQuality": 100,
+      "architecture": 100,
+      "bestPractices": 100,
+      "e2eTests": 0,
+      "aiReview": 67
+    },
+    "totalScore": 80.05,
+    "passed": true,
+    "errors": [],
+    "warnings": [],
+    "testResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 3,
+      "passedTests": 3,
+      "failedTests": 0,
+      "details": [
+        {
+          "assertionResults": [
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 06: RTK Query Setup"
+              ],
+              "fullName": " Challenge 06: RTK Query Setup apiSlice uses createApi",
+              "status": "passed",
+              "title": "apiSlice uses createApi",
+              "duration": 2,
+              "failureMessages": []
+            },
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 06: RTK Query Setup"
+              ],
+              "fullName": " Challenge 06: RTK Query Setup apiSlice has baseQuery or fetchBaseQuery",
+              "status": "passed",
+              "title": "apiSlice has baseQuery or fetchBaseQuery",
+              "duration": 1,
+              "failureMessages": []
+            },
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 06: RTK Query Setup"
+              ],
+              "fullName": " Challenge 06: RTK Query Setup store includes API reducer and middleware",
+              "status": "passed",
+              "title": "store includes API reducer and middleware",
+              "duration": 0,
+              "failureMessages": []
+            }
+          ],
+          "startTime": 1787138938118,
+          "endTime": 1787138938121,
+          "status": "passed",
+          "message": "",
+          "name": "C:/Spark+/challenge-engine-react/courses/02-redux-rtk-query/project/tests/challenge-06.test.tsx"
+        }
+      ]
+    },
+    "lintResults": {
+      "score": 100,
+      "passed": true,
+      "totalIssues": 0,
+      "errors": 0,
+      "warnings": 0,
+      "details": [
+        {
+          "filePath": "C:\\Spark+\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\src\\api\\apiSlice.ts",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": [
+            {
+              "ruleId": "no-extra-semi",
+              "replacedBy": []
+            },
+            {
+              "ruleId": "no-mixed-spaces-and-tabs",
+              "replacedBy": []
+            }
+          ]
+        },
+        {
+          "filePath": "C:\\Spark+\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\src\\store\\store.ts",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": [
+            {
+              "ruleId": "no-extra-semi",
+              "replacedBy": []
+            },
+            {
+              "ruleId": "no-mixed-spaces-and-tabs",
+              "replacedBy": []
+            }
+          ]
+        }
+      ]
+    },
+    "architectureResults": {
+      "score": 100,
+      "passed": true,
+      "patternsFound": [
+        "reducer",
+        "middleware"
+      ],
+      "patternsMissing": [],
+      "details": [
+        {
+          "file": "src/store/store.ts",
+          "patternsFound": [
+            "reducer",
+            "middleware"
+          ],
+          "patternsMissing": []
+        },
+        {
+          "file": "src/api/apiSlice.ts",
+          "patternsFound": [],
+          "patternsMissing": []
+        }
+      ]
+    },
+    "bestPracticesResults": {
+      "score": 100,
+      "passed": true,
+      "issues": [],
+      "details": [],
+      "note": "No best practices requirements specified in challenge"
+    },
+    "e2eResults": {
+      "score": 0,
+      "passed": false,
+      "totalTests": 0,
+      "passedTests": 0,
+      "failedTests": 0,
+      "details": [],
+      "error": "Command failed: npx playwright test \"tests/e2e/challenge-06.spec.ts\" --reporter=json"
+    },
+    "aiReviewResults": {
+      "challengeId": "06-rtk-query-setup",
+      "timestamp": "2026-08-19T11:29:04.269Z",
+      "score": 67,
+      "feedback": [],
+      "strengths": [
+        "The API slice uses `createApi` with `fetchBaseQuery`, demonstrating a solid grasp of RTK Query fundamentals.",
+        "Error handling in the `queryFn` is explicit and returns a custom error object, which is good practice for debugging.",
+        "The mock server is well‑structured, providing clear interfaces for users and posts and simulating network latency."
+      ],
+      "improvements": [
+        "Add the RTK Query middleware to the store: `middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(apiSlice.middleware)` (see `src/store/store.ts`).",
+        "Export the generated hooks from the API slice so components can consume them: `export const { useGetUsersQuery } = apiSlice;` (see `src/api/apiSlice.ts`).",
+        "Import `fetchBaseQuery` from `@reduxjs/toolkit/query/react` instead of `@reduxjs/toolkit/query` to automatically expose the hooks.",
+        "Rename the endpoint from `getusers` to `getUsers` (camelCase) to match the hook naming convention (`useGetUsersQuery`).",
+        "Add a comment or JSDoc to the `apiSlice` explaining the purpose of `queryFn` and why a custom baseQuery isn’t used.",
+        "Consider adding a `reducerPath` constant or using the default `api` path to avoid hard‑coding strings.",
+        "Include a small example component or test that uses `useGetUsersQuery` to demonstrate the hook in action."
+      ],
+      "readability": 80,
+      "maintainability": 70,
+      "overall": "The implementation demonstrates a good understanding of RTK Query basics but falls short of full compliance by omitting the middleware integration and hook exports. Once those gaps are addressed, the code will satisfy the challenge requirements and follow best practices.",
+      "requirementCompliance": 55
+    },
+    "aiResults": {
+      "challengeId": "06-rtk-query-setup",
+      "timestamp": "2026-08-19T11:29:04.269Z",
+      "score": 67,
+      "feedback": [],
+      "strengths": [
+        "The API slice uses `createApi` with `fetchBaseQuery`, demonstrating a solid grasp of RTK Query fundamentals.",
+        "Error handling in the `queryFn` is explicit and returns a custom error object, which is good practice for debugging.",
+        "The mock server is well‑structured, providing clear interfaces for users and posts and simulating network latency."
+      ],
+      "improvements": [
+        "Add the RTK Query middleware to the store: `middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(apiSlice.middleware)` (see `src/store/store.ts`).",
+        "Export the generated hooks from the API slice so components can consume them: `export const { useGetUsersQuery } = apiSlice;` (see `src/api/apiSlice.ts`).",
+        "Import `fetchBaseQuery` from `@reduxjs/toolkit/query/react` instead of `@reduxjs/toolkit/query` to automatically expose the hooks.",
+        "Rename the endpoint from `getusers` to `getUsers` (camelCase) to match the hook naming convention (`useGetUsersQuery`).",
+        "Add a comment or JSDoc to the `apiSlice` explaining the purpose of `queryFn` and why a custom baseQuery isn’t used.",
+        "Consider adding a `reducerPath` constant or using the default `api` path to avoid hard‑coding strings.",
+        "Include a small example component or test that uses `useGetUsersQuery` to demonstrate the hook in action."
+      ],
+      "readability": 80,
+      "maintainability": 70,
+      "overall": "The implementation demonstrates a good understanding of RTK Query basics but falls short of full compliance by omitting the middleware integration and hook exports. Once those gaps are addressed, the code will satisfy the challenge requirements and follow best practices.",
+      "requirementCompliance": 55
+    }
+  },
+  {
+    "challengeId": "07-queries",
+    "challengeName": "Query Endpoints and useQuery Hooks",
+    "timestamp": "2026-08-19T11:47:38.777Z",
+    "scores": {
+      "functionalTests": 100,
+      "codeQuality": 100,
+      "architecture": 100,
+      "bestPractices": 100,
+      "e2eTests": 0,
+      "aiReview": 86
+    },
+    "totalScore": 82.9,
+    "passed": true,
+    "errors": [],
+    "warnings": [],
+    "testResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 3,
+      "passedTests": 3,
+      "failedTests": 0,
+      "details": [
+        {
+          "assertionResults": [
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 07: Query Endpoints and useQuery Hooks"
+              ],
+              "fullName": " Challenge 07: Query Endpoints and useQuery Hooks API slice has getUsers query endpoint",
+              "status": "passed",
+              "title": "API slice has getUsers query endpoint",
+              "duration": 1,
+              "failureMessages": []
+            },
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 07: Query Endpoints and useQuery Hooks"
+              ],
+              "fullName": " Challenge 07: Query Endpoints and useQuery Hooks UsersList uses useGetUsersQuery or generated query hook",
+              "status": "passed",
+              "title": "UsersList uses useGetUsersQuery or generated query hook",
+              "duration": 1,
+              "failureMessages": []
+            },
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 07: Query Endpoints and useQuery Hooks"
+              ],
+              "fullName": " Challenge 07: Query Endpoints and useQuery Hooks UsersList has users-list data-testid",
+              "status": "passed",
+              "title": "UsersList has users-list data-testid",
+              "duration": 1,
+              "failureMessages": []
+            }
+          ],
+          "startTime": 1787140062451,
+          "endTime": 1787140062454,
+          "status": "passed",
+          "message": "",
+          "name": "C:/Spark+/challenge-engine-react/courses/02-redux-rtk-query/project/tests/challenge-07.test.tsx"
+        }
+      ]
+    },
+    "lintResults": {
+      "score": 100,
+      "passed": true,
+      "totalIssues": 0,
+      "errors": 0,
+      "warnings": 0,
+      "details": [
+        {
+          "filePath": "C:\\Spark+\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\src\\api\\apiSlice.ts",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": [
+            {
+              "ruleId": "no-extra-semi",
+              "replacedBy": []
+            },
+            {
+              "ruleId": "no-mixed-spaces-and-tabs",
+              "replacedBy": []
+            }
+          ]
+        },
+        {
+          "filePath": "C:\\Spark+\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\src\\components\\UsersList.tsx",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": [
+            {
+              "ruleId": "no-extra-semi",
+              "replacedBy": []
+            },
+            {
+              "ruleId": "no-mixed-spaces-and-tabs",
+              "replacedBy": []
+            }
+          ]
+        }
+      ]
+    },
+    "architectureResults": {
+      "score": 100,
+      "passed": true,
+      "patternsFound": [
+        "useQueryHook"
+      ],
+      "patternsMissing": [],
+      "details": [
+        {
+          "file": "src/api/apiSlice.ts",
+          "patternsFound": [],
+          "patternsMissing": []
+        },
+        {
+          "file": "src/components/UsersList.tsx",
+          "patternsFound": [
+            "useQueryHook"
+          ],
+          "patternsMissing": []
+        }
+      ]
+    },
+    "bestPracticesResults": {
+      "score": 100,
+      "passed": true,
+      "issues": [],
+      "details": [],
+      "note": "No best practices requirements specified in challenge"
+    },
+    "e2eResults": {
+      "score": 0,
+      "passed": false,
+      "totalTests": 0,
+      "passedTests": 0,
+      "failedTests": 0,
+      "details": [],
+      "error": "Command failed: npx playwright test \"tests/e2e/challenge-07.spec.ts\" --reporter=json"
+    },
+    "aiReviewResults": {
+      "challengeId": "07-queries",
+      "timestamp": "2026-08-19T11:47:48.336Z",
+      "score": 86,
+      "feedback": [],
+      "strengths": [
+        "Clear separation of API logic and UI – the `apiSlice` defines the query endpoint and the component consumes the generated hook.",
+        "Proper use of RTK Query patterns (`createApi`, `builder.query`, `useGetUsersQuery`).",
+        "Consistent use of `data-testid` attributes for testing and a straightforward loading/error/data flow."
+      ],
+      "improvements": [
+        "Remove the duplicate `User` interface in `src/api/mockServer.ts` – import the type from the API slice or create a shared types file.",
+        "Leverage the `error` object returned by `useGetUsersQuery` to display a meaningful message instead of a hard‑coded string.",
+        "Confirm that the `apiSlice.reducer` is added to the Redux store (e.g., `store.ts` should include `apiSlice.reducerPath: apiSlice.reducer`).",
+        "Consider using `isFetching` for a more accurate loading indicator if you want to differentiate between initial load and refetches.",
+        "Add a small comment in `apiSlice.ts` explaining why `queryFn` is used instead of a simple `query` string (e.g., to keep the example self‑contained)."
+      ],
+      "readability": 85,
+      "maintainability": 80,
+      "overall": "The implementation satisfies the core challenge requirements: a query endpoint is defined, the generated hook is used in a component, and loading/error states are handled. Minor refinements such as error messaging, type deduplication, and explicit store integration would bring the solution up to a higher standard.",
+      "requirementCompliance": 90
+    },
+    "aiResults": {
+      "challengeId": "07-queries",
+      "timestamp": "2026-08-19T11:47:48.336Z",
+      "score": 86,
+      "feedback": [],
+      "strengths": [
+        "Clear separation of API logic and UI – the `apiSlice` defines the query endpoint and the component consumes the generated hook.",
+        "Proper use of RTK Query patterns (`createApi`, `builder.query`, `useGetUsersQuery`).",
+        "Consistent use of `data-testid` attributes for testing and a straightforward loading/error/data flow."
+      ],
+      "improvements": [
+        "Remove the duplicate `User` interface in `src/api/mockServer.ts` – import the type from the API slice or create a shared types file.",
+        "Leverage the `error` object returned by `useGetUsersQuery` to display a meaningful message instead of a hard‑coded string.",
+        "Confirm that the `apiSlice.reducer` is added to the Redux store (e.g., `store.ts` should include `apiSlice.reducerPath: apiSlice.reducer`).",
+        "Consider using `isFetching` for a more accurate loading indicator if you want to differentiate between initial load and refetches.",
+        "Add a small comment in `apiSlice.ts` explaining why `queryFn` is used instead of a simple `query` string (e.g., to keep the example self‑contained)."
+      ],
+      "readability": 85,
+      "maintainability": 80,
+      "overall": "The implementation satisfies the core challenge requirements: a query endpoint is defined, the generated hook is used in a component, and loading/error states are handled. Minor refinements such as error messaging, type deduplication, and explicit store integration would bring the solution up to a higher standard.",
+      "requirementCompliance": 90
+    }
   }
 ]
