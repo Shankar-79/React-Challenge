@@ -53,30 +53,6 @@
     }
   },
   {
-    "challengeId": "01-store-setup",
-    "challengeName": "Store Setup with configureStore",
-    "aiReview": {
-      "challengeId": "01-store-setup",
-      "timestamp": "2026-08-19T10:52:03.909Z",
-      "score": 88,
-      "feedback": [],
-      "strengths": [
-        "The store is correctly created with `configureStore` and the Provider wraps the app in `main.tsx`.",
-        "Typed hooks (`useAppDispatch` and `useAppSelector`) are implemented using `withTypes`, ensuring type safety across the app.",
-        "The routing and navigation in `App.tsx` are clearly structured, making it easy to locate each challenge route."
-      ],
-      "improvements": [
-        "In `src/store/store.ts`, the `middleware` option is currently a no‑op (`(getDefaultMiddleware) => getDefaultMiddleware()`). Remove the explicit `middleware` field or add custom middleware only when needed to keep the store configuration concise.",
-        "The typed hooks in `src/store/hooks.ts` use the less common `.withTypes` pattern. Consider switching to the more widely adopted pattern: `export const useAppDispatch = () => useDispatch<AppDispatch>(); export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;` for better readability and consistency with the RTK docs.",
-        "Inline styles in `App.tsx` (e.g., `style={{ margin: '0 0.5rem', color: 'inherit' }}`) can be extracted into a CSS module or styled‑components to improve maintainability and avoid repetitive code."
-      ],
-      "readability": 85,
-      "maintainability": 80,
-      "overall": "The implementation satisfies all functional requirements for setting up the Redux store and Provider, and it follows good TypeScript practices. Minor refactoring of the store configuration and typed hooks would further align the code with common RTK patterns and improve readability.",
-      "requirementCompliance": 95
-    }
-  },
-  {
     "challengeId": "05-async-thunks",
     "challengeName": "Async Logic with createAsyncThunk",
     "aiReview": {
@@ -179,6 +155,30 @@
       "maintainability": 80,
       "overall": "The implementation satisfies the core requirement of adding a second UI slice and registering both slices in the store. The code is well‑structured and type‑safe, but a few small adjustments—particularly adding RTK Query middleware and tightening type definitions—would make it more robust and maintainable.",
       "requirementCompliance": 95
+    }
+  },
+  {
+    "challengeId": "01-store-setup",
+    "challengeName": "Store Setup with configureStore",
+    "aiReview": {
+      "challengeId": "01-store-setup",
+      "timestamp": "2026-08-19T11:53:47.540Z",
+      "score": 83,
+      "feedback": [],
+      "strengths": [
+        "Correct use of `configureStore` and `Provider` to set up the Redux store and make it available to the app.",
+        "Exporting `RootState` and `AppDispatch` types from the store for strong typing throughout the codebase.",
+        "Logical project structure with separate folders for store, slices, and API logic."
+      ],
+      "improvements": [
+        "Add `apiSlice.middleware` to the store’s middleware chain: `middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(apiSlice.middleware)` to enable RTK Query functionality.",
+        "Fix the typed hooks in `src/store/hooks.ts`. Replace the incorrect `useDispatch.withTypes<AppDispatch>()` with a proper typed hook: `export const useAppDispatch = () => useDispatch<AppDispatch>();` and `export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;`.",
+        "Simplify the middleware configuration in `store.ts`. The current `middleware: (getDefaultMiddleware) => getDefaultMiddleware(),` is redundant; it can be replaced with `middleware: getDefaultMiddleware()` or the concatenated version mentioned above."
+      ],
+      "readability": 85,
+      "maintainability": 70,
+      "overall": "The implementation satisfies the core requirement of setting up a Redux store and wrapping the app with a Provider. However, the missing RTK Query middleware and the incorrectly typed hooks will break later challenges that rely on typed dispatch/selector usage and API queries. Addressing these issues will bring the code in line with best practices and ensure smooth progression through the remaining challenges.",
+      "requirementCompliance": 90
     }
   }
 ]
