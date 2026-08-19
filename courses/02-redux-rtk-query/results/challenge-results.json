@@ -1195,16 +1195,16 @@
   {
     "challengeId": "05-async-thunks",
     "challengeName": "Async Logic with createAsyncThunk",
-    "timestamp": "2026-08-19T11:10:15.156Z",
+    "timestamp": "2026-08-19T11:57:28.060Z",
     "scores": {
       "functionalTests": 100,
       "codeQuality": 100,
       "architecture": 100,
       "bestPractices": 100,
-      "e2eTests": 0,
+      "e2eTests": 100,
       "aiReview": 83
     },
-    "totalScore": 82.45,
+    "totalScore": 97.45,
     "passed": true,
     "errors": [],
     "warnings": [],
@@ -1236,7 +1236,7 @@
               "fullName": " Challenge 05: Async Logic with createAsyncThunk usersSlice uses extraReducers",
               "status": "passed",
               "title": "usersSlice uses extraReducers",
-              "duration": 1,
+              "duration": 0,
               "failureMessages": []
             },
             {
@@ -1251,8 +1251,8 @@
               "failureMessages": []
             }
           ],
-          "startTime": 1787137818647,
-          "endTime": 1787137818651,
+          "startTime": 1787140651815,
+          "endTime": 1787140651818,
           "status": "passed",
           "message": "",
           "name": "C:/Spark+/challenge-engine-react/courses/02-redux-rtk-query/project/tests/challenge-05.test.tsx"
@@ -1340,52 +1340,146 @@
       "note": "No best practices requirements specified in challenge"
     },
     "e2eResults": {
-      "score": 0,
-      "passed": false,
-      "totalTests": 0,
-      "passedTests": 0,
+      "score": 100,
+      "passed": true,
+      "totalTests": 2,
+      "passedTests": 2,
       "failedTests": 0,
-      "details": [],
-      "error": "Command failed: npx playwright test \"tests/e2e/challenge-05.spec.ts\" --reporter=json"
+      "details": [
+        {
+          "title": "challenge-05.spec.ts",
+          "file": "challenge-05.spec.ts",
+          "column": 0,
+          "line": 0,
+          "specs": [],
+          "suites": [
+            {
+              "title": "Challenge 05: Async Thunks - E2E",
+              "file": "challenge-05.spec.ts",
+              "line": 3,
+              "column": 6,
+              "specs": [
+                {
+                  "title": "should load challenge 05 page",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 1798,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-08-19T11:57:40.651Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "ec25b63e8ac6a5e53e87-a0356a2890abe11abcb0",
+                  "file": "challenge-05.spec.ts",
+                  "line": 8,
+                  "column": 3
+                },
+                {
+                  "title": "should have challenge content",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 223,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-08-19T11:57:42.569Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "ec25b63e8ac6a5e53e87-35d9e52e621ddedf3eac",
+                  "file": "challenge-05.spec.ts",
+                  "line": 13,
+                  "column": 3
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "screenshots": []
     },
     "aiReviewResults": {
       "challengeId": "05-async-thunks",
-      "timestamp": "2026-08-19T11:10:24.020Z",
+      "timestamp": "2026-08-19T11:57:43.125Z",
       "score": 83,
       "feedback": [],
       "strengths": [
-        "Correct implementation of `createAsyncThunk` and `extraReducers` to manage async user fetching.",
-        "Clear state shape (`list`, `loading`, `error`) with proper TypeScript typing.",
-        "Users reducer is correctly added to the Redux store and the store configuration is concise."
+        "Implemented `createAsyncThunk` and `createSlice` with `extraReducers` correctly.",
+        "Store configuration includes the new users reducer and the existing API slice.",
+        "TypeScript is used throughout, and the code compiles without ESLint errors."
       ],
       "improvements": [
-        "Rename the thunk and related identifiers to follow the required naming convention: change `fetchusers` to `fetchUsers` and update the action type to `'users/fetchUsers'` in `src/store/slices/usersSlice.ts`.",
-        "Use PascalCase for TypeScript interfaces: rename `user` → `User` and `usersState` → `UsersState` for consistency and readability.",
-        "Adjust the store import to use a singular reducer name (`usersReducer`) and consider exporting the thunk and reducer with explicit names (`export const fetchUsers = ...; export default usersSlice.reducer;`) for clarity."
+        "Rename the `user` interface to `User` and the `usersState` interface to `UsersState` to follow PascalCase conventions (src/store/slices/usersSlice.ts).",
+        "Rename the thunk from `fetchusers` to `fetchUsers` for consistency with the slice name and typical naming conventions (src/store/slices/usersSlice.ts).",
+        "Add generic type parameters to `createAsyncThunk` so the return type is inferred as `User[]` and the reject value is a string (src/store/slices/usersSlice.ts).",
+        "Export the reducer with a descriptive name (`usersReducer`) instead of the default export and import it in the store as `usersReducer` (src/store/store.ts).",
+        "Include `apiSlice.middleware` in the store's middleware chain if the API slice is used elsewhere (src/store/store.ts).",
+        "Add a brief comment above the thunk explaining its purpose and the API it calls.",
+        "Consider adding a `status` field (`'idle' | 'loading' | 'succeeded' | 'failed'`) instead of a boolean `loading` for more expressive UI state handling."
       ],
       "readability": 80,
       "maintainability": 75,
-      "overall": "The implementation satisfies the core requirement of using `createAsyncThunk` with `extraReducers` and integrates the users slice into the store. Minor naming inconsistencies and TypeScript conventions should be addressed to improve readability and maintainability.",
+      "overall": "The implementation satisfies the core requirements: a thunk that fetches users, a slice that handles pending/fulfilled/rejected states, and integration into the Redux store. The code is readable and type‑safe, but a few naming and type‑inference improvements would make it more idiomatic and easier to extend.",
       "requirementCompliance": 90
     },
     "aiResults": {
       "challengeId": "05-async-thunks",
-      "timestamp": "2026-08-19T11:10:24.020Z",
+      "timestamp": "2026-08-19T11:57:43.125Z",
       "score": 83,
       "feedback": [],
       "strengths": [
-        "Correct implementation of `createAsyncThunk` and `extraReducers` to manage async user fetching.",
-        "Clear state shape (`list`, `loading`, `error`) with proper TypeScript typing.",
-        "Users reducer is correctly added to the Redux store and the store configuration is concise."
+        "Implemented `createAsyncThunk` and `createSlice` with `extraReducers` correctly.",
+        "Store configuration includes the new users reducer and the existing API slice.",
+        "TypeScript is used throughout, and the code compiles without ESLint errors."
       ],
       "improvements": [
-        "Rename the thunk and related identifiers to follow the required naming convention: change `fetchusers` to `fetchUsers` and update the action type to `'users/fetchUsers'` in `src/store/slices/usersSlice.ts`.",
-        "Use PascalCase for TypeScript interfaces: rename `user` → `User` and `usersState` → `UsersState` for consistency and readability.",
-        "Adjust the store import to use a singular reducer name (`usersReducer`) and consider exporting the thunk and reducer with explicit names (`export const fetchUsers = ...; export default usersSlice.reducer;`) for clarity."
+        "Rename the `user` interface to `User` and the `usersState` interface to `UsersState` to follow PascalCase conventions (src/store/slices/usersSlice.ts).",
+        "Rename the thunk from `fetchusers` to `fetchUsers` for consistency with the slice name and typical naming conventions (src/store/slices/usersSlice.ts).",
+        "Add generic type parameters to `createAsyncThunk` so the return type is inferred as `User[]` and the reject value is a string (src/store/slices/usersSlice.ts).",
+        "Export the reducer with a descriptive name (`usersReducer`) instead of the default export and import it in the store as `usersReducer` (src/store/store.ts).",
+        "Include `apiSlice.middleware` in the store's middleware chain if the API slice is used elsewhere (src/store/store.ts).",
+        "Add a brief comment above the thunk explaining its purpose and the API it calls.",
+        "Consider adding a `status` field (`'idle' | 'loading' | 'succeeded' | 'failed'`) instead of a boolean `loading` for more expressive UI state handling."
       ],
       "readability": 80,
       "maintainability": 75,
-      "overall": "The implementation satisfies the core requirement of using `createAsyncThunk` with `extraReducers` and integrates the users slice into the store. Minor naming inconsistencies and TypeScript conventions should be addressed to improve readability and maintainability.",
+      "overall": "The implementation satisfies the core requirements: a thunk that fetches users, a slice that handles pending/fulfilled/rejected states, and integration into the Redux store. The code is readable and type‑safe, but a few naming and type‑inference improvements would make it more idiomatic and easier to extend.",
       "requirementCompliance": 90
     }
   },

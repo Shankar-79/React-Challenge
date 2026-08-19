@@ -53,30 +53,6 @@
     }
   },
   {
-    "challengeId": "05-async-thunks",
-    "challengeName": "Async Logic with createAsyncThunk",
-    "aiReview": {
-      "challengeId": "05-async-thunks",
-      "timestamp": "2026-08-19T11:10:24.020Z",
-      "score": 83,
-      "feedback": [],
-      "strengths": [
-        "Correct implementation of `createAsyncThunk` and `extraReducers` to manage async user fetching.",
-        "Clear state shape (`list`, `loading`, `error`) with proper TypeScript typing.",
-        "Users reducer is correctly added to the Redux store and the store configuration is concise."
-      ],
-      "improvements": [
-        "Rename the thunk and related identifiers to follow the required naming convention: change `fetchusers` to `fetchUsers` and update the action type to `'users/fetchUsers'` in `src/store/slices/usersSlice.ts`.",
-        "Use PascalCase for TypeScript interfaces: rename `user` → `User` and `usersState` → `UsersState` for consistency and readability.",
-        "Adjust the store import to use a singular reducer name (`usersReducer`) and consider exporting the thunk and reducer with explicit names (`export const fetchUsers = ...; export default usersSlice.reducer;`) for clarity."
-      ],
-      "readability": 80,
-      "maintainability": 75,
-      "overall": "The implementation satisfies the core requirement of using `createAsyncThunk` with `extraReducers` and integrates the users slice into the store. Minor naming inconsistencies and TypeScript conventions should be addressed to improve readability and maintainability.",
-      "requirementCompliance": 90
-    }
-  },
-  {
     "challengeId": "06-rtk-query-setup",
     "challengeName": "RTK Query Setup and API Slice",
     "aiReview": {
@@ -178,6 +154,34 @@
       "readability": 85,
       "maintainability": 70,
       "overall": "The implementation satisfies the core requirement of setting up a Redux store and wrapping the app with a Provider. However, the missing RTK Query middleware and the incorrectly typed hooks will break later challenges that rely on typed dispatch/selector usage and API queries. Addressing these issues will bring the code in line with best practices and ensure smooth progression through the remaining challenges.",
+      "requirementCompliance": 90
+    }
+  },
+  {
+    "challengeId": "05-async-thunks",
+    "challengeName": "Async Logic with createAsyncThunk",
+    "aiReview": {
+      "challengeId": "05-async-thunks",
+      "timestamp": "2026-08-19T11:57:43.125Z",
+      "score": 83,
+      "feedback": [],
+      "strengths": [
+        "Implemented `createAsyncThunk` and `createSlice` with `extraReducers` correctly.",
+        "Store configuration includes the new users reducer and the existing API slice.",
+        "TypeScript is used throughout, and the code compiles without ESLint errors."
+      ],
+      "improvements": [
+        "Rename the `user` interface to `User` and the `usersState` interface to `UsersState` to follow PascalCase conventions (src/store/slices/usersSlice.ts).",
+        "Rename the thunk from `fetchusers` to `fetchUsers` for consistency with the slice name and typical naming conventions (src/store/slices/usersSlice.ts).",
+        "Add generic type parameters to `createAsyncThunk` so the return type is inferred as `User[]` and the reject value is a string (src/store/slices/usersSlice.ts).",
+        "Export the reducer with a descriptive name (`usersReducer`) instead of the default export and import it in the store as `usersReducer` (src/store/store.ts).",
+        "Include `apiSlice.middleware` in the store's middleware chain if the API slice is used elsewhere (src/store/store.ts).",
+        "Add a brief comment above the thunk explaining its purpose and the API it calls.",
+        "Consider adding a `status` field (`'idle' | 'loading' | 'succeeded' | 'failed'`) instead of a boolean `loading` for more expressive UI state handling."
+      ],
+      "readability": 80,
+      "maintainability": 75,
+      "overall": "The implementation satisfies the core requirements: a thunk that fetches users, a slice that handles pending/fulfilled/rejected states, and integration into the Redux store. The code is readable and type‑safe, but a few naming and type‑inference improvements would make it more idiomatic and easier to extend.",
       "requirementCompliance": 90
     }
   }
