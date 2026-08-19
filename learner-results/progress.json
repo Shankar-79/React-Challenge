@@ -1,13 +1,13 @@
 {
-  "lastUpdated": "2026-08-12T07:42:15.838Z",
+  "lastUpdated": "2026-08-19T10:55:27.927Z",
   "pathway": {
     "name": "Modern React Engineer",
     "version": "1.0.0",
-    "overallScore": 32.4,
-    "completionPercentage": 43.4,
-    "badgeLevel": "none",
+    "overallScore": 62.3,
+    "completionPercentage": 50.9,
+    "badgeLevel": "bronze",
     "totalChallenges": 53,
-    "completedChallenges": 23
+    "completedChallenges": 27
   },
   "courses": {
     "01-react-fundamentals": {
@@ -323,15 +323,15 @@
           "challengeId": "21-react-router",
           "challengeName": "React Router - Routing and Navigation",
           "passed": true,
-          "score": 98.2,
-          "lastRun": "2026-08-12T07:42:00.070Z",
+          "score": 85,
+          "lastRun": "2026-08-12T05:47:02.560Z",
           "scores": {
             "functionalTests": 100,
             "codeQuality": 100,
             "architecture": 100,
             "bestPractices": 100,
             "e2eTests": 100,
-            "aiReview": 88
+            "aiReview": 0
           }
         },
         "22-data-fetching": {
@@ -354,7 +354,7 @@
           "challengeName": "useRef - Focus Management",
           "passed": true,
           "score": 98.2,
-          "lastRun": "2026-08-12T07:32:18.220Z",
+          "lastRun": "2026-08-12T06:37:52.238Z",
           "scores": {
             "functionalTests": 100,
             "codeQuality": 100,
@@ -369,12 +369,73 @@
     "02-redux-rtk-query": {
       "courseId": "02-redux-rtk-query",
       "courseName": "Redux & RTK Query",
-      "averageScore": 0,
-      "completionPercentage": 0,
+      "averageScore": 90.6,
+      "completionPercentage": 30.8,
       "badgeLevel": "none",
       "totalChallenges": 13,
-      "completedChallenges": 0,
-      "challenges": {}
+      "completedChallenges": 4,
+      "challenges": {
+        "01-store-setup": {
+          "challengeId": "01-store-setup",
+          "challengeName": "Store Setup with configureStore",
+          "passed": true,
+          "score": 83.2,
+          "lastRun": "2026-08-19T10:51:55.027Z",
+          "scores": {
+            "functionalTests": 100,
+            "codeQuality": 100,
+            "architecture": 100,
+            "bestPractices": 100,
+            "e2eTests": 0,
+            "aiReview": 88
+          }
+        },
+        "02-first-slice": {
+          "challengeId": "02-first-slice",
+          "challengeName": "First Slice with createSlice",
+          "passed": true,
+          "score": 97.9,
+          "lastRun": "2026-08-18T12:34:48.102Z",
+          "scores": {
+            "functionalTests": 100,
+            "codeQuality": 100,
+            "architecture": 100,
+            "bestPractices": 100,
+            "e2eTests": 100,
+            "aiReview": 86
+          }
+        },
+        "03-reading-dispatching": {
+          "challengeId": "03-reading-dispatching",
+          "challengeName": "Reading and Dispatching in Components",
+          "passed": true,
+          "score": 98.05,
+          "lastRun": "2026-08-18T10:21:51.723Z",
+          "scores": {
+            "functionalTests": 100,
+            "codeQuality": 100,
+            "architecture": 100,
+            "bestPractices": 100,
+            "e2eTests": 100,
+            "aiReview": 87
+          }
+        },
+        "04-multiple-slices": {
+          "challengeId": "04-multiple-slices",
+          "challengeName": "Multiple Slices in the Store",
+          "passed": true,
+          "score": 83.2,
+          "lastRun": "2026-08-19T10:55:16.005Z",
+          "scores": {
+            "functionalTests": 100,
+            "codeQuality": 100,
+            "architecture": 100,
+            "bestPractices": 100,
+            "e2eTests": 0,
+            "aiReview": 88
+          }
+        }
+      }
     },
     "03-nextjs-app-router": {
       "courseId": "03-nextjs-app-router",

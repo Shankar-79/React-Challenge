@@ -57,19 +57,19 @@ npm run review -- --challenge=01-store-setup
 
 ## 📊 Progress Evidence
 
-*Auto-updated when you run review. Last run: 12/8/2026, 1:12:15 pm*
+*Auto-updated when you run review. Last run: 19/8/2026, 4:25:27 pm*
 
 | Metric | Value |
 |--------|-------|
-| Challenges completed | 0 / 13 (0%) |
-| Average score | 0% |
+| Challenges completed | 4 / 13 (30.8%) |
+| Average score | 90.6% |
 
 | Challenge | Skills covered | Status |
 |-----------|----------------|--------|
-| Store Setup with configureStore | Redux, Redux Toolkit, configureStore, Provider | — |
-| First Slice with createSlice | Redux Toolkit, createSlice, reducers, actions | — |
-| Reading and Dispatching in Components | React-Redux, useSelector, useDispatch, typed hooks | — |
-| Multiple Slices in the Store | Redux, multiple reducers, slice per domain | — |
+| Store Setup with configureStore | Redux, Redux Toolkit, configureStore, Provider | Passed |
+| First Slice with createSlice | Redux Toolkit, createSlice, reducers, actions | Passed |
+| Reading and Dispatching in Components | React-Redux, useSelector, useDispatch, typed hooks | Passed |
+| Multiple Slices in the Store | Redux, multiple reducers, slice per domain | Passed |
 | Async Logic with createAsyncThunk | Redux Toolkit, createAsyncThunk, extraReducers, pending/fulfilled/rejected | — |
 | RTK Query Setup and API Slice | RTK Query, createApi, fetchBaseQuery, API reducer and middleware | — |
 | Query Endpoints and useQuery Hooks | RTK Query, useGetUsersQuery, loading, error, data | — |
