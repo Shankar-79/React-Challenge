@@ -1,10 +1,10 @@
 {
   "courseId": "02-redux-rtk-query",
   "courseName": "Redux & RTK Query",
-  "lastUpdated": "2026-08-19T11:47:50.521Z",
+  "lastUpdated": "2026-08-19T11:51:37.578Z",
   "totalChallenges": 13,
   "completedChallenges": 7,
-  "averageScore": 86.8,
+  "averageScore": 89,
   "completionPercentage": 53.8,
   "badgeLevel": "bronze",
   "challengeResults": [
@@ -29,7 +29,7 @@
     {
       "challengeId": "04-multiple-slices",
       "challengeName": "Multiple Slices in the Store",
-      "score": 83.2,
+      "score": 98.2,
       "passed": true
     },
     {

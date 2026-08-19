@@ -1,9 +1,9 @@
 {
-  "lastUpdated": "2026-08-19T11:47:51.355Z",
+  "lastUpdated": "2026-08-19T11:51:38.360Z",
   "pathway": {
     "name": "Modern React Engineer",
     "version": "1.0.0",
-    "overallScore": 61.1,
+    "overallScore": 61.8,
     "completionPercentage": 56.6,
     "badgeLevel": "bronze",
     "totalChallenges": 53,
@@ -369,7 +369,7 @@
     "02-redux-rtk-query": {
       "courseId": "02-redux-rtk-query",
       "courseName": "Redux & RTK Query",
-      "averageScore": 86.8,
+      "averageScore": 89,
       "completionPercentage": 53.8,
       "badgeLevel": "bronze",
       "totalChallenges": 13,
@@ -424,14 +424,14 @@
           "challengeId": "04-multiple-slices",
           "challengeName": "Multiple Slices in the Store",
           "passed": true,
-          "score": 83.2,
-          "lastRun": "2026-08-19T10:55:16.005Z",
+          "score": 98.2,
+          "lastRun": "2026-08-19T11:51:19.647Z",
           "scores": {
             "functionalTests": 100,
             "codeQuality": 100,
             "architecture": 100,
             "bestPractices": 100,
-            "e2eTests": 0,
+            "e2eTests": 100,
             "aiReview": 88
           }
         },
