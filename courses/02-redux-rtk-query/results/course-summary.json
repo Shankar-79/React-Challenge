@@ -1,10 +1,10 @@
 {
   "courseId": "02-redux-rtk-query",
   "courseName": "Redux & RTK Query",
-  "lastUpdated": "2026-08-20T13:43:17.637Z",
+  "lastUpdated": "2026-08-20T13:45:17.911Z",
   "totalChallenges": 13,
   "completedChallenges": 10,
-  "averageScore": 93.2,
+  "averageScore": 94.5,
   "completionPercentage": 76.9,
   "badgeLevel": "silver",
   "challengeResults": [
@@ -59,7 +59,7 @@
     {
       "challengeId": "09-mutations",
       "challengeName": "Mutations with useMutation",
-      "score": 85,
+      "score": 97.9,
       "passed": true
     },
     {

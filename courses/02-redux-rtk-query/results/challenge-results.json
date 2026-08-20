@@ -2139,16 +2139,16 @@
   {
     "challengeId": "09-mutations",
     "challengeName": "Mutations with useMutation",
-    "timestamp": "2026-08-20T13:34:16.021Z",
+    "timestamp": "2026-08-20T13:45:00.566Z",
     "scores": {
       "functionalTests": 100,
       "codeQuality": 100,
       "architecture": 100,
       "bestPractices": 100,
       "e2eTests": 100,
-      "aiReview": 0
+      "aiReview": 86
     },
-    "totalScore": 85,
+    "totalScore": 97.9,
     "passed": true,
     "errors": [],
     "warnings": [],
@@ -2169,7 +2169,7 @@
               "fullName": " Challenge 09: Mutations with useMutation API slice has builder.mutation endpoint",
               "status": "passed",
               "title": "API slice has builder.mutation endpoint",
-              "duration": 1,
+              "duration": 2,
               "failureMessages": []
             },
             {
@@ -2195,8 +2195,8 @@
               "failureMessages": []
             }
           ],
-          "startTime": 1787232859607,
-          "endTime": 1787232859609,
+          "startTime": 1787233503994,
+          "endTime": 1787233503997,
           "status": "passed",
           "message": "",
           "name": "C:/Spark+/challenge-engine-react/courses/02-redux-rtk-query/project/tests/challenge-09.test.tsx"
@@ -2313,12 +2313,12 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 1837,
+                          "duration": 1786,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2026-08-20T13:34:28.308Z",
+                          "startTime": "2026-08-20T13:45:12.337Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -2347,12 +2347,12 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 231,
+                          "duration": 211,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2026-08-20T13:34:30.257Z",
+                          "startTime": "2026-08-20T13:45:14.235Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -2374,27 +2374,51 @@
     },
     "aiReviewResults": {
       "challengeId": "09-mutations",
-      "timestamp": "2026-08-20T13:34:31.399Z",
-      "score": 0,
+      "timestamp": "2026-08-20T13:45:15.384Z",
+      "score": 86,
       "feedback": [],
-      "strengths": [],
-      "improvements": [],
-      "readability": 0,
-      "maintainability": 0,
-      "overall": "",
-      "error": "Groq API error (429): Rate limit reached for model `openai/gpt-oss-20b` in organization `org_01kjb2fjv5fd6928gcy28wy79s` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 3742, Requested 5893. Please try again in 12.2625s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing"
+      "strengths": [
+        "Clear separation of API logic and UI components – the `apiSlice` contains all endpoints while `AddPostForm` focuses solely on form handling.",
+        "Proper use of RTK Query hooks (`useGetUsersQuery`, `useAddPostMutation`) and tag invalidation to keep the list in sync after a mutation.",
+        "Optimistic update implementation in `addPost` that immediately updates the cache and rolls back on failure."
+      ],
+      "improvements": [
+        "In `apiSlice.ts`, replace the custom `queryFn` for `addPost` with the standard `query` object (`{ url: '/posts', method: 'POST', body }`). This aligns with RTK Query conventions and removes the need for manual error handling.",
+        "The optimistic update in `addPost` generates a new `id` twice (once in `queryFn` and again in `onQueryStarted`). Use the `id` returned from the mutation (`newPost.id`) instead of `Date.now()` to keep the cache consistent.",
+        "Add a route configuration for `/challenge/09-mutations` that renders `AddPostForm`. The current codebase does not show any routing file, so the form will not appear in the app.",
+        "Handle mutation errors more explicitly in `AddPostForm`. Wrap the `await addPost(...)` call in a try/catch block and display a user‑friendly error message rather than relying solely on `isError`.",
+        "Reset the `isSuccess` flag after a short delay or when the form is reopened to avoid showing a stale success message on subsequent renders.",
+        "Consider adding `data-testid` attributes for the success and error messages to aid automated testing.",
+        "Extract the tag logic used in `getUsers` and `getPosts` into a reusable helper to reduce duplication and improve maintainability."
+      ],
+      "readability": 85,
+      "maintainability": 80,
+      "overall": "The implementation satisfies the core functional requirements: a mutation endpoint, a form that uses `useMutation`, and tag invalidation to refresh the list. The code follows RTK Query best practices and is well‑structured, but a few refinements—especially around the mutation definition, optimistic update consistency, and routing—will bring it closer to a production‑ready solution.",
+      "requirementCompliance": 90
     },
     "aiResults": {
       "challengeId": "09-mutations",
-      "timestamp": "2026-08-20T13:34:31.399Z",
-      "score": 0,
+      "timestamp": "2026-08-20T13:45:15.384Z",
+      "score": 86,
       "feedback": [],
-      "strengths": [],
-      "improvements": [],
-      "readability": 0,
-      "maintainability": 0,
-      "overall": "",
-      "error": "Groq API error (429): Rate limit reached for model `openai/gpt-oss-20b` in organization `org_01kjb2fjv5fd6928gcy28wy79s` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 3742, Requested 5893. Please try again in 12.2625s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing"
+      "strengths": [
+        "Clear separation of API logic and UI components – the `apiSlice` contains all endpoints while `AddPostForm` focuses solely on form handling.",
+        "Proper use of RTK Query hooks (`useGetUsersQuery`, `useAddPostMutation`) and tag invalidation to keep the list in sync after a mutation.",
+        "Optimistic update implementation in `addPost` that immediately updates the cache and rolls back on failure."
+      ],
+      "improvements": [
+        "In `apiSlice.ts`, replace the custom `queryFn` for `addPost` with the standard `query` object (`{ url: '/posts', method: 'POST', body }`). This aligns with RTK Query conventions and removes the need for manual error handling.",
+        "The optimistic update in `addPost` generates a new `id` twice (once in `queryFn` and again in `onQueryStarted`). Use the `id` returned from the mutation (`newPost.id`) instead of `Date.now()` to keep the cache consistent.",
+        "Add a route configuration for `/challenge/09-mutations` that renders `AddPostForm`. The current codebase does not show any routing file, so the form will not appear in the app.",
+        "Handle mutation errors more explicitly in `AddPostForm`. Wrap the `await addPost(...)` call in a try/catch block and display a user‑friendly error message rather than relying solely on `isError`.",
+        "Reset the `isSuccess` flag after a short delay or when the form is reopened to avoid showing a stale success message on subsequent renders.",
+        "Consider adding `data-testid` attributes for the success and error messages to aid automated testing.",
+        "Extract the tag logic used in `getUsers` and `getPosts` into a reusable helper to reduce duplication and improve maintainability."
+      ],
+      "readability": 85,
+      "maintainability": 80,
+      "overall": "The implementation satisfies the core functional requirements: a mutation endpoint, a form that uses `useMutation`, and tag invalidation to refresh the list. The code follows RTK Query best practices and is well‑structured, but a few refinements—especially around the mutation definition, optimistic update consistency, and routing—will bring it closer to a production‑ready solution.",
+      "requirementCompliance": 90
     }
   },
   {
