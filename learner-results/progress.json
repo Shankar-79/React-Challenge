@@ -1,13 +1,13 @@
 {
-  "lastUpdated": "2026-08-20T14:18:28.293Z",
+  "lastUpdated": "2026-08-20T14:26:59.847Z",
   "pathway": {
     "name": "Modern React Engineer",
     "version": "1.0.0",
-    "overallScore": 63.8,
-    "completionPercentage": 66,
+    "overallScore": 63.7,
+    "completionPercentage": 67.9,
     "badgeLevel": "bronze",
     "totalChallenges": 53,
-    "completedChallenges": 35
+    "completedChallenges": 36
   },
   "courses": {
     "01-react-fundamentals": {
@@ -369,11 +369,11 @@
     "02-redux-rtk-query": {
       "courseId": "02-redux-rtk-query",
       "courseName": "Redux & RTK Query",
-      "averageScore": 95,
-      "completionPercentage": 92.3,
-      "badgeLevel": "silver",
+      "averageScore": 94.7,
+      "completionPercentage": 100,
+      "badgeLevel": "gold",
       "totalChallenges": 13,
-      "completedChallenges": 12,
+      "completedChallenges": 13,
       "challenges": {
         "01-store-setup": {
           "challengeId": "01-store-setup",
@@ -553,6 +553,21 @@
             "bestPractices": 100,
             "e2eTests": 100,
             "aiReview": 86
+          }
+        },
+        "13-query-parameters": {
+          "challengeId": "13-query-parameters",
+          "challengeName": "Query with Parameters and Detail View",
+          "passed": true,
+          "score": 90.1,
+          "lastRun": "2026-08-20T14:26:10.022Z",
+          "scores": {
+            "functionalTests": 100,
+            "codeQuality": 100,
+            "architecture": 100,
+            "bestPractices": 100,
+            "e2eTests": 50,
+            "aiReview": 84
           }
         }
       }

@@ -8,7 +8,7 @@ interface User {
   username?: string;
 }
 
-interface Post {
+export interface Post {
   id: number;
   title: string;
   body: string;
@@ -32,9 +32,7 @@ export const apiSlice = createApi({
         try {
           const data = await mockApi.getUsers();
 
-          return {
-            data,
-          };
+          return { data };
         } catch (error) {
           return {
             error: {
@@ -76,9 +74,7 @@ export const apiSlice = createApi({
         try {
           const data = await mockApi.getPosts();
 
-          return {
-            data,
-          };
+          return { data };
         } catch (error) {
           return {
             error: {
@@ -113,6 +109,36 @@ export const apiSlice = createApi({
     }),
 
     // =========================
+    // GET POST BY ID
+    // =========================
+    getPostById: builder.query<Post, number>({
+      queryFn: async (id) => {
+        try {
+          const data = await mockApi.getPostById(id);
+
+          return { data };
+        } catch (error) {
+          return {
+            error: {
+              status: "CUSTOM_ERROR",
+              error:
+                error instanceof Error
+                  ? error.message
+                  : "Failed to fetch post",
+            },
+          };
+        }
+      },
+
+      providesTags: (_result, _error, id) => [
+        {
+          type: "Post",
+          id,
+        },
+      ],
+    }),
+
+    // =========================
     // ADD POST
     // =========================
     addPost: builder.mutation<Post, Omit<Post, "id">>({
@@ -139,7 +165,6 @@ export const apiSlice = createApi({
         }
       },
 
-      // Invalidate the posts list after the mutation.
       invalidatesTags: [
         {
           type: "Post",
@@ -167,7 +192,6 @@ export const apiSlice = createApi({
         try {
           await queryFulfilled;
         } catch {
-          // Roll back optimistic update if mutation fails.
           patchResult.undo();
         }
       },
@@ -182,5 +206,6 @@ export const apiSlice = createApi({
 export const {
   useGetUsersQuery,
   useGetPostsQuery,
+  useGetPostByIdQuery,
   useAddPostMutation,
 } = apiSlice;

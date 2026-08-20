@@ -313,5 +313,32 @@
       "overall": "The implementation satisfies the core requirements: a reusable `ErrorDisplay`, proper loading and error handling in `UsersList`, and correct use of RTK Query’s `refetch`. The code is clean and well‑structured, though a few type safety and consistency improvements would make it more robust and maintainable.",
       "requirementCompliance": 90
     }
+  },
+  {
+    "challengeId": "13-query-parameters",
+    "challengeName": "Query with Parameters and Detail View",
+    "aiReview": {
+      "challengeId": "13-query-parameters",
+      "timestamp": "2026-08-20T14:26:56.758Z",
+      "score": 84,
+      "feedback": [],
+      "strengths": [
+        "Implemented a fully‑parameterized `getPostById` endpoint with proper `providesTags` for cache invalidation.",
+        "PostDetail component correctly uses `useGetPostByIdQuery` with a `skip` option and renders distinct loading, error, and data states.",
+        "Consistent TypeScript usage across the API slice and components, with clear interfaces and type annotations."
+      ],
+      "improvements": [
+        "Add routing for `/challenge/13-query-parameters` that renders `PostDetail` (e.g., in App.tsx or a dedicated route file).",
+        "Avoid casting `id` to `number` when it may be `undefined`. Pass `id` as `number | undefined` to the hook and let RTK Query handle the `skip` logic.",
+        "Replace `queryFn` with the simpler `query` option for `getUsers`, `getPosts`, and `getPostById` to reduce boilerplate and improve readability.",
+        "Include the `error` object from the hook in the error UI for better debugging (e.g., `<ErrorDisplay error={error} />`).",
+        "Add JSDoc comments or inline comments explaining the purpose of each endpoint and the reasoning behind the `providesTags` configuration.",
+        "Consider extracting the mock API calls into a separate service layer to keep the API slice focused on RTK Query configuration."
+      ],
+      "readability": 85,
+      "maintainability": 80,
+      "overall": "The implementation meets the core functional requirements: a parameterized query, proper hook usage with skip logic, and a detail view that handles loading and error states. The code follows RTK Query best practices and is well‑typed, though a few small refactors (routing, type safety, and query definition) would improve clarity and maintainability.",
+      "requirementCompliance": 85
+    }
   }
 ]

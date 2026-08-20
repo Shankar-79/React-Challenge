@@ -3249,5 +3249,424 @@
       "overall": "The implementation satisfies the core requirements: a reusable `ErrorDisplay`, proper loading and error handling in `UsersList`, and correct use of RTK Query’s `refetch`. The code is clean and well‑structured, though a few type safety and consistency improvements would make it more robust and maintainable.",
       "requirementCompliance": 90
     }
+  },
+  {
+    "challengeId": "13-query-parameters",
+    "challengeName": "Query with Parameters and Detail View",
+    "timestamp": "2026-08-20T14:26:10.022Z",
+    "scores": {
+      "functionalTests": 100,
+      "codeQuality": 100,
+      "architecture": 100,
+      "bestPractices": 100,
+      "e2eTests": 50,
+      "aiReview": 84
+    },
+    "totalScore": 90.1,
+    "passed": true,
+    "errors": [],
+    "warnings": [],
+    "testResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 3,
+      "passedTests": 3,
+      "failedTests": 0,
+      "details": [
+        {
+          "assertionResults": [
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 13: Query with Parameters and Detail View"
+              ],
+              "fullName": " Challenge 13: Query with Parameters and Detail View API slice has getPostById query endpoint",
+              "status": "passed",
+              "title": "API slice has getPostById query endpoint",
+              "duration": 2,
+              "failureMessages": []
+            },
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 13: Query with Parameters and Detail View"
+              ],
+              "fullName": " Challenge 13: Query with Parameters and Detail View PostDetail uses useGetPostByIdQuery or generated query hook",
+              "status": "passed",
+              "title": "PostDetail uses useGetPostByIdQuery or generated query hook",
+              "duration": 1,
+              "failureMessages": []
+            },
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 13: Query with Parameters and Detail View"
+              ],
+              "fullName": " Challenge 13: Query with Parameters and Detail View PostDetail has post-detail data-testid",
+              "status": "passed",
+              "title": "PostDetail has post-detail data-testid",
+              "duration": 0,
+              "failureMessages": []
+            }
+          ],
+          "startTime": 1787235973461,
+          "endTime": 1787235973464,
+          "status": "passed",
+          "message": "",
+          "name": "C:/Spark+/challenge-engine-react/courses/02-redux-rtk-query/project/tests/challenge-13.test.tsx"
+        }
+      ]
+    },
+    "lintResults": {
+      "score": 100,
+      "passed": true,
+      "totalIssues": 0,
+      "errors": 0,
+      "warnings": 0,
+      "details": [
+        {
+          "filePath": "C:\\Spark+\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\src\\api\\apiSlice.ts",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": [
+            {
+              "ruleId": "no-extra-semi",
+              "replacedBy": []
+            },
+            {
+              "ruleId": "no-mixed-spaces-and-tabs",
+              "replacedBy": []
+            }
+          ]
+        },
+        {
+          "filePath": "C:\\Spark+\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\src\\components\\PostDetail.tsx",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": [
+            {
+              "ruleId": "no-extra-semi",
+              "replacedBy": []
+            },
+            {
+              "ruleId": "no-mixed-spaces-and-tabs",
+              "replacedBy": []
+            }
+          ]
+        }
+      ]
+    },
+    "architectureResults": {
+      "score": 100,
+      "passed": true,
+      "patternsFound": [],
+      "patternsMissing": [],
+      "details": [
+        {
+          "file": "src/api/apiSlice.ts",
+          "patternsFound": [],
+          "patternsMissing": []
+        },
+        {
+          "file": "src/components/PostDetail.tsx",
+          "patternsFound": [],
+          "patternsMissing": []
+        }
+      ]
+    },
+    "bestPracticesResults": {
+      "score": 100,
+      "passed": true,
+      "issues": [],
+      "details": [],
+      "note": "No best practices requirements specified in challenge"
+    },
+    "e2eResults": {
+      "score": 50,
+      "passed": false,
+      "totalTests": 2,
+      "passedTests": 1,
+      "failedTests": 1,
+      "details": [
+        {
+          "title": "challenge-13.spec.ts",
+          "file": "challenge-13.spec.ts",
+          "column": 0,
+          "line": 0,
+          "specs": [],
+          "suites": [
+            {
+              "title": "Challenge 13: Query with Parameters - E2E",
+              "file": "challenge-13.spec.ts",
+              "line": 3,
+              "column": 6,
+              "specs": [
+                {
+                  "title": "should load challenge 13 page with content",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 284,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-08-20T14:26:21.895Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "b108b4dbebb7686e0d0c-62f94784cfb44da7d5be",
+                  "file": "challenge-13.spec.ts",
+                  "line": 8,
+                  "column": 3
+                },
+                {
+                  "title": "should show post detail area",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "failed",
+                          "duration": 10188,
+                          "error": {
+                            "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('post-detail')\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('post-detail')\u001b[22m\n",
+                            "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('post-detail')\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('post-detail')\u001b[22m\n\n    at C:\\Spark+\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\tests\\e2e\\challenge-13.spec.ts:14:51",
+                            "location": {
+                              "file": "C:\\Spark+\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\tests\\e2e\\challenge-13.spec.ts",
+                              "column": 51,
+                              "line": 14
+                            },
+                            "snippet": "\u001b[0m \u001b[90m 12 |\u001b[39m\n \u001b[90m 13 |\u001b[39m   test(\u001b[32m'should show post detail area'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 14 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByTestId(\u001b[32m'post-detail'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible({ timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\n \u001b[90m    |\u001b[39m                                                   \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 15 |\u001b[39m   })\n \u001b[90m 16 |\u001b[39m })\n \u001b[90m 17 |\u001b[39m\u001b[0m"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "C:\\Spark+\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\tests\\e2e\\challenge-13.spec.ts",
+                                "column": 51,
+                                "line": 14
+                              },
+                              "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('post-detail')\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('post-detail')\u001b[22m\n\n\n  12 |\n  13 |   test('should show post detail area', async ({ page }) => {\n> 14 |     await expect(page.getByTestId('post-detail')).toBeVisible({ timeout: 10000 })\n     |                                                   ^\n  15 |   })\n  16 | })\n  17 |\n    at C:\\Spark+\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\tests\\e2e\\challenge-13.spec.ts:14:51"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-08-20T14:26:22.287Z",
+                          "annotations": [],
+                          "attachments": [
+                            {
+                              "name": "screenshot",
+                              "contentType": "image/png",
+                              "path": "C:\\Spark+\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\test-results\\challenge-13-Challenge-13--8c06f-hould-show-post-detail-area-chromium\\test-failed-1.png"
+                            },
+                            {
+                              "name": "error-context",
+                              "contentType": "text/markdown",
+                              "path": "C:\\Spark+\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\test-results\\challenge-13-Challenge-13--8c06f-hould-show-post-detail-area-chromium\\error-context.md"
+                            }
+                          ],
+                          "errorLocation": {
+                            "file": "C:\\Spark+\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\tests\\e2e\\challenge-13.spec.ts",
+                            "column": 51,
+                            "line": 14
+                          }
+                        },
+                        {
+                          "workerIndex": 1,
+                          "parallelIndex": 0,
+                          "status": "failed",
+                          "duration": 10346,
+                          "error": {
+                            "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('post-detail')\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('post-detail')\u001b[22m\n",
+                            "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('post-detail')\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('post-detail')\u001b[22m\n\n    at C:\\Spark+\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\tests\\e2e\\challenge-13.spec.ts:14:51",
+                            "location": {
+                              "file": "C:\\Spark+\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\tests\\e2e\\challenge-13.spec.ts",
+                              "column": 51,
+                              "line": 14
+                            },
+                            "snippet": "\u001b[0m \u001b[90m 12 |\u001b[39m\n \u001b[90m 13 |\u001b[39m   test(\u001b[32m'should show post detail area'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 14 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByTestId(\u001b[32m'post-detail'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible({ timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\n \u001b[90m    |\u001b[39m                                                   \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 15 |\u001b[39m   })\n \u001b[90m 16 |\u001b[39m })\n \u001b[90m 17 |\u001b[39m\u001b[0m"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "C:\\Spark+\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\tests\\e2e\\challenge-13.spec.ts",
+                                "column": 51,
+                                "line": 14
+                              },
+                              "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('post-detail')\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('post-detail')\u001b[22m\n\n\n  12 |\n  13 |   test('should show post detail area', async ({ page }) => {\n> 14 |     await expect(page.getByTestId('post-detail')).toBeVisible({ timeout: 10000 })\n     |                                                   ^\n  15 |   })\n  16 | })\n  17 |\n    at C:\\Spark+\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\tests\\e2e\\challenge-13.spec.ts:14:51"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 1,
+                          "startTime": "2026-08-20T14:26:34.116Z",
+                          "annotations": [],
+                          "attachments": [
+                            {
+                              "name": "screenshot",
+                              "contentType": "image/png",
+                              "path": "C:\\Spark+\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\test-results\\challenge-13-Challenge-13--8c06f-hould-show-post-detail-area-chromium-retry1\\test-failed-1.png"
+                            },
+                            {
+                              "name": "error-context",
+                              "contentType": "text/markdown",
+                              "path": "C:\\Spark+\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\test-results\\challenge-13-Challenge-13--8c06f-hould-show-post-detail-area-chromium-retry1\\error-context.md"
+                            },
+                            {
+                              "name": "trace",
+                              "contentType": "application/zip",
+                              "path": "C:\\Spark+\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\test-results\\challenge-13-Challenge-13--8c06f-hould-show-post-detail-area-chromium-retry1\\trace.zip"
+                            }
+                          ],
+                          "errorLocation": {
+                            "file": "C:\\Spark+\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\tests\\e2e\\challenge-13.spec.ts",
+                            "column": 51,
+                            "line": 14
+                          }
+                        },
+                        {
+                          "workerIndex": 2,
+                          "parallelIndex": 0,
+                          "status": "failed",
+                          "duration": 10258,
+                          "error": {
+                            "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('post-detail')\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('post-detail')\u001b[22m\n",
+                            "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('post-detail')\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('post-detail')\u001b[22m\n\n    at C:\\Spark+\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\tests\\e2e\\challenge-13.spec.ts:14:51",
+                            "location": {
+                              "file": "C:\\Spark+\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\tests\\e2e\\challenge-13.spec.ts",
+                              "column": 51,
+                              "line": 14
+                            },
+                            "snippet": "\u001b[0m \u001b[90m 12 |\u001b[39m\n \u001b[90m 13 |\u001b[39m   test(\u001b[32m'should show post detail area'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 14 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByTestId(\u001b[32m'post-detail'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible({ timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\n \u001b[90m    |\u001b[39m                                                   \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 15 |\u001b[39m   })\n \u001b[90m 16 |\u001b[39m })\n \u001b[90m 17 |\u001b[39m\u001b[0m"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "C:\\Spark+\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\tests\\e2e\\challenge-13.spec.ts",
+                                "column": 51,
+                                "line": 14
+                              },
+                              "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('post-detail')\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('post-detail')\u001b[22m\n\n\n  12 |\n  13 |   test('should show post detail area', async ({ page }) => {\n> 14 |     await expect(page.getByTestId('post-detail')).toBeVisible({ timeout: 10000 })\n     |                                                   ^\n  15 |   })\n  16 | })\n  17 |\n    at C:\\Spark+\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\tests\\e2e\\challenge-13.spec.ts:14:51"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 2,
+                          "startTime": "2026-08-20T14:26:46.163Z",
+                          "annotations": [],
+                          "attachments": [
+                            {
+                              "name": "screenshot",
+                              "contentType": "image/png",
+                              "path": "C:\\Spark+\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\test-results\\challenge-13-Challenge-13--8c06f-hould-show-post-detail-area-chromium-retry2\\test-failed-1.png"
+                            },
+                            {
+                              "name": "error-context",
+                              "contentType": "text/markdown",
+                              "path": "C:\\Spark+\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\test-results\\challenge-13-Challenge-13--8c06f-hould-show-post-detail-area-chromium-retry2\\error-context.md"
+                            }
+                          ],
+                          "errorLocation": {
+                            "file": "C:\\Spark+\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\tests\\e2e\\challenge-13.spec.ts",
+                            "column": 51,
+                            "line": 14
+                          }
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ],
+                  "id": "b108b4dbebb7686e0d0c-8dc240493b76fcf57221",
+                  "file": "challenge-13.spec.ts",
+                  "line": 13,
+                  "column": 3
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "error": "Command failed: npx playwright test \"tests/e2e/challenge-13.spec.ts\" --reporter=json"
+    },
+    "aiReviewResults": {
+      "challengeId": "13-query-parameters",
+      "timestamp": "2026-08-20T14:26:56.758Z",
+      "score": 84,
+      "feedback": [],
+      "strengths": [
+        "Implemented a fully‑parameterized `getPostById` endpoint with proper `providesTags` for cache invalidation.",
+        "PostDetail component correctly uses `useGetPostByIdQuery` with a `skip` option and renders distinct loading, error, and data states.",
+        "Consistent TypeScript usage across the API slice and components, with clear interfaces and type annotations."
+      ],
+      "improvements": [
+        "Add routing for `/challenge/13-query-parameters` that renders `PostDetail` (e.g., in App.tsx or a dedicated route file).",
+        "Avoid casting `id` to `number` when it may be `undefined`. Pass `id` as `number | undefined` to the hook and let RTK Query handle the `skip` logic.",
+        "Replace `queryFn` with the simpler `query` option for `getUsers`, `getPosts`, and `getPostById` to reduce boilerplate and improve readability.",
+        "Include the `error` object from the hook in the error UI for better debugging (e.g., `<ErrorDisplay error={error} />`).",
+        "Add JSDoc comments or inline comments explaining the purpose of each endpoint and the reasoning behind the `providesTags` configuration.",
+        "Consider extracting the mock API calls into a separate service layer to keep the API slice focused on RTK Query configuration."
+      ],
+      "readability": 85,
+      "maintainability": 80,
+      "overall": "The implementation meets the core functional requirements: a parameterized query, proper hook usage with skip logic, and a detail view that handles loading and error states. The code follows RTK Query best practices and is well‑typed, though a few small refactors (routing, type safety, and query definition) would improve clarity and maintainability.",
+      "requirementCompliance": 85
+    },
+    "aiResults": {
+      "challengeId": "13-query-parameters",
+      "timestamp": "2026-08-20T14:26:56.758Z",
+      "score": 84,
+      "feedback": [],
+      "strengths": [
+        "Implemented a fully‑parameterized `getPostById` endpoint with proper `providesTags` for cache invalidation.",
+        "PostDetail component correctly uses `useGetPostByIdQuery` with a `skip` option and renders distinct loading, error, and data states.",
+        "Consistent TypeScript usage across the API slice and components, with clear interfaces and type annotations."
+      ],
+      "improvements": [
+        "Add routing for `/challenge/13-query-parameters` that renders `PostDetail` (e.g., in App.tsx or a dedicated route file).",
+        "Avoid casting `id` to `number` when it may be `undefined`. Pass `id` as `number | undefined` to the hook and let RTK Query handle the `skip` logic.",
+        "Replace `queryFn` with the simpler `query` option for `getUsers`, `getPosts`, and `getPostById` to reduce boilerplate and improve readability.",
+        "Include the `error` object from the hook in the error UI for better debugging (e.g., `<ErrorDisplay error={error} />`).",
+        "Add JSDoc comments or inline comments explaining the purpose of each endpoint and the reasoning behind the `providesTags` configuration.",
+        "Consider extracting the mock API calls into a separate service layer to keep the API slice focused on RTK Query configuration."
+      ],
+      "readability": 85,
+      "maintainability": 80,
+      "overall": "The implementation meets the core functional requirements: a parameterized query, proper hook usage with skip logic, and a detail view that handles loading and error states. The code follows RTK Query best practices and is well‑typed, though a few small refactors (routing, type safety, and query definition) would improve clarity and maintainability.",
+      "requirementCompliance": 85
+    }
   }
 ]
