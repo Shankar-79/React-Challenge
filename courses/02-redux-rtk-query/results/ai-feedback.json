@@ -183,5 +183,34 @@
       "overall": "The implementation correctly sets up an API slice with a custom query function and exports the necessary hook, but it misses the critical RTK Query middleware in the store, which will prevent caching and automatic refetching from working. Adding the middleware and cleaning up duplicated types will bring the solution fully compliant with the challenge requirements and best practices.",
       "requirementCompliance": 70
     }
+  },
+  {
+    "challengeId": "08-caching-refetch",
+    "challengeName": "Caching and Cache Tags",
+    "aiReview": {
+      "challengeId": "08-caching-refetch",
+      "timestamp": "2026-08-20T06:12:09.981Z",
+      "score": 75,
+      "feedback": [],
+      "strengths": [
+        "Tag types are correctly declared in `apiSlice.ts` (`tagTypes: ['User', 'Post']`).",
+        "The `getUsers` query implements `providesTags` with a concise mapping of each user and a LIST tag.",
+        "Mutation `addPost` correctly uses `invalidatesTags` (though the tag type is currently mismatched).",
+        "TypeScript interfaces are defined for `User` and `Post` and used consistently in the API slice.",
+        "No console statements or other side‑effects are present, keeping the code clean."
+      ],
+      "improvements": [
+        "In `apiSlice.ts`, change the `invalidatesTags` for `addPost` to target the `Post` tag: `[{ type: 'Post', id: 'LIST' }]`.",
+        "Add a `getPosts` query endpoint with `providesTags` similar to `getUsers` so that adding a post actually triggers a refetch of the posts list.",
+        "Replace the custom `queryFn` implementations with the standard `query` field where possible (e.g., `query: () => '/users'` and use `baseQuery` to call `mockApi`). This improves readability and aligns with typical RTK Query patterns.",
+        "Export the `apiSlice.reducer` and add it to the Redux store configuration to make the slice fully functional in an application.",
+        "Consider renaming `addPost` to `createPost` for semantic clarity, and expose a `useCreatePostMutation` hook.",
+        "Add explicit error handling in the UI layer (e.g., `isError`, `error`) to demonstrate how the API slice integrates with components."
+      ],
+      "readability": 80,
+      "maintainability": 75,
+      "overall": "The implementation demonstrates a solid grasp of RTK Query’s tag system and TypeScript usage, but the mutation’s `invalidatesTags` target is incorrect, preventing automatic refetching of the posts list. With the suggested fixes—particularly aligning the tags and adding a posts query—the solution will fully satisfy the challenge requirements and follow best practices.",
+      "requirementCompliance": 70
+    }
   }
 ]

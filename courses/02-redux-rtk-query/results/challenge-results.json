@@ -1970,5 +1970,170 @@
       "overall": "The implementation satisfies the core challenge requirements: a query endpoint is defined, the generated hook is used in a component, and loading/error states are handled. Minor refinements such as error messaging, type deduplication, and explicit store integration would bring the solution up to a higher standard.",
       "requirementCompliance": 90
     }
+  },
+  {
+    "challengeId": "08-caching-refetch",
+    "challengeName": "Caching and Cache Tags",
+    "timestamp": "2026-08-20T06:12:01.390Z",
+    "scores": {
+      "functionalTests": 100,
+      "codeQuality": 100,
+      "architecture": 100,
+      "bestPractices": 100,
+      "e2eTests": 0,
+      "aiReview": 75
+    },
+    "totalScore": 81.25,
+    "passed": true,
+    "errors": [],
+    "warnings": [],
+    "testResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 2,
+      "passedTests": 2,
+      "failedTests": 0,
+      "details": [
+        {
+          "assertionResults": [
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 08: Caching and Cache Tags"
+              ],
+              "fullName": " Challenge 08: Caching and Cache Tags API slice has providesTags on query endpoint",
+              "status": "passed",
+              "title": "API slice has providesTags on query endpoint",
+              "duration": 2,
+              "failureMessages": []
+            },
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 08: Caching and Cache Tags"
+              ],
+              "fullName": " Challenge 08: Caching and Cache Tags API slice has invalidatesTags on mutation or tagTypes",
+              "status": "passed",
+              "title": "API slice has invalidatesTags on mutation or tagTypes",
+              "duration": 0,
+              "failureMessages": []
+            }
+          ],
+          "startTime": 1787206324766,
+          "endTime": 1787206324768,
+          "status": "passed",
+          "message": "",
+          "name": "C:/Spark+/challenge-engine-react/courses/02-redux-rtk-query/project/tests/challenge-08.test.tsx"
+        }
+      ]
+    },
+    "lintResults": {
+      "score": 100,
+      "passed": true,
+      "totalIssues": 0,
+      "errors": 0,
+      "warnings": 0,
+      "details": [
+        {
+          "filePath": "C:\\Spark+\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\src\\api\\apiSlice.ts",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": [
+            {
+              "ruleId": "no-extra-semi",
+              "replacedBy": []
+            },
+            {
+              "ruleId": "no-mixed-spaces-and-tabs",
+              "replacedBy": []
+            }
+          ]
+        }
+      ]
+    },
+    "architectureResults": {
+      "score": 100,
+      "passed": true,
+      "patternsFound": [],
+      "patternsMissing": [],
+      "details": [
+        {
+          "file": "src/api/apiSlice.ts",
+          "patternsFound": [],
+          "patternsMissing": []
+        }
+      ]
+    },
+    "bestPracticesResults": {
+      "score": 100,
+      "passed": true,
+      "issues": [],
+      "details": [],
+      "note": "No best practices requirements specified in challenge"
+    },
+    "e2eResults": {
+      "score": 0,
+      "passed": false,
+      "totalTests": 0,
+      "passedTests": 0,
+      "failedTests": 0,
+      "details": [],
+      "error": "Command failed: npx playwright test \"tests/e2e/challenge-08.spec.ts\" --reporter=json"
+    },
+    "aiReviewResults": {
+      "challengeId": "08-caching-refetch",
+      "timestamp": "2026-08-20T06:12:09.981Z",
+      "score": 75,
+      "feedback": [],
+      "strengths": [
+        "Tag types are correctly declared in `apiSlice.ts` (`tagTypes: ['User', 'Post']`).",
+        "The `getUsers` query implements `providesTags` with a concise mapping of each user and a LIST tag.",
+        "Mutation `addPost` correctly uses `invalidatesTags` (though the tag type is currently mismatched).",
+        "TypeScript interfaces are defined for `User` and `Post` and used consistently in the API slice.",
+        "No console statements or other side‑effects are present, keeping the code clean."
+      ],
+      "improvements": [
+        "In `apiSlice.ts`, change the `invalidatesTags` for `addPost` to target the `Post` tag: `[{ type: 'Post', id: 'LIST' }]`.",
+        "Add a `getPosts` query endpoint with `providesTags` similar to `getUsers` so that adding a post actually triggers a refetch of the posts list.",
+        "Replace the custom `queryFn` implementations with the standard `query` field where possible (e.g., `query: () => '/users'` and use `baseQuery` to call `mockApi`). This improves readability and aligns with typical RTK Query patterns.",
+        "Export the `apiSlice.reducer` and add it to the Redux store configuration to make the slice fully functional in an application.",
+        "Consider renaming `addPost` to `createPost` for semantic clarity, and expose a `useCreatePostMutation` hook.",
+        "Add explicit error handling in the UI layer (e.g., `isError`, `error`) to demonstrate how the API slice integrates with components."
+      ],
+      "readability": 80,
+      "maintainability": 75,
+      "overall": "The implementation demonstrates a solid grasp of RTK Query’s tag system and TypeScript usage, but the mutation’s `invalidatesTags` target is incorrect, preventing automatic refetching of the posts list. With the suggested fixes—particularly aligning the tags and adding a posts query—the solution will fully satisfy the challenge requirements and follow best practices.",
+      "requirementCompliance": 70
+    },
+    "aiResults": {
+      "challengeId": "08-caching-refetch",
+      "timestamp": "2026-08-20T06:12:09.981Z",
+      "score": 75,
+      "feedback": [],
+      "strengths": [
+        "Tag types are correctly declared in `apiSlice.ts` (`tagTypes: ['User', 'Post']`).",
+        "The `getUsers` query implements `providesTags` with a concise mapping of each user and a LIST tag.",
+        "Mutation `addPost` correctly uses `invalidatesTags` (though the tag type is currently mismatched).",
+        "TypeScript interfaces are defined for `User` and `Post` and used consistently in the API slice.",
+        "No console statements or other side‑effects are present, keeping the code clean."
+      ],
+      "improvements": [
+        "In `apiSlice.ts`, change the `invalidatesTags` for `addPost` to target the `Post` tag: `[{ type: 'Post', id: 'LIST' }]`.",
+        "Add a `getPosts` query endpoint with `providesTags` similar to `getUsers` so that adding a post actually triggers a refetch of the posts list.",
+        "Replace the custom `queryFn` implementations with the standard `query` field where possible (e.g., `query: () => '/users'` and use `baseQuery` to call `mockApi`). This improves readability and aligns with typical RTK Query patterns.",
+        "Export the `apiSlice.reducer` and add it to the Redux store configuration to make the slice fully functional in an application.",
+        "Consider renaming `addPost` to `createPost` for semantic clarity, and expose a `useCreatePostMutation` hook.",
+        "Add explicit error handling in the UI layer (e.g., `isError`, `error`) to demonstrate how the API slice integrates with components."
+      ],
+      "readability": 80,
+      "maintainability": 75,
+      "overall": "The implementation demonstrates a solid grasp of RTK Query’s tag system and TypeScript usage, but the mutation’s `invalidatesTags` target is incorrect, preventing automatic refetching of the posts list. With the suggested fixes—particularly aligning the tags and adding a posts query—the solution will fully satisfy the challenge requirements and follow best practices.",
+      "requirementCompliance": 70
+    }
   }
 ]
