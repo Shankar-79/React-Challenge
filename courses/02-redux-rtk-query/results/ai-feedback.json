@@ -258,5 +258,31 @@
       "overall": "The implementation satisfies the core functional requirements: a mutation endpoint, a form that uses `useMutation`, and tag invalidation to refresh the list. The code follows RTK Query best practices and is well‑structured, but a few refinements—especially around the mutation definition, optimistic update consistency, and routing—will bring it closer to a production‑ready solution.",
       "requirementCompliance": 90
     }
+  },
+  {
+    "challengeId": "11-api-local-state",
+    "challengeName": "API and Local State Together",
+    "aiReview": {
+      "challengeId": "11-api-local-state",
+      "timestamp": "2026-08-20T14:00:33.552Z",
+      "score": 86,
+      "feedback": [],
+      "strengths": [
+        "The store is configured correctly with `apiSlice` middleware and all slices are added to the reducer map.",
+        "`PostsWithFilters` cleanly separates concerns: it fetches data with `useGetPostsQuery`, selects UI state with `useAppSelector`, and derives a sorted list using `useMemo`.",
+        "TypeScript is used consistently – custom types (`SortBy`, `FiltersState`) and payload typing in the slice actions keep the code type‑safe."
+      ],
+      "improvements": [
+        "Add the route for `/challenge/11-api-local-state` in the main router (e.g., `App.tsx`) so the component is actually reachable.",
+        "Explicitly type the `posts` data returned from `useGetPostsQuery` (e.g., `useGetPostsQuery<Post[]>`) to avoid implicit `any` and improve IntelliSense.",
+        "Consider adding a `filterUserId` field to the slice if you want to support filtering by author – this would make the challenge more complete and demonstrate a true local‑state filter.",
+        "Move the sorting logic into a selector (e.g., `useSelector((state) => selectSortedPosts(state))`) to keep the component lean and make the derived data testable.",
+        "Add a small loading spinner or skeleton UI instead of plain text for `isLoading` to improve UX consistency with other components."
+      ],
+      "readability": 85,
+      "maintainability": 80,
+      "overall": "The implementation satisfies the core functional requirements: a filter slice is present, the store is correctly wired, and the component uses both RTK Query and Redux state. The code follows good practices, but a few small enhancements—especially routing and stronger typing—would raise the solution to a production‑ready level.",
+      "requirementCompliance": 90
+    }
   }
 ]
