@@ -284,5 +284,34 @@
       "overall": "The implementation satisfies the core functional requirements: a filter slice is present, the store is correctly wired, and the component uses both RTK Query and Redux state. The code follows good practices, but a few small enhancements—especially routing and stronger typing—would raise the solution to a production‑ready level.",
       "requirementCompliance": 90
     }
+  },
+  {
+    "challengeId": "12-error-loading-ux",
+    "challengeName": "Error and Loading UX",
+    "aiReview": {
+      "challengeId": "12-error-loading-ux",
+      "timestamp": "2026-08-20T14:18:24.924Z",
+      "score": 86,
+      "feedback": [],
+      "strengths": [
+        "Clear separation of concerns: `ErrorDisplay` is a reusable component that accepts an error and an optional retry callback.",
+        "All required data-testid attributes are present, making the components test‑friendly.",
+        "The `UsersList` component correctly uses `isLoading`, `isError`, and `refetch` from RTK Query, fulfilling the challenge’s UX requirements."
+      ],
+      "improvements": [
+        "src/components/UsersList.tsx – Add explicit type annotations for `data` and `error` to avoid implicit `any` and improve type safety. Example: `const { data, isLoading, isError, error, refetch } = useGetUsersQuery<User[]>();`.",
+        "src/components/ErrorDisplay.tsx – Enhance error handling by supporting string errors and objects with a `message` property. Add a type guard: `const message = typeof error === 'string' ? error : error instanceof Error ? error.message : (error as any)?.message ?? 'Something went wrong. Please try again.'`.",
+        "src/components/ErrorDisplay.tsx – Export the component as `React.FC<ErrorDisplayProps>` for consistency and to enable implicit JSX support.",
+        "src/components/UsersList.tsx – Add a `key` prop to the `<li>` elements (already present) and consider extracting the loading UI into a separate `LoadingSpinner` component for reuse.",
+        "src/components/AddPostForm.tsx – Handle the `isError` state by displaying a user‑friendly message that includes the error details (e.g., `error?.data?.message`).",
+        "src/components/PostsWithFilters.tsx – Add a `data-testid` for the loading and error states to keep consistency with the rest of the app.",
+        "src/components/ChallengeList.tsx – The `Link` components use hard‑coded paths; consider generating them from the `CHALLENGES` array to avoid duplication.",
+        "General – Add comments or JSDoc to the exported hooks and components to improve documentation for future contributors."
+      ],
+      "readability": 85,
+      "maintainability": 80,
+      "overall": "The implementation satisfies the core requirements: a reusable `ErrorDisplay`, proper loading and error handling in `UsersList`, and correct use of RTK Query’s `refetch`. The code is clean and well‑structured, though a few type safety and consistency improvements would make it more robust and maintainable.",
+      "requirementCompliance": 90
+    }
   }
 ]

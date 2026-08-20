@@ -2958,5 +2958,296 @@
       "overall": "The implementation satisfies the core functional requirements: a filter slice is present, the store is correctly wired, and the component uses both RTK Query and Redux state. The code follows good practices, but a few small enhancements—especially routing and stronger typing—would raise the solution to a production‑ready level.",
       "requirementCompliance": 90
     }
+  },
+  {
+    "challengeId": "12-error-loading-ux",
+    "challengeName": "Error and Loading UX",
+    "timestamp": "2026-08-20T14:18:11.162Z",
+    "scores": {
+      "functionalTests": 100,
+      "codeQuality": 100,
+      "architecture": 100,
+      "bestPractices": 100,
+      "e2eTests": 100,
+      "aiReview": 86
+    },
+    "totalScore": 97.9,
+    "passed": true,
+    "errors": [],
+    "warnings": [],
+    "testResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 3,
+      "passedTests": 3,
+      "failedTests": 0,
+      "details": [
+        {
+          "assertionResults": [
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 12: Error and Loading UX"
+              ],
+              "fullName": " Challenge 12: Error and Loading UX ErrorDisplay exists with error-display and retry-btn data-testids",
+              "status": "passed",
+              "title": "ErrorDisplay exists with error-display and retry-btn data-testids",
+              "duration": 2,
+              "failureMessages": []
+            },
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 12: Error and Loading UX"
+              ],
+              "fullName": " Challenge 12: Error and Loading UX UsersList or main list uses refetch",
+              "status": "passed",
+              "title": "UsersList or main list uses refetch",
+              "duration": 1,
+              "failureMessages": []
+            },
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 12: Error and Loading UX"
+              ],
+              "fullName": " Challenge 12: Error and Loading UX loading or error state has visible indicator",
+              "status": "passed",
+              "title": "loading or error state has visible indicator",
+              "duration": 1,
+              "failureMessages": []
+            }
+          ],
+          "startTime": 1787235494594,
+          "endTime": 1787235494598,
+          "status": "passed",
+          "message": "",
+          "name": "C:/Spark+/challenge-engine-react/courses/02-redux-rtk-query/project/tests/challenge-12.test.tsx"
+        }
+      ]
+    },
+    "lintResults": {
+      "score": 100,
+      "passed": true,
+      "totalIssues": 0,
+      "errors": 0,
+      "warnings": 0,
+      "details": [
+        {
+          "filePath": "C:\\Spark+\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\src\\components\\ErrorDisplay.tsx",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": [
+            {
+              "ruleId": "no-extra-semi",
+              "replacedBy": []
+            },
+            {
+              "ruleId": "no-mixed-spaces-and-tabs",
+              "replacedBy": []
+            }
+          ]
+        },
+        {
+          "filePath": "C:\\Spark+\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\src\\components\\UsersList.tsx",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": [
+            {
+              "ruleId": "no-extra-semi",
+              "replacedBy": []
+            },
+            {
+              "ruleId": "no-mixed-spaces-and-tabs",
+              "replacedBy": []
+            }
+          ]
+        }
+      ]
+    },
+    "architectureResults": {
+      "score": 100,
+      "passed": true,
+      "patternsFound": [
+        "useQueryHook"
+      ],
+      "patternsMissing": [],
+      "details": [
+        {
+          "file": "src/components/UsersList.tsx",
+          "patternsFound": [
+            "useQueryHook"
+          ],
+          "patternsMissing": []
+        },
+        {
+          "file": "src/components/ErrorDisplay.tsx",
+          "patternsFound": [],
+          "patternsMissing": []
+        }
+      ]
+    },
+    "bestPracticesResults": {
+      "score": 100,
+      "passed": true,
+      "issues": [],
+      "details": [],
+      "note": "No best practices requirements specified in challenge"
+    },
+    "e2eResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 2,
+      "passedTests": 2,
+      "failedTests": 0,
+      "details": [
+        {
+          "title": "challenge-12.spec.ts",
+          "file": "challenge-12.spec.ts",
+          "column": 0,
+          "line": 0,
+          "specs": [],
+          "suites": [
+            {
+              "title": "Challenge 12: Error and Loading UX - E2E",
+              "file": "challenge-12.spec.ts",
+              "line": 3,
+              "column": 6,
+              "specs": [
+                {
+                  "title": "should load challenge 12 page",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 297,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-08-20T14:18:23.137Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "f77a26b762255a776dfc-79ffb81e877800e3fec0",
+                  "file": "challenge-12.spec.ts",
+                  "line": 8,
+                  "column": 3
+                },
+                {
+                  "title": "should show users list area",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 1098,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-08-20T14:18:23.544Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "f77a26b762255a776dfc-e4bccb413d7d0fea7ad3",
+                  "file": "challenge-12.spec.ts",
+                  "line": 13,
+                  "column": 3
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "screenshots": []
+    },
+    "aiReviewResults": {
+      "challengeId": "12-error-loading-ux",
+      "timestamp": "2026-08-20T14:18:24.924Z",
+      "score": 86,
+      "feedback": [],
+      "strengths": [
+        "Clear separation of concerns: `ErrorDisplay` is a reusable component that accepts an error and an optional retry callback.",
+        "All required data-testid attributes are present, making the components test‑friendly.",
+        "The `UsersList` component correctly uses `isLoading`, `isError`, and `refetch` from RTK Query, fulfilling the challenge’s UX requirements."
+      ],
+      "improvements": [
+        "src/components/UsersList.tsx – Add explicit type annotations for `data` and `error` to avoid implicit `any` and improve type safety. Example: `const { data, isLoading, isError, error, refetch } = useGetUsersQuery<User[]>();`.",
+        "src/components/ErrorDisplay.tsx – Enhance error handling by supporting string errors and objects with a `message` property. Add a type guard: `const message = typeof error === 'string' ? error : error instanceof Error ? error.message : (error as any)?.message ?? 'Something went wrong. Please try again.'`.",
+        "src/components/ErrorDisplay.tsx – Export the component as `React.FC<ErrorDisplayProps>` for consistency and to enable implicit JSX support.",
+        "src/components/UsersList.tsx – Add a `key` prop to the `<li>` elements (already present) and consider extracting the loading UI into a separate `LoadingSpinner` component for reuse.",
+        "src/components/AddPostForm.tsx – Handle the `isError` state by displaying a user‑friendly message that includes the error details (e.g., `error?.data?.message`).",
+        "src/components/PostsWithFilters.tsx – Add a `data-testid` for the loading and error states to keep consistency with the rest of the app.",
+        "src/components/ChallengeList.tsx – The `Link` components use hard‑coded paths; consider generating them from the `CHALLENGES` array to avoid duplication.",
+        "General – Add comments or JSDoc to the exported hooks and components to improve documentation for future contributors."
+      ],
+      "readability": 85,
+      "maintainability": 80,
+      "overall": "The implementation satisfies the core requirements: a reusable `ErrorDisplay`, proper loading and error handling in `UsersList`, and correct use of RTK Query’s `refetch`. The code is clean and well‑structured, though a few type safety and consistency improvements would make it more robust and maintainable.",
+      "requirementCompliance": 90
+    },
+    "aiResults": {
+      "challengeId": "12-error-loading-ux",
+      "timestamp": "2026-08-20T14:18:24.924Z",
+      "score": 86,
+      "feedback": [],
+      "strengths": [
+        "Clear separation of concerns: `ErrorDisplay` is a reusable component that accepts an error and an optional retry callback.",
+        "All required data-testid attributes are present, making the components test‑friendly.",
+        "The `UsersList` component correctly uses `isLoading`, `isError`, and `refetch` from RTK Query, fulfilling the challenge’s UX requirements."
+      ],
+      "improvements": [
+        "src/components/UsersList.tsx – Add explicit type annotations for `data` and `error` to avoid implicit `any` and improve type safety. Example: `const { data, isLoading, isError, error, refetch } = useGetUsersQuery<User[]>();`.",
+        "src/components/ErrorDisplay.tsx – Enhance error handling by supporting string errors and objects with a `message` property. Add a type guard: `const message = typeof error === 'string' ? error : error instanceof Error ? error.message : (error as any)?.message ?? 'Something went wrong. Please try again.'`.",
+        "src/components/ErrorDisplay.tsx – Export the component as `React.FC<ErrorDisplayProps>` for consistency and to enable implicit JSX support.",
+        "src/components/UsersList.tsx – Add a `key` prop to the `<li>` elements (already present) and consider extracting the loading UI into a separate `LoadingSpinner` component for reuse.",
+        "src/components/AddPostForm.tsx – Handle the `isError` state by displaying a user‑friendly message that includes the error details (e.g., `error?.data?.message`).",
+        "src/components/PostsWithFilters.tsx – Add a `data-testid` for the loading and error states to keep consistency with the rest of the app.",
+        "src/components/ChallengeList.tsx – The `Link` components use hard‑coded paths; consider generating them from the `CHALLENGES` array to avoid duplication.",
+        "General – Add comments or JSDoc to the exported hooks and components to improve documentation for future contributors."
+      ],
+      "readability": 85,
+      "maintainability": 80,
+      "overall": "The implementation satisfies the core requirements: a reusable `ErrorDisplay`, proper loading and error handling in `UsersList`, and correct use of RTK Query’s `refetch`. The code is clean and well‑structured, though a few type safety and consistency improvements would make it more robust and maintainable.",
+      "requirementCompliance": 90
+    }
   }
 ]
