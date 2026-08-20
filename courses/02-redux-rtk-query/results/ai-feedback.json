@@ -53,32 +53,6 @@
     }
   },
   {
-    "challengeId": "07-queries",
-    "challengeName": "Query Endpoints and useQuery Hooks",
-    "aiReview": {
-      "challengeId": "07-queries",
-      "timestamp": "2026-08-19T11:47:48.336Z",
-      "score": 86,
-      "feedback": [],
-      "strengths": [
-        "Clear separation of API logic and UI – the `apiSlice` defines the query endpoint and the component consumes the generated hook.",
-        "Proper use of RTK Query patterns (`createApi`, `builder.query`, `useGetUsersQuery`).",
-        "Consistent use of `data-testid` attributes for testing and a straightforward loading/error/data flow."
-      ],
-      "improvements": [
-        "Remove the duplicate `User` interface in `src/api/mockServer.ts` – import the type from the API slice or create a shared types file.",
-        "Leverage the `error` object returned by `useGetUsersQuery` to display a meaningful message instead of a hard‑coded string.",
-        "Confirm that the `apiSlice.reducer` is added to the Redux store (e.g., `store.ts` should include `apiSlice.reducerPath: apiSlice.reducer`).",
-        "Consider using `isFetching` for a more accurate loading indicator if you want to differentiate between initial load and refetches.",
-        "Add a small comment in `apiSlice.ts` explaining why `queryFn` is used instead of a simple `query` string (e.g., to keep the example self‑contained)."
-      ],
-      "readability": 85,
-      "maintainability": 80,
-      "overall": "The implementation satisfies the core challenge requirements: a query endpoint is defined, the generated hook is used in a component, and loading/error states are handled. Minor refinements such as error messaging, type deduplication, and explicit store integration would bring the solution up to a higher standard.",
-      "requirementCompliance": 90
-    }
-  },
-  {
     "challengeId": "04-multiple-slices",
     "challengeName": "Multiple Slices in the Store",
     "aiReview": {
@@ -211,6 +185,38 @@
       "maintainability": 75,
       "overall": "The implementation demonstrates a solid grasp of RTK Query’s tag system and TypeScript usage, but the mutation’s `invalidatesTags` target is incorrect, preventing automatic refetching of the posts list. With the suggested fixes—particularly aligning the tags and adding a posts query—the solution will fully satisfy the challenge requirements and follow best practices.",
       "requirementCompliance": 70
+    }
+  },
+  {
+    "challengeId": "07-queries",
+    "challengeName": "Query Endpoints and useQuery Hooks",
+    "aiReview": {
+      "challengeId": "07-queries",
+      "timestamp": "2026-08-20T13:34:13.039Z",
+      "score": 0,
+      "feedback": [],
+      "strengths": [],
+      "improvements": [],
+      "readability": 0,
+      "maintainability": 0,
+      "overall": "",
+      "requirementCompliance": 0
+    }
+  },
+  {
+    "challengeId": "09-mutations",
+    "challengeName": "Mutations with useMutation",
+    "aiReview": {
+      "challengeId": "09-mutations",
+      "timestamp": "2026-08-20T13:34:31.399Z",
+      "score": 0,
+      "feedback": [],
+      "strengths": [],
+      "improvements": [],
+      "readability": 0,
+      "maintainability": 0,
+      "overall": "",
+      "error": "Groq API error (429): Rate limit reached for model `openai/gpt-oss-20b` in organization `org_01kjb2fjv5fd6928gcy28wy79s` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 3742, Requested 5893. Please try again in 12.2625s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing"
     }
   }
 ]

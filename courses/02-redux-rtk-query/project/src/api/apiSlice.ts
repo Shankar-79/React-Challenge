@@ -45,9 +45,9 @@ export const apiSlice = createApi({
       providesTags: (result) =>
         result
           ? [
-              ...result.map(({ id }) => ({
+              ...result.map((user) => ({
                 type: "User" as const,
-                id,
+                id: user.id,
               })),
               { type: "User" as const, id: "LIST" },
             ]
@@ -57,12 +57,14 @@ export const apiSlice = createApi({
     addPost: builder.mutation<Post, Omit<Post, "id">>({
       queryFn: async (post) => {
         try {
-          const newPost = {
+          const newPost: Post = {
             id: Date.now(),
             ...post,
           };
 
-          return { data: newPost };
+          return {
+            data: newPost,
+          };
         } catch (error) {
           return {
             error: {
@@ -76,7 +78,7 @@ export const apiSlice = createApi({
         }
       },
 
-      invalidatesTags: [{ type: "User", id: "LIST" }],
+      invalidatesTags: [{ type: "Post", id: "LIST" }],
     }),
   }),
 });
