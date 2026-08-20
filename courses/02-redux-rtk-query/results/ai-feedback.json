@@ -218,5 +218,33 @@
       "overall": "",
       "error": "Groq API error (429): Rate limit reached for model `openai/gpt-oss-20b` in organization `org_01kjb2fjv5fd6928gcy28wy79s` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 3742, Requested 5893. Please try again in 12.2625s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing"
     }
+  },
+  {
+    "challengeId": "10-optimistic-updates",
+    "challengeName": "Optimistic Updates",
+    "aiReview": {
+      "challengeId": "10-optimistic-updates",
+      "timestamp": "2026-08-20T13:43:15.676Z",
+      "score": 79,
+      "feedback": [],
+      "strengths": [
+        "Implemented optimistic update using `onQueryStarted` and `updateQueryData` in `addPost` mutation.",
+        "Clear separation of concerns: API logic lives in `apiSlice.ts`, mock server in `mockServer.ts`.",
+        "Consistent TypeScript typings for users and posts across the slice and mock server."
+      ],
+      "improvements": [
+        "In `apiSlice.ts` – Replace the custom `queryFn` for `getUsers`, `getPosts`, and `addPost` with the standard `query`/`mutation` syntax. This reduces boilerplate and aligns with RTK Query best practices.",
+        "In `addPost` – After `await queryFulfilled`, use the returned data to patch the cache instead of relying solely on `invalidatesTags`. Example: `dispatch(apiSlice.util.updateQueryData('getPosts', undefined, draft => { const index = draft.findIndex(p => p.id === result.id); if (index !== -1) draft[index] = result; }))`. This satisfies the requirement to patch with `queryFulfilled`.",
+        "Add explicit type annotations for the `patchResult` variable (`const patchResult = dispatch(...) as ReturnType<typeof apiSlice.util.updateQueryData>`) to avoid implicit `any` and improve type safety.",
+        "Remove the unused `getState` import from the `onQueryStarted` signature to keep the function signature clean.",
+        "Consider using a unique temporary ID generator (e.g., `uuid`) instead of `Date.now()` for optimistic posts to avoid collisions when multiple posts are added quickly.",
+        "Add comments explaining the rollback logic and why `invalidatesTags` is still used for a full refetch after a successful mutation.",
+        "Ensure ESLint rules for no-console are satisfied by removing any accidental console statements (none are present, but double‑check during future edits)."
+      ],
+      "readability": 82,
+      "maintainability": 78,
+      "overall": "The implementation demonstrates a solid grasp of optimistic updates with RTK Query, correctly using `onQueryStarted` and `patchResult.undo()` for rollback. Minor adjustments—particularly patching the cache with the server response and simplifying the query syntax—will bring the solution fully in line with the challenge requirements and best practices.",
+      "requirementCompliance": 78
+    }
   }
 ]

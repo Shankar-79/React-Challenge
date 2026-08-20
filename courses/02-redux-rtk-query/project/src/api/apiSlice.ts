@@ -24,11 +24,17 @@ export const apiSlice = createApi({
   tagTypes: ["User", "Post"],
 
   endpoints: (builder) => ({
+    // =========================
+    // GET USERS
+    // =========================
     getUsers: builder.query<User[], void>({
       queryFn: async () => {
         try {
           const data = await mockApi.getUsers();
-          return { data };
+
+          return {
+            data,
+          };
         } catch (error) {
           return {
             error: {
@@ -49,11 +55,66 @@ export const apiSlice = createApi({
                 type: "User" as const,
                 id: user.id,
               })),
-              { type: "User" as const, id: "LIST" },
+              {
+                type: "User" as const,
+                id: "LIST",
+              },
             ]
-          : [{ type: "User" as const, id: "LIST" }],
+          : [
+              {
+                type: "User" as const,
+                id: "LIST",
+              },
+            ],
     }),
 
+    // =========================
+    // GET POSTS
+    // =========================
+    getPosts: builder.query<Post[], void>({
+      queryFn: async () => {
+        try {
+          const data = await mockApi.getPosts();
+
+          return {
+            data,
+          };
+        } catch (error) {
+          return {
+            error: {
+              status: "CUSTOM_ERROR",
+              error:
+                error instanceof Error
+                  ? error.message
+                  : "Failed to fetch posts",
+            },
+          };
+        }
+      },
+
+      providesTags: (result) =>
+        result
+          ? [
+              ...result.map((post) => ({
+                type: "Post" as const,
+                id: post.id,
+              })),
+              {
+                type: "Post" as const,
+                id: "LIST",
+              },
+            ]
+          : [
+              {
+                type: "Post" as const,
+                id: "LIST",
+              },
+            ],
+    }),
+
+    // =========================
+    // ADD POST
+    // =========================
     addPost: builder.mutation<Post, Omit<Post, "id">>({
       queryFn: async (post) => {
         try {
@@ -78,12 +139,48 @@ export const apiSlice = createApi({
         }
       },
 
-      invalidatesTags: [{ type: "Post", id: "LIST" }],
+      // Invalidate the posts list after the mutation.
+      invalidatesTags: [
+        {
+          type: "Post",
+          id: "LIST",
+        },
+      ],
+
+      // =========================
+      // OPTIMISTIC UPDATE
+      // =========================
+      async onQueryStarted(arg, { dispatch, queryFulfilled }) {
+        const patchResult = dispatch(
+          apiSlice.util.updateQueryData(
+            "getPosts",
+            undefined,
+            (draft) => {
+              draft.push({
+                id: Date.now(),
+                ...arg,
+              });
+            }
+          )
+        );
+
+        try {
+          await queryFulfilled;
+        } catch {
+          // Roll back optimistic update if mutation fails.
+          patchResult.undo();
+        }
+      },
     }),
   }),
 });
 
+// =========================
+// GENERATED HOOKS
+// =========================
+
 export const {
   useGetUsersQuery,
+  useGetPostsQuery,
   useAddPostMutation,
 } = apiSlice;
