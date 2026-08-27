@@ -626,17 +626,17 @@
   {
     "challengeId": "03-data-fetching-server",
     "challengeName": "Data Fetching in Server Components",
-    "timestamp": "2026-08-27T07:55:42.914Z",
+    "timestamp": "2026-08-27T13:52:45.199Z",
     "scores": {
       "functionalTests": 100,
       "codeQuality": 100,
       "architecture": 100,
       "bestPractices": 100,
-      "e2eTests": 0,
+      "e2eTests": 100,
       "aiReview": 0
     },
-    "totalScore": 70,
-    "passed": false,
+    "totalScore": 85,
+    "passed": true,
     "errors": [],
     "warnings": [],
     "testResults": {
@@ -667,7 +667,7 @@
               "fullName": " Challenge 03: Data Fetching in Server Components should have async Server Component",
               "status": "passed",
               "title": "should have async Server Component",
-              "duration": 0,
+              "duration": 1,
               "failureMessages": []
             },
             {
@@ -678,12 +678,12 @@
               "fullName": " Challenge 03: Data Fetching in Server Components should fetch data in Server Component",
               "status": "passed",
               "title": "should fetch data in Server Component",
-              "duration": 1,
+              "duration": 0,
               "failureMessages": []
             }
           ],
-          "startTime": 1787817344947,
-          "endTime": 1787817344949,
+          "startTime": 1787838767335,
+          "endTime": 1787838767337,
           "status": "passed",
           "message": "",
           "name": "C:/Spark+/challenge-engine-react/courses/03-nextjs-app-router/project/tests/challenge-03.test.tsx"
@@ -739,17 +739,103 @@
       "note": "No best practices requirements specified in challenge"
     },
     "e2eResults": {
-      "score": 0,
-      "passed": false,
-      "totalTests": 0,
-      "passedTests": 0,
+      "score": 100,
+      "passed": true,
+      "totalTests": 2,
+      "passedTests": 2,
       "failedTests": 0,
-      "details": [],
-      "error": "Command failed: npx playwright test \"tests/e2e/challenge-03.spec.ts\" --reporter=json"
+      "details": [
+        {
+          "title": "challenge-03.spec.ts",
+          "file": "challenge-03.spec.ts",
+          "column": 0,
+          "line": 0,
+          "specs": [],
+          "suites": [
+            {
+              "title": "Challenge 03: Data Fetching - E2E",
+              "file": "challenge-03.spec.ts",
+              "line": 7,
+              "column": 6,
+              "specs": [
+                {
+                  "title": "should load posts page with content",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 1640,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-08-27T13:52:57.308Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "abe74fb7538c55bf8146-4bec499cece7348545ba",
+                  "file": "challenge-03.spec.ts",
+                  "line": 8,
+                  "column": 7
+                },
+                {
+                  "title": "should have API route that returns JSON",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 1678,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-08-27T13:52:59.077Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "abe74fb7538c55bf8146-b699cd20cbc61b3b8da4",
+                  "file": "challenge-03.spec.ts",
+                  "line": 15,
+                  "column": 7
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "screenshots": []
     },
     "aiReviewResults": {
       "challengeId": "03-data-fetching-server",
-      "timestamp": "2026-08-27T07:55:49.855Z",
+      "timestamp": "2026-08-27T13:53:01.086Z",
       "score": 0,
       "feedback": [],
       "strengths": [],
@@ -761,7 +847,7 @@
     },
     "aiResults": {
       "challengeId": "03-data-fetching-server",
-      "timestamp": "2026-08-27T07:55:49.855Z",
+      "timestamp": "2026-08-27T13:53:01.086Z",
       "score": 0,
       "feedback": [],
       "strengths": [],
