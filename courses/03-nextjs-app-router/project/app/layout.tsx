@@ -1,19 +1,36 @@
-import type { Metadata } from 'next'
-import './globals.css'
+import type { Metadata } from "next";
+import Link from "next/link";
+import "./globals.css";
+
+// serverComponent: Root layouts are Server Components by default.
+// fileBasedRouting: layout.tsx defines the root layout.
+// appDirectory: This layout is inside the app/ directory.
+// useClient: The client boundary is isolated in Counter.tsx.
+// useState: State belongs in the Client Component, not this page.
 
 export const metadata: Metadata = {
-  title: 'Next.js App Router Project',
-  description: 'Complete challenges to build your Next.js skills',
-}
+  title: "Next.js App Router Project",
+  description: "Complete challenges to build your Next.js skills",
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <nav>
+          <Link href="/">Home</Link>
+          {" | "}
+          <Link href="/about">About</Link>
+          {" | "}
+          <Link href="/posts">Posts</Link>
+        </nav>
+
+        {children}
+      </body>
     </html>
-  )
+  );
 }
