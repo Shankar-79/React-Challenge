@@ -345,17 +345,17 @@
   {
     "challengeId": "02-server-and-client-components",
     "challengeName": "Server and Client Components",
-    "timestamp": "2026-08-27T07:38:00.290Z",
+    "timestamp": "2026-08-27T13:52:02.514Z",
     "scores": {
       "functionalTests": 100,
       "codeQuality": 100,
       "architecture": 100,
       "bestPractices": 100,
-      "e2eTests": 0,
+      "e2eTests": 100,
       "aiReview": 0
     },
-    "totalScore": 70,
-    "passed": false,
+    "totalScore": 85,
+    "passed": true,
     "errors": [],
     "warnings": [],
     "testResults": {
@@ -386,7 +386,7 @@
               "fullName": " Challenge 02: Server and Client Components should have Client Component that uses state or event handlers",
               "status": "passed",
               "title": "should have Client Component that uses state or event handlers",
-              "duration": 0,
+              "duration": 1,
               "failureMessages": []
             },
             {
@@ -397,12 +397,12 @@
               "fullName": " Challenge 02: Server and Client Components should have App Router structure",
               "status": "passed",
               "title": "should have App Router structure",
-              "duration": 1,
+              "duration": 0,
               "failureMessages": []
             }
           ],
-          "startTime": 1787816282355,
-          "endTime": 1787816282358,
+          "startTime": 1787838724637,
+          "endTime": 1787838724640,
           "status": "passed",
           "message": "",
           "name": "C:/Spark+/challenge-engine-react/courses/03-nextjs-app-router/project/tests/challenge-02.test.tsx"
@@ -504,17 +504,103 @@
       "note": "No best practices requirements specified in challenge"
     },
     "e2eResults": {
-      "score": 0,
-      "passed": false,
-      "totalTests": 0,
-      "passedTests": 0,
+      "score": 100,
+      "passed": true,
+      "totalTests": 2,
+      "passedTests": 2,
       "failedTests": 0,
-      "details": [],
-      "error": "Command failed: npx playwright test \"tests/e2e/challenge-02.spec.ts\" --reporter=json"
+      "details": [
+        {
+          "title": "challenge-02.spec.ts",
+          "file": "challenge-02.spec.ts",
+          "column": 0,
+          "line": 0,
+          "specs": [],
+          "suites": [
+            {
+              "title": "Challenge 02: Server and Client Components - E2E",
+              "file": "challenge-02.spec.ts",
+              "line": 7,
+              "column": 6,
+              "specs": [
+                {
+                  "title": "should display home page",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 536,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-08-27T13:52:14.561Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "42dc79384a61c0717494-913d124fcf0db785346d",
+                  "file": "challenge-02.spec.ts",
+                  "line": 12,
+                  "column": 7
+                },
+                {
+                  "title": "should have interactive element (button or link)",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 463,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-08-27T13:52:15.235Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "42dc79384a61c0717494-9726b28217a56c91520e",
+                  "file": "challenge-02.spec.ts",
+                  "line": 16,
+                  "column": 7
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "screenshots": []
     },
     "aiReviewResults": {
       "challengeId": "02-server-and-client-components",
-      "timestamp": "2026-08-27T07:38:07.232Z",
+      "timestamp": "2026-08-27T13:52:16.044Z",
       "score": 0,
       "feedback": [],
       "strengths": [],
@@ -526,7 +612,7 @@
     },
     "aiResults": {
       "challengeId": "02-server-and-client-components",
-      "timestamp": "2026-08-27T07:38:07.232Z",
+      "timestamp": "2026-08-27T13:52:16.044Z",
       "score": 0,
       "feedback": [],
       "strengths": [],
