@@ -861,17 +861,17 @@
   {
     "challengeId": "04-api-route-handlers",
     "challengeName": "API Route Handlers",
-    "timestamp": "2026-08-27T08:03:45.535Z",
+    "timestamp": "2026-08-27T13:55:26.065Z",
     "scores": {
       "functionalTests": 100,
       "codeQuality": 100,
-      "architecture": 66.7,
+      "architecture": 100,
       "bestPractices": 100,
-      "e2eTests": 0,
+      "e2eTests": 100,
       "aiReview": 0
     },
-    "totalScore": 66.67,
-    "passed": false,
+    "totalScore": 85,
+    "passed": true,
     "errors": [],
     "warnings": [],
     "testResults": {
@@ -906,8 +906,8 @@
               "failureMessages": []
             }
           ],
-          "startTime": 1787817827590,
-          "endTime": 1787817827592,
+          "startTime": 1787838928125,
+          "endTime": 1787838928127,
           "status": "passed",
           "message": "",
           "name": "C:/Spark+/challenge-engine-react/courses/03-nextjs-app-router/project/tests/challenge-04.test.tsx"
@@ -935,25 +935,23 @@
       ]
     },
     "architectureResults": {
-      "score": 66.7,
-      "passed": false,
+      "score": 100,
+      "passed": true,
       "patternsFound": [
         "routeHandler",
-        "GET"
-      ],
-      "patternsMissing": [
+        "GET",
         "ResponseJson"
       ],
+      "patternsMissing": [],
       "details": [
         {
           "file": "app/api/posts/route.ts",
           "patternsFound": [
             "routeHandler",
-            "GET"
-          ],
-          "patternsMissing": [
+            "GET",
             "ResponseJson"
-          ]
+          ],
+          "patternsMissing": []
         }
       ]
     },
@@ -965,17 +963,69 @@
       "note": "No best practices requirements specified in challenge"
     },
     "e2eResults": {
-      "score": 0,
-      "passed": false,
-      "totalTests": 0,
-      "passedTests": 0,
+      "score": 100,
+      "passed": true,
+      "totalTests": 1,
+      "passedTests": 1,
       "failedTests": 0,
-      "details": [],
-      "error": "Command failed: npx playwright test \"tests/e2e/challenge-04.spec.ts\" --reporter=json"
+      "details": [
+        {
+          "title": "challenge-04.spec.ts",
+          "file": "challenge-04.spec.ts",
+          "column": 0,
+          "line": 0,
+          "specs": [],
+          "suites": [
+            {
+              "title": "Challenge 04: API Route Handlers - E2E",
+              "file": "challenge-04.spec.ts",
+              "line": 7,
+              "column": 6,
+              "specs": [
+                {
+                  "title": "should have API route that returns JSON",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 1149,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-08-27T13:55:38.089Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "0401c8ab289c6ab836d0-7ddfff09b261747e7f47",
+                  "file": "challenge-04.spec.ts",
+                  "line": 8,
+                  "column": 7
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "screenshots": []
     },
     "aiReviewResults": {
       "challengeId": "04-api-route-handlers",
-      "timestamp": "2026-08-27T08:03:52.442Z",
+      "timestamp": "2026-08-27T13:55:39.557Z",
       "score": 0,
       "feedback": [],
       "strengths": [],
@@ -987,7 +1037,7 @@
     },
     "aiResults": {
       "challengeId": "04-api-route-handlers",
-      "timestamp": "2026-08-27T08:03:52.442Z",
+      "timestamp": "2026-08-27T13:55:39.557Z",
       "score": 0,
       "feedback": [],
       "strengths": [],

@@ -1,21 +1,5 @@
 [
   {
-    "challengeId": "04-api-route-handlers",
-    "challengeName": "API Route Handlers",
-    "aiReview": {
-      "challengeId": "04-api-route-handlers",
-      "timestamp": "2026-08-27T08:03:52.442Z",
-      "score": 0,
-      "feedback": [],
-      "strengths": [],
-      "improvements": [],
-      "readability": 0,
-      "maintainability": 0,
-      "overall": "",
-      "error": "Groq API error (404): The model `llama-3.1-8b-instant` does not exist or you do not have access to it."
-    }
-  },
-  {
     "challengeId": "01-app-router-pages-layout",
     "challengeName": "App Router, Pages, and Layout",
     "aiReview": {
@@ -53,6 +37,22 @@
     "aiReview": {
       "challengeId": "03-data-fetching-server",
       "timestamp": "2026-08-27T13:53:01.086Z",
+      "score": 0,
+      "feedback": [],
+      "strengths": [],
+      "improvements": [],
+      "readability": 0,
+      "maintainability": 0,
+      "overall": "",
+      "error": "Groq API error (404): The model `llama-3.1-8b-instant` does not exist or you do not have access to it."
+    }
+  },
+  {
+    "challengeId": "04-api-route-handlers",
+    "challengeName": "API Route Handlers",
+    "aiReview": {
+      "challengeId": "04-api-route-handlers",
+      "timestamp": "2026-08-27T13:55:39.557Z",
       "score": 0,
       "feedback": [],
       "strengths": [],

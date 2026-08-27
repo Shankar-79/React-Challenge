@@ -1,14 +1,14 @@
 import { NextResponse } from 'next/server'
 
+// routeHandler: App Router Route Handler for /api/posts.
+// ResponseJson: The handler returns JSON using NextResponse.json.
+// GET: Handles GET requests for the posts endpoint.
+
 type Post = {
   id: number
   title: string
   body: string
 }
-
-// routeHandler: App Router Route Handler for the /api/posts endpoint.
-// getHandler: GET returns JSON data.
-// jsonResponse: NextResponse.json provides the JSON response.
 
 const posts: Post[] = [
   {
