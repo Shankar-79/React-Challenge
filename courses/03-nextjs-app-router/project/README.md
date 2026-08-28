@@ -64,11 +64,11 @@ npm run review -- --challenge=01-app-router-pages-layout
 
 ## 📊 Progress Evidence
 
-*Auto-updated when you run review. Last run: 28/8/2026, 2:02:21 pm*
+*Auto-updated when you run review. Last run: 28/8/2026, 2:04:57 pm*
 
 | Metric | Value |
 |--------|-------|
-| Challenges completed | 13 / 17 (76.5%) |
+| Challenges completed | 14 / 17 (82.4%) |
 | Average score | 85% |
 
 | Challenge | Skills covered | Status |
@@ -86,7 +86,7 @@ npm run review -- --challenge=01-app-router-pages-layout
 | Error Handling | error.tsx, notFound(), not-found.tsx, Error boundaries | Passed |
 | Metadata and SEO | metadata, generateMetadata, Open Graph, SEO | Passed |
 | Images and Fonts | next/image, next/font, Image optimization, Font optimization | Passed |
-| Search and Pagination | searchParams, URL search params, Pagination, Filtering | — |
+| Search and Pagination | searchParams, URL search params, Pagination, Filtering | Passed |
 | Redux Toolkit with Next.js | Redux Toolkit, configureStore, Provider, useSelector, useDispatch | — |
 | RTK Query with Next.js | RTK Query, createApi, fetchBaseQuery, useGetPostsQuery, useMutation | — |
 | Fullstack Capstone | Dynamic routes, Server Components, Client Components, Error handling, Metadata, Server Actions | — |
