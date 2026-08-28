@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { Suspense } from "react";
+import { addPost } from "../actions";
+import AddPostForm from "../components/AddPostForm";
 
 export const dynamic = "force-dynamic";
 
@@ -13,8 +15,10 @@ export const dynamic = "force-dynamic";
 // dynamicRendering: The page is rendered dynamically.
 // forceDynamic: The page is rendered on every request.
 // ssr: Server-side rendering is used for request-time data.
-// noStore: The fetch request is not cached.
-// cacheNoStore: The fetch request uses cache: 'no-store' for fresh request-time data.
+// cacheNoStore: The fetch request uses cache: 'no-store'.
+// useServer: The page uses a Server Action.
+// revalidatePath: The Server Action revalidates the posts route.
+// revalidateTag: The Server Action revalidates the posts data.
 
 type Post = {
   id: number;
@@ -61,6 +65,8 @@ export default function PostsPage() {
       <p>Posts fetched on the server with native fetch.</p>
 
       <Link href="/">Home</Link>
+
+      <AddPostForm action={addPost} />
 
       <Suspense fallback={<p>Loading posts...</p>}>
         <PostsContent />

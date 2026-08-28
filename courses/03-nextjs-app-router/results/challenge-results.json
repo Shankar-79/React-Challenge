@@ -1862,5 +1862,442 @@
       "overall": "",
       "error": "Groq API error (404): The model `llama-3.1-8b-instant` does not exist or you do not have access to it."
     }
+  },
+  {
+    "challengeId": "09-server-actions-and-revalidation",
+    "challengeName": "Server Actions and Revalidation",
+    "timestamp": "2026-08-28T07:20:01.263Z",
+    "scores": {
+      "functionalTests": 100,
+      "codeQuality": 100,
+      "architecture": 100,
+      "bestPractices": 100,
+      "e2eTests": 100,
+      "aiReview": 0
+    },
+    "totalScore": 85,
+    "passed": true,
+    "errors": [],
+    "warnings": [],
+    "testResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 2,
+      "passedTests": 2,
+      "failedTests": 0,
+      "details": [
+        {
+          "assertionResults": [
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 09: Server Actions and Revalidation"
+              ],
+              "fullName": " Challenge 09: Server Actions and Revalidation should have use server in a file",
+              "status": "passed",
+              "title": "should have use server in a file",
+              "duration": 1,
+              "failureMessages": []
+            },
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 09: Server Actions and Revalidation"
+              ],
+              "fullName": " Challenge 09: Server Actions and Revalidation should call revalidatePath or revalidateTag",
+              "status": "passed",
+              "title": "should call revalidatePath or revalidateTag",
+              "duration": 0,
+              "failureMessages": []
+            }
+          ],
+          "startTime": 1787901603529,
+          "endTime": 1787901603531,
+          "status": "passed",
+          "message": "",
+          "name": "C:/Spark+/challenge-engine-react/courses/03-nextjs-app-router/project/tests/challenge-09.test.tsx"
+        }
+      ]
+    },
+    "lintResults": {
+      "score": 100,
+      "passed": true,
+      "totalIssues": 0,
+      "errors": 0,
+      "warnings": 0,
+      "details": [
+        {
+          "filePath": "C:\\Spark+\\challenge-engine-react\\courses\\03-nextjs-app-router\\project\\app\\actions.ts",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": []
+        },
+        {
+          "filePath": "C:\\Spark+\\challenge-engine-react\\courses\\03-nextjs-app-router\\project\\app\\components\\AddPostForm.tsx",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": []
+        },
+        {
+          "filePath": "C:\\Spark+\\challenge-engine-react\\courses\\03-nextjs-app-router\\project\\app\\posts\\page.tsx",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": []
+        }
+      ]
+    },
+    "architectureResults": {
+      "score": 100,
+      "passed": true,
+      "patternsFound": [
+        "useServer",
+        "revalidatePath",
+        "revalidateTag",
+        "useServer",
+        "revalidatePath",
+        "revalidateTag",
+        "useServer",
+        "revalidatePath",
+        "revalidateTag"
+      ],
+      "patternsMissing": [],
+      "details": [
+        {
+          "file": "app/actions.ts",
+          "patternsFound": [
+            "useServer",
+            "revalidatePath",
+            "revalidateTag"
+          ],
+          "patternsMissing": []
+        },
+        {
+          "file": "app/posts/page.tsx",
+          "patternsFound": [
+            "useServer",
+            "revalidatePath",
+            "revalidateTag"
+          ],
+          "patternsMissing": []
+        },
+        {
+          "file": "app/components/AddPostForm.tsx",
+          "patternsFound": [
+            "useServer",
+            "revalidatePath",
+            "revalidateTag"
+          ],
+          "patternsMissing": []
+        }
+      ]
+    },
+    "bestPracticesResults": {
+      "score": 100,
+      "passed": true,
+      "issues": [],
+      "details": [],
+      "note": "No best practices requirements specified in challenge"
+    },
+    "e2eResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 1,
+      "passedTests": 1,
+      "failedTests": 0,
+      "details": [
+        {
+          "title": "challenge-09.spec.ts",
+          "file": "challenge-09.spec.ts",
+          "column": 0,
+          "line": 0,
+          "specs": [],
+          "suites": [
+            {
+              "title": "Challenge 09: Server Actions and Revalidation - E2E",
+              "file": "challenge-09.spec.ts",
+              "line": 7,
+              "column": 6,
+              "specs": [
+                {
+                  "title": "should have form or button on posts page",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 2089,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-08-28T07:20:13.941Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "a1b04685a79f6082459c-d957e8fad4ed5eda426d",
+                  "file": "challenge-09.spec.ts",
+                  "line": 8,
+                  "column": 7
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "screenshots": []
+    },
+    "aiReviewResults": {
+      "challengeId": "09-server-actions-and-revalidation",
+      "timestamp": "2026-08-28T07:20:16.462Z",
+      "score": 0,
+      "feedback": [],
+      "strengths": [],
+      "improvements": [],
+      "readability": 0,
+      "maintainability": 0,
+      "overall": "",
+      "error": "Groq API error (404): The model `llama-3.1-8b-instant` does not exist or you do not have access to it."
+    },
+    "aiResults": {
+      "challengeId": "09-server-actions-and-revalidation",
+      "timestamp": "2026-08-28T07:20:16.462Z",
+      "score": 0,
+      "feedback": [],
+      "strengths": [],
+      "improvements": [],
+      "readability": 0,
+      "maintainability": 0,
+      "overall": "",
+      "error": "Groq API error (404): The model `llama-3.1-8b-instant` does not exist or you do not have access to it."
+    }
+  },
+  {
+    "challengeId": "10-caching-and-revalidating",
+    "challengeName": "Caching and Revalidating",
+    "timestamp": "2026-08-28T07:45:53.401Z",
+    "scores": {
+      "functionalTests": 100,
+      "codeQuality": 100,
+      "architecture": 50,
+      "bestPractices": 100,
+      "e2eTests": 100,
+      "aiReview": 0
+    },
+    "totalScore": 80,
+    "passed": true,
+    "errors": [],
+    "warnings": [],
+    "testResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 1,
+      "passedTests": 1,
+      "failedTests": 0,
+      "details": [
+        {
+          "assertionResults": [
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 10: Caching and Revalidating"
+              ],
+              "fullName": " Challenge 10: Caching and Revalidating should have fetch with cache options or revalidate",
+              "status": "passed",
+              "title": "should have fetch with cache options or revalidate",
+              "duration": 2,
+              "failureMessages": []
+            }
+          ],
+          "startTime": 1787903155833,
+          "endTime": 1787903155835,
+          "status": "passed",
+          "message": "",
+          "name": "C:/Spark+/challenge-engine-react/courses/03-nextjs-app-router/project/tests/challenge-10.test.tsx"
+        }
+      ]
+    },
+    "lintResults": {
+      "score": 100,
+      "passed": true,
+      "totalIssues": 0,
+      "errors": 0,
+      "warnings": 0,
+      "details": [
+        {
+          "filePath": "C:\\Spark+\\challenge-engine-react\\courses\\03-nextjs-app-router\\project\\app\\actions.ts",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": []
+        },
+        {
+          "filePath": "C:\\Spark+\\challenge-engine-react\\courses\\03-nextjs-app-router\\project\\app\\posts\\page.tsx",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": []
+        }
+      ]
+    },
+    "architectureResults": {
+      "score": 50,
+      "passed": false,
+      "patternsFound": [
+        "revalidate",
+        "revalidate"
+      ],
+      "patternsMissing": [
+        "fetchCache",
+        "fetchCache"
+      ],
+      "details": [
+        {
+          "file": "app/posts/page.tsx",
+          "patternsFound": [
+            "revalidate"
+          ],
+          "patternsMissing": [
+            "fetchCache"
+          ]
+        },
+        {
+          "file": "app/actions.ts",
+          "patternsFound": [
+            "revalidate"
+          ],
+          "patternsMissing": [
+            "fetchCache"
+          ]
+        }
+      ]
+    },
+    "bestPracticesResults": {
+      "score": 100,
+      "passed": true,
+      "issues": [],
+      "details": [],
+      "note": "No best practices requirements specified in challenge"
+    },
+    "e2eResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 1,
+      "passedTests": 1,
+      "failedTests": 0,
+      "details": [
+        {
+          "title": "challenge-10.spec.ts",
+          "file": "challenge-10.spec.ts",
+          "column": 0,
+          "line": 0,
+          "specs": [],
+          "suites": [
+            {
+              "title": "Challenge 10: Caching and Revalidating - E2E",
+              "file": "challenge-10.spec.ts",
+              "line": 7,
+              "column": 6,
+              "specs": [
+                {
+                  "title": "should load posts page",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 2773,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-08-28T07:46:07.741Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "2b6a150d93e258235d20-c14a17c89c6252f46f58",
+                  "file": "challenge-10.spec.ts",
+                  "line": 8,
+                  "column": 7
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "screenshots": []
+    },
+    "aiReviewResults": {
+      "challengeId": "10-caching-and-revalidating",
+      "timestamp": "2026-08-28T07:46:11.052Z",
+      "score": 0,
+      "feedback": [],
+      "strengths": [],
+      "improvements": [],
+      "readability": 0,
+      "maintainability": 0,
+      "overall": "",
+      "error": "Groq API error (404): The model `llama-3.1-8b-instant` does not exist or you do not have access to it."
+    },
+    "aiResults": {
+      "challengeId": "10-caching-and-revalidating",
+      "timestamp": "2026-08-28T07:46:11.052Z",
+      "score": 0,
+      "feedback": [],
+      "strengths": [],
+      "improvements": [],
+      "readability": 0,
+      "maintainability": 0,
+      "overall": "",
+      "error": "Groq API error (404): The model `llama-3.1-8b-instant` does not exist or you do not have access to it."
+    }
   }
 ]
