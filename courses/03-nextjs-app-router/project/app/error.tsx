@@ -1,0 +1,23 @@
+"use client";
+
+type ErrorPageProps = {
+  error: Error & { digest?: string };
+  reset: () => void;
+};
+
+// errorTsx: This file is the App Router error boundary.
+// notFound: 404 handling is provided separately by not-found.tsx.
+
+export default function ErrorPage({ error, reset }: ErrorPageProps) {
+  return (
+    <main>
+      <h1>Something went wrong</h1>
+
+      <p>{error.message || "An unexpected error occurred."}</p>
+
+      <button type="button" onClick={reset}>
+        Try again
+      </button>
+    </main>
+  );
+}

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { notFound } from "next/navigation";
 
 type Post = {
   id: number;
@@ -16,6 +17,9 @@ type PostPageProps = {
 // params: The dynamic route parameter is available as params.id.
 // fileBasedRouting: app/posts/[id]/page.tsx maps to /posts/:id.
 // appDirectory: This route is defined inside the app/ directory.
+// notFound: Missing posts use the Next.js 404 handler.
+// errorTsx: Error handling is provided by error.tsx.
+
 export default async function PostPage({ params }: PostPageProps) {
   const postId = params.id;
 
@@ -28,23 +32,19 @@ export default async function PostPage({ params }: PostPageProps) {
     );
 
     if (!response.ok) {
-      return (
-        <main>
-          <h1>Post Not Found</h1>
-          <p>No post was found for ID {postId}.</p>
-          <Link href="/posts">Back to Posts</Link>
-        </main>
-      );
+      notFound();
     }
 
     const post: Post = await response.json();
 
+    if (!post || !post.id) {
+      notFound();
+    }
+
     return (
       <main>
         <h1>{post.title}</h1>
-
         <p>{post.body}</p>
-
         <p>Post ID: {post.id}</p>
 
         <Link href="/posts">Back to Posts</Link>
