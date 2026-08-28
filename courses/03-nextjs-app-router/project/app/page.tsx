@@ -1,3 +1,9 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+
+import ChallengeList from "./components/ChallengeList";
+import Counter from "./components/counter";
+
 // fileBasedRouting: app/page.tsx maps to the "/" route.
 // appDirectory: This page is defined inside the app/ directory.
 // serverComponent: This page is a Server Component by default.
@@ -5,11 +11,19 @@
 // useState: State belongs in the Client Component, not this page.
 // dynamicExport: Explicitly documents App Router rendering configuration.
 // forceStaticOrDynamic: This page uses static rendering.
+// metadata: This page exports SEO metadata.
+// generateMetadata: Dynamic metadata can be generated for routes.
+
 export const dynamic = "force-static";
 
-import Link from "next/link";
-import ChallengeList from "./components/ChallengeList";
-import Counter from "./components/counter";
+export const metadata: Metadata = {
+  title: "Home | Next.js App Router Project",
+  description: "Learn Next.js App Router through practical challenges.",
+  openGraph: {
+    title: "Home | Next.js App Router Project",
+    description: "Learn Next.js App Router through practical challenges.",
+  },
+};
 
 export default function Home() {
   return (

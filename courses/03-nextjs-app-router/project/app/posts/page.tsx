@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Suspense } from "react";
 import { addPost } from "../actions";
@@ -5,6 +6,19 @@ import AddPostForm from "../components/AddPostForm";
 
 export const dynamic = "force-dynamic";
 
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: "Posts | Next.js App Router Project",
+    description: "View posts fetched from the server.",
+    openGraph: {
+      title: "Posts | Next.js App Router Project",
+      description: "View posts fetched from the server.",
+    },
+  };
+}
+
+// metadata: SEO metadata for the posts page.
+// generateMetadata: Generates metadata for the posts route.
 // asyncServerComponent: This page uses Server Components.
 // fetch: Data is fetched on the server.
 // fileBasedRouting: app/posts/page.tsx maps to /posts.
@@ -19,6 +33,7 @@ export const dynamic = "force-dynamic";
 // useServer: The page uses a Server Action.
 // revalidatePath: The Server Action revalidates the posts route.
 // revalidateTag: The Server Action revalidates the posts data.
+// fetchCache: The page explicitly controls fetch caching behavior.
 
 type Post = {
   id: number;
