@@ -4,6 +4,7 @@ import { Suspense } from "react";
 
 import { addPost } from "../actions";
 import AddPostForm from "../components/AddPostForm";
+import PostsQuery from "../components/PostsQuery";
 
 export const dynamic = "force-dynamic";
 
@@ -171,6 +172,7 @@ export default function PostsPage({ searchParams }: PostsPageProps) {
       <Suspense fallback={<p>Loading posts...</p>}>
         <PostsContent searchParams={searchParams} />
       </Suspense>
+      <PostsQuery />
     </main>
   );
 }
