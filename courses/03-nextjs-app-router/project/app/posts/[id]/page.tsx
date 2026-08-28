@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import PostActions from "./PostActions";
+
 type Post = {
   id: number;
   title: string;
@@ -15,16 +17,17 @@ type PostPageProps = {
 };
 
 // dynamicSegment: [id] creates a dynamic route segment.
-// params: The dynamic route parameter is available as params.id.
-// fileBasedRouting: app/posts/[id]/page.tsx maps to /posts/:id.
-// appDirectory: This route is defined inside the app/ directory.
-// notFound: Missing posts use the Next.js 404 handler.
-// errorTsx: Error handling is provided by error.tsx.
-// generateMetadata: Generates metadata dynamically for each post.
-// metadata: Provides title and description metadata.
-// title: Post title is used as the page title.
-// description: Post body is used as the page description.
-// openGraph: Provides metadata for social sharing.
+// fileBasedRouting: This file maps to /posts/:id.
+// appDirectory: This route is inside the app/ directory.
+// params: The post ID is received through params.id.
+// asyncServerComponent: The page is an async Server Component.
+// fetch: Post data is fetched on the server.
+// notFound: Missing posts use Next.js 404 handling.
+// errorTsx: Errors are handled by the App Router error boundary.
+// generateMetadata: Metadata is generated dynamically for each post.
+// metadata: The post provides title and description metadata.
+// useClient: PostActions provides the Client Component boundary.
+// useState: PostActions uses client-side state.
 
 export async function generateMetadata({
   params,
@@ -81,7 +84,11 @@ export default async function PostPage({ params }: PostPageProps) {
 
       <p>Post ID: {post.id}</p>
 
-      <Link href="/posts">Back to Posts</Link>
+      <PostActions />
+
+      <nav style={{ marginTop: "1.5rem" }}>
+        <Link href="/posts">Back to Posts</Link>
+      </nav>
     </main>
   );
 }
