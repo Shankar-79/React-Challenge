@@ -64,12 +64,12 @@ npm run review -- --challenge=01-app-router-pages-layout
 
 ## 📊 Progress Evidence
 
-*Auto-updated when you run review. Last run: 28/8/2026, 1:16:11 pm*
+*Auto-updated when you run review. Last run: 28/8/2026, 1:20:08 pm*
 
 | Metric | Value |
 |--------|-------|
 | Challenges completed | 10 / 17 (58.8%) |
-| Average score | 84.5% |
+| Average score | 85% |
 
 | Challenge | Skills covered | Status |
 |-----------|----------------|--------|

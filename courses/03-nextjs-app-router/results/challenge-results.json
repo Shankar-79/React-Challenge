@@ -2102,16 +2102,16 @@
   {
     "challengeId": "10-caching-and-revalidating",
     "challengeName": "Caching and Revalidating",
-    "timestamp": "2026-08-28T07:45:53.401Z",
+    "timestamp": "2026-08-28T07:49:51.658Z",
     "scores": {
       "functionalTests": 100,
       "codeQuality": 100,
-      "architecture": 50,
+      "architecture": 100,
       "bestPractices": 100,
       "e2eTests": 100,
       "aiReview": 0
     },
-    "totalScore": 80,
+    "totalScore": 85,
     "passed": true,
     "errors": [],
     "warnings": [],
@@ -2136,8 +2136,8 @@
               "failureMessages": []
             }
           ],
-          "startTime": 1787903155833,
-          "endTime": 1787903155835,
+          "startTime": 1787903393854,
+          "endTime": 1787903393856,
           "status": "passed",
           "message": "",
           "name": "C:/Spark+/challenge-engine-react/courses/03-nextjs-app-router/project/tests/challenge-10.test.tsx"
@@ -2176,34 +2176,31 @@
       ]
     },
     "architectureResults": {
-      "score": 50,
-      "passed": false,
+      "score": 100,
+      "passed": true,
       "patternsFound": [
+        "fetchCache",
         "revalidate",
+        "fetchCache",
         "revalidate"
       ],
-      "patternsMissing": [
-        "fetchCache",
-        "fetchCache"
-      ],
+      "patternsMissing": [],
       "details": [
         {
           "file": "app/posts/page.tsx",
           "patternsFound": [
+            "fetchCache",
             "revalidate"
           ],
-          "patternsMissing": [
-            "fetchCache"
-          ]
+          "patternsMissing": []
         },
         {
           "file": "app/actions.ts",
           "patternsFound": [
+            "fetchCache",
             "revalidate"
           ],
-          "patternsMissing": [
-            "fetchCache"
-          ]
+          "patternsMissing": []
         }
       ]
     },
@@ -2250,12 +2247,12 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 2773,
+                          "duration": 2817,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2026-08-28T07:46:07.741Z",
+                          "startTime": "2026-08-28T07:50:04.997Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -2277,7 +2274,7 @@
     },
     "aiReviewResults": {
       "challengeId": "10-caching-and-revalidating",
-      "timestamp": "2026-08-28T07:46:11.052Z",
+      "timestamp": "2026-08-28T07:50:08.316Z",
       "score": 0,
       "feedback": [],
       "strengths": [],
@@ -2289,7 +2286,7 @@
     },
     "aiResults": {
       "challengeId": "10-caching-and-revalidating",
-      "timestamp": "2026-08-28T07:46:11.052Z",
+      "timestamp": "2026-08-28T07:50:08.316Z",
       "score": 0,
       "feedback": [],
       "strengths": [],

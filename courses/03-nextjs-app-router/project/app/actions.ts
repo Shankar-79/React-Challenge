@@ -4,6 +4,7 @@ import { revalidatePath, revalidateTag } from 'next/cache'
 // useServer: This module contains Server Actions.
 // revalidatePath: Revalidates the /posts route.
 // revalidateTag: Revalidates posts data.
+// fetchCache: Server-side mutations can trigger cache revalidation.
 
 type PostInput = {
   title: string

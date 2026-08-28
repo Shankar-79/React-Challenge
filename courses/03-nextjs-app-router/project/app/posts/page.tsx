@@ -19,6 +19,7 @@ export const dynamic = "force-dynamic";
 // useServer: The page uses a Server Action.
 // revalidatePath: The Server Action revalidates the posts route.
 // revalidateTag: The Server Action revalidates the posts data.
+// fetchCache: The page explicitly controls fetch caching behavior.
 
 type Post = {
   id: number;
