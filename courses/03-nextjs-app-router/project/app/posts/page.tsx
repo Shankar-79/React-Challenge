@@ -14,6 +14,7 @@ export const dynamic = "force-dynamic";
 // forceDynamic: The page is rendered on every request.
 // ssr: Server-side rendering is used for request-time data.
 // noStore: The fetch request is not cached.
+// cacheNoStore: The fetch request uses cache: 'no-store' for fresh request-time data.
 
 type Post = {
   id: number;

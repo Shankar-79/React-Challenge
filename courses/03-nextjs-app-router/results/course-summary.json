@@ -1,10 +1,10 @@
 {
   "courseId": "03-nextjs-app-router",
   "courseName": "Next.js App Router",
-  "lastUpdated": "2026-08-28T06:04:10.416Z",
+  "lastUpdated": "2026-08-28T06:06:18.510Z",
   "totalChallenges": 17,
   "completedChallenges": 8,
-  "averageScore": 84.4,
+  "averageScore": 85,
   "completionPercentage": 47.1,
   "badgeLevel": "none",
   "challengeResults": [
@@ -53,7 +53,7 @@
     {
       "challengeId": "08-ssr-dynamic-rendering",
       "challengeName": "SSR (Server-Side Rendering)",
-      "score": 80,
+      "score": 85,
       "passed": true
     }
   ],

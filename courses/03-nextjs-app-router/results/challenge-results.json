@@ -1680,16 +1680,16 @@
   {
     "challengeId": "08-ssr-dynamic-rendering",
     "challengeName": "SSR (Server-Side Rendering)",
-    "timestamp": "2026-08-28T06:03:27.511Z",
+    "timestamp": "2026-08-28T06:05:47.302Z",
     "scores": {
       "functionalTests": 100,
       "codeQuality": 100,
-      "architecture": 50,
+      "architecture": 100,
       "bestPractices": 100,
       "e2eTests": 100,
       "aiReview": 0
     },
-    "totalScore": 80,
+    "totalScore": 85,
     "passed": true,
     "errors": [],
     "warnings": [],
@@ -1710,12 +1710,12 @@
               "fullName": " Challenge 08: SSR (Server-Side Rendering) should have page with force-dynamic or cache no-store",
               "status": "passed",
               "title": "should have page with force-dynamic or cache no-store",
-              "duration": 39,
+              "duration": 5,
               "failureMessages": []
             }
           ],
-          "startTime": 1787897012886,
-          "endTime": 1787897012925,
+          "startTime": 1787897152272,
+          "endTime": 1787897152277,
           "status": "passed",
           "message": "",
           "name": "C:/Spark+/challenge-engine-react/courses/03-nextjs-app-router/project/tests/challenge-08.test.tsx"
@@ -1743,23 +1743,21 @@
       ]
     },
     "architectureResults": {
-      "score": 50,
-      "passed": false,
+      "score": 100,
+      "passed": true,
       "patternsFound": [
-        "forceDynamic"
-      ],
-      "patternsMissing": [
+        "forceDynamic",
         "cacheNoStore"
       ],
+      "patternsMissing": [],
       "details": [
         {
           "file": "app/posts/page.tsx",
           "patternsFound": [
-            "forceDynamic"
-          ],
-          "patternsMissing": [
+            "forceDynamic",
             "cacheNoStore"
-          ]
+          ],
+          "patternsMissing": []
         },
         {
           "file": "app/dashboard/page.tsx",
@@ -1815,12 +1813,12 @@
                           "workerIndex": 0,
                           "parallelIndex": 0,
                           "status": "passed",
-                          "duration": 4819,
+                          "duration": 1935,
                           "errors": [],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2026-08-28T06:03:56.267Z",
+                          "startTime": "2026-08-28T06:06:15.229Z",
                           "annotations": [],
                           "attachments": []
                         }
@@ -1842,7 +1840,7 @@
     },
     "aiReviewResults": {
       "challengeId": "08-ssr-dynamic-rendering",
-      "timestamp": "2026-08-28T06:04:02.252Z",
+      "timestamp": "2026-08-28T06:06:18.077Z",
       "score": 0,
       "feedback": [],
       "strengths": [],
@@ -1854,7 +1852,7 @@
     },
     "aiResults": {
       "challengeId": "08-ssr-dynamic-rendering",
-      "timestamp": "2026-08-28T06:04:02.252Z",
+      "timestamp": "2026-08-28T06:06:18.077Z",
       "score": 0,
       "feedback": [],
       "strengths": [],
