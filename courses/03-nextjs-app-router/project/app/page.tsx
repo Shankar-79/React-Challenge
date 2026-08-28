@@ -3,6 +3,9 @@
 // serverComponent: This page is a Server Component by default.
 // useClient: The client boundary is isolated in Counter.tsx.
 // useState: State belongs in the Client Component, not this page.
+// dynamicExport: Explicitly documents App Router rendering configuration.
+// forceStaticOrDynamic: This page uses static rendering.
+export const dynamic = "force-static";
 
 import Link from "next/link";
 import ChallengeList from "./components/ChallengeList";

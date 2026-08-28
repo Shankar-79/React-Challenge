@@ -64,12 +64,12 @@ npm run review -- --challenge=01-app-router-pages-layout
 
 ## 📊 Progress Evidence
 
-*Auto-updated when you run review. Last run: 27/8/2026, 7:25:40 pm*
+*Auto-updated when you run review. Last run: 28/8/2026, 11:34:10 am*
 
 | Metric | Value |
 |--------|-------|
-| Challenges completed | 4 / 17 (23.5%) |
-| Average score | 85% |
+| Challenges completed | 8 / 17 (47.1%) |
+| Average score | 84.4% |
 
 | Challenge | Skills covered | Status |
 |-----------|----------------|--------|
@@ -77,10 +77,10 @@ npm run review -- --challenge=01-app-router-pages-layout
 | Server and Client Components | Server Components, Client Components, 'use client', useState, Event handlers | Passed |
 | Data Fetching in Server Components | Async Server Components, fetch, Data fetching, Server-side data | Passed |
 | API Route Handlers | Route Handlers, app/api, GET, POST, Response.json | Passed |
-| Loading and Streaming | loading.tsx, Streaming, Suspense, Loading UI | — |
-| Dynamic Routes | Dynamic Routes, [id], params, generateStaticParams | — |
-| Static and Dynamic Rendering | Static Rendering, Dynamic Rendering, force-static, force-dynamic | — |
-| SSR (Server-Side Rendering) | SSR, force-dynamic, cache: no-store, Server-side rendering | — |
+| Loading and Streaming | loading.tsx, Streaming, Suspense, Loading UI | Passed |
+| Dynamic Routes | Dynamic Routes, [id], params, generateStaticParams | Passed |
+| Static and Dynamic Rendering | Static Rendering, Dynamic Rendering, force-static, force-dynamic | Passed |
+| SSR (Server-Side Rendering) | SSR, force-dynamic, cache: no-store, Server-side rendering | Passed |
 | Server Actions and Revalidation | Server Actions, 'use server', revalidatePath, revalidateTag | — |
 | Caching and Revalidating | fetch cache, revalidate, revalidatePath, revalidateTag | — |
 | Error Handling | error.tsx, notFound(), not-found.tsx, Error boundaries | — |

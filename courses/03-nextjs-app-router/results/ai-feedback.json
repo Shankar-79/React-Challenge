@@ -62,5 +62,69 @@
       "overall": "",
       "error": "Groq API error (404): The model `llama-3.1-8b-instant` does not exist or you do not have access to it."
     }
+  },
+  {
+    "challengeId": "05-loading-and-streaming",
+    "challengeName": "Loading and Streaming",
+    "aiReview": {
+      "challengeId": "05-loading-and-streaming",
+      "timestamp": "2026-08-28T05:31:33.963Z",
+      "score": 0,
+      "feedback": [],
+      "strengths": [],
+      "improvements": [],
+      "readability": 0,
+      "maintainability": 0,
+      "overall": "",
+      "error": "Groq API error (404): The model `llama-3.1-8b-instant` does not exist or you do not have access to it."
+    }
+  },
+  {
+    "challengeId": "06-dynamic-routes",
+    "challengeName": "Dynamic Routes",
+    "aiReview": {
+      "challengeId": "06-dynamic-routes",
+      "timestamp": "2026-08-28T05:33:01.507Z",
+      "score": 0,
+      "feedback": [],
+      "strengths": [],
+      "improvements": [],
+      "readability": 0,
+      "maintainability": 0,
+      "overall": "",
+      "error": "Groq API error (404): The model `llama-3.1-8b-instant` does not exist or you do not have access to it."
+    }
+  },
+  {
+    "challengeId": "07-static-and-dynamic-rendering",
+    "challengeName": "Static and Dynamic Rendering",
+    "aiReview": {
+      "challengeId": "07-static-and-dynamic-rendering",
+      "timestamp": "2026-08-28T05:33:56.473Z",
+      "score": 0,
+      "feedback": [],
+      "strengths": [],
+      "improvements": [],
+      "readability": 0,
+      "maintainability": 0,
+      "overall": "",
+      "error": "Groq API error (404): The model `llama-3.1-8b-instant` does not exist or you do not have access to it."
+    }
+  },
+  {
+    "challengeId": "08-ssr-dynamic-rendering",
+    "challengeName": "SSR (Server-Side Rendering)",
+    "aiReview": {
+      "challengeId": "08-ssr-dynamic-rendering",
+      "timestamp": "2026-08-28T06:04:02.252Z",
+      "score": 0,
+      "feedback": [],
+      "strengths": [],
+      "improvements": [],
+      "readability": 0,
+      "maintainability": 0,
+      "overall": "",
+      "error": "Groq API error (404): The model `llama-3.1-8b-instant` does not exist or you do not have access to it."
+    }
   }
 ]
